@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Page3_wtcs</class>
+ <widget class="QWidget" name="Page3_wtcs">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>973</width>
+    <height>694</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+font: 14pt &quot;Calibri&quot;;
+}
+#QTabWidget::pane {
+
+        border-radius:5px;
+
+}
+
+QTabWidget::tab-bar {
+        alignment: left;
+
+}
+
+QTabBar::tab {
+        background:  rgba(192, 192, 192, 150);
+        border: none;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        min-width: 80px;
+        padding: 8px;
+color:white;
+}
+
+QTabBar::tab:hover {
+        color:#B0E0E6;
+		background:white;
+
+}
+
+QTabBar::tab:selected {
+
+		color:#33A1C9;
+		background:white;
+
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>基本信息</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="4">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>功率因数</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QLineEdit" name="lineEdit_3"/>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>机组编号</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QLineEdit" name="lineEdit_6"/>
+        </item>
+        <item row="0" column="9">
+         <widget class="QLineEdit" name="lineEdit_9"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>额定功率(Kw)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string> 视在功率(Kw)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="7">
+         <widget class="QLineEdit" name="lineEdit_4"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="lineEdit"/>
+        </item>
+        <item row="0" column="6">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>额定电压(V)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_14">
+          <property name="text">
+           <string>环境温度(℃)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>机组型号</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEdit_5"/>
+        </item>
+        <item row="0" column="8">
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string>额定频率(Hz)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLineEdit" name="lineEdit_2"/>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineEdit_11"/>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>相对湿度(%)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QLineEdit" name="lineEdit_12"/>
+        </item>
+        <item row="2" column="4">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>大气压力(KPa)</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="5">
+         <widget class="QLineEdit" name="lineEdit_13"/>
+        </item>
+        <item row="2" column="6">
+         <widget class="QLabel" name="label_13">
+          <property name="text">
+           <string>测试编号</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="7">
+         <widget class="QLineEdit" name="lineEdit_14"/>
+        </item>
+        <item row="2" column="8">
+         <widget class="QLabel" name="label_15">
+          <property name="text">
+           <string>测试人员</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="9">
+         <widget class="QLineEdit" name="lineEdit_15"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_3">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+QPushButton{
+width:125px;
+height:40px;
+ background-color: #004080;
+  color: white;
+  border: none;
+  font: 14pt &quot;Calibri&quot;;
+ border-radius: 10px;
+}
+QPushButton:hover {
+	background-color: #0080FF;
+}
+QPushButton:pressed {
+	background-color: #0000FF;
+}
+
+QLineEdit {
+          background: rgba(255, 255, 255, 150);
+          border: 1px solid #cccccc;
+           border-radius: 6px;
+        }
+        QLineEdit:hover {
+           background: rgba(255, 255, 255, 200);
+        }
+        QLineEdit:focus {
+           border: 2px solid #66afe9;
+        }
+       QLineEdit:pressed {
+          background: rgba(255, 255, 255, 255);
+        }
+</string>
+     </property>
+     <property name="title">
+      <string>稳态实验</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QTabWidget" name="tabWidget">
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
+          <widget class="QWidget" name="tab_3">
+           <attribute name="title">
+            <string>稳态测试</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="3" column="4">
+               <widget class="QLineEdit" name="lineEdit_27"/>
+              </item>
+              <item row="3" column="3">
+               <widget class="QLineEdit" name="lineEdit_26"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_21">
+                <property name="text">
+                 <string>L1</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_16"/>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLineEdit" name="lineEdit_18"/>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="label_19">
+                <property name="text">
+                 <string>P(W)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLineEdit" name="lineEdit_21"/>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_22">
+                <property name="text">
+                 <string>L2</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLabel" name="label_26">
+                <property name="text">
+                 <string>U12(V)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QLabel" name="label_20">
+                <property name="text">
+                 <string>PF</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLineEdit" name="lineEdit_32"/>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_16">
+                <property name="styleSheet">
+                 <string notr="true">
+font: 75 18pt &quot;Calibri&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>稳态数据</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="3">
+               <widget class="QLineEdit" name="lineEdit_30"/>
+              </item>
+              <item row="5" column="2">
+               <widget class="QLabel" name="label_28">
+                <property name="text">
+                 <string>U23(V)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="4">
+               <widget class="QLineEdit" name="lineEdit_31"/>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="label_17">
+                <property name="text">
+                 <string>U(V)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_20"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_24">
+                <property name="text">
+                 <string>∑</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="lineEdit_24"/>
+              </item>
+              <item row="5" column="4">
+               <widget class="QLabel" name="label_30">
+                <property name="text">
+                 <string>F(Hz)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="2">
+               <widget class="QLineEdit" name="lineEdit_33"/>
+              </item>
+              <item row="6" column="3">
+               <widget class="QLineEdit" name="lineEdit_34"/>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLineEdit" name="lineEdit_17"/>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_18">
+                <property name="text">
+                 <string>I(A)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="3">
+               <widget class="QLabel" name="label_29">
+                <property name="text">
+                 <string>U31(V)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="4">
+               <widget class="QLineEdit" name="lineEdit_19"/>
+              </item>
+              <item row="2" column="3">
+               <widget class="QLineEdit" name="lineEdit_22"/>
+              </item>
+              <item row="3" column="2">
+               <widget class="QLineEdit" name="lineEdit_25"/>
+              </item>
+              <item row="2" column="4">
+               <widget class="QLineEdit" name="lineEdit_23"/>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_23">
+                <property name="text">
+                 <string>L3</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="lineEdit_28"/>
+              </item>
+              <item row="4" column="2">
+               <widget class="QLineEdit" name="lineEdit_29"/>
+              </item>
+              <item row="6" column="4">
+               <widget class="QLineEdit" name="lineEdit_35"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_36">
+                <property name="text">
+                 <string>L2</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="label_33">
+                <property name="text">
+                 <string>S(VA)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_37">
+                <property name="text">
+                 <string>L3</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_25">
+                <property name="styleSheet">
+                 <string notr="true">font: 75 18pt &quot;Calibri&quot;;</string>
+                </property>
+                <property name="text">
+                 <string>电能数据</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="label_31">
+                <property name="text">
+                 <string>EP(Wh)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_32">
+                <property name="text">
+                 <string>EQ(Varh)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QLabel" name="label_34">
+                <property name="text">
+                 <string>Q(Var)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_35">
+                <property name="text">
+                 <string>L1</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_38">
+                <property name="text">
+                 <string>∑</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_36"/>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLineEdit" name="lineEdit_37"/>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLineEdit" name="lineEdit_38"/>
+              </item>
+              <item row="1" column="4">
+               <widget class="QLineEdit" name="lineEdit_39"/>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_40"/>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLineEdit" name="lineEdit_41"/>
+              </item>
+              <item row="2" column="3">
+               <widget class="QLineEdit" name="lineEdit_42"/>
+              </item>
+              <item row="2" column="4">
+               <widget class="QLineEdit" name="lineEdit_43"/>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="lineEdit_44"/>
+              </item>
+              <item row="3" column="2">
+               <widget class="QLineEdit" name="lineEdit_45"/>
+              </item>
+              <item row="3" column="3">
+               <widget class="QLineEdit" name="lineEdit_46"/>
+              </item>
+              <item row="3" column="4">
+               <widget class="QLineEdit" name="lineEdit_47"/>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="lineEdit_48"/>
+              </item>
+              <item row="4" column="2">
+               <widget class="QLineEdit" name="lineEdit_49"/>
+              </item>
+              <item row="4" column="3">
+               <widget class="QLineEdit" name="lineEdit_50"/>
+              </item>
+              <item row="4" column="4">
+               <widget class="QLineEdit" name="lineEdit_51"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_4">
+           <attribute name="title">
+            <string>整定测试</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="QPushButton" name="pushButton_2">
+                <property name="text">
+                 <string>电压整定数据</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_3">
+                <property name="text">
+                 <string>频率整定数据</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_5">
+                <property name="text">
+                 <string>电压曲线</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_6">
+                <property name="text">
+                 <string>频率曲线</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QStackedWidget" name="stackedWidget">
+              <property name="currentIndex">
+               <number>1</number>
+              </property>
+              <widget class="QWidget" name="page_3">
+               <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <item>
+                 <layout class="QGridLayout" name="gridLayout_5">
+                  <item row="4" column="4">
+                   <widget class="QLineEdit" name="lineEdit_68"/>
+                  </item>
+                  <item row="6" column="0">
+                   <widget class="QLabel" name="label_47">
+                    <property name="text">
+                     <string>Min(V)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="1">
+                   <widget class="QLineEdit" name="lineEdit_8"/>
+                  </item>
+                  <item row="4" column="3">
+                   <widget class="QLineEdit" name="lineEdit_67"/>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="lineEdit_53"/>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLineEdit" name="lineEdit_55"/>
+                  </item>
+                  <item row="1" column="4">
+                   <widget class="QLineEdit" name="lineEdit_56"/>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="lineEdit_57"/>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QLineEdit" name="lineEdit_58"/>
+                  </item>
+                  <item row="2" column="3">
+                   <widget class="QLineEdit" name="lineEdit_59"/>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_10">
+                    <property name="text">
+                     <string>△Us,up</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_12">
+                    <property name="text">
+                     <string>δUs,up</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_41">
+                    <property name="text">
+                     <string>L2</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLineEdit" name="lineEdit_54"/>
+                  </item>
+                  <item row="2" column="4">
+                   <widget class="QLineEdit" name="lineEdit_60"/>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_42">
+                    <property name="text">
+                     <string>L3</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_43">
+                    <property name="text">
+                     <string>∑</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="3">
+                   <widget class="QLineEdit" name="lineEdit_63"/>
+                  </item>
+                  <item row="3" column="2">
+                   <widget class="QLineEdit" name="lineEdit_62"/>
+                  </item>
+                  <item row="4" column="2">
+                   <widget class="QLineEdit" name="lineEdit_66"/>
+                  </item>
+                  <item row="3" column="4">
+                   <widget class="QLineEdit" name="lineEdit_64"/>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QLineEdit" name="lineEdit_65"/>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_27">
+                    <property name="text">
+                     <string>△Us,do</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_40">
+                    <property name="text">
+                     <string>L1</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="label_39">
+                    <property name="text">
+                     <string>δUs,do</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_9">
+                    <property name="text">
+                     <string>电压整定</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="label_46">
+                    <property name="text">
+                     <string>Max(V)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QLineEdit" name="lineEdit_61"/>
+                  </item>
+                  <item row="5" column="1">
+                   <widget class="QLineEdit" name="lineEdit_7"/>
+                  </item>
+                  <item row="7" column="1">
+                   <spacer name="verticalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>20</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="page_4">
+               <layout class="QHBoxLayout" name="horizontalLayout_12">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_10">
+                  <item>
+                   <layout class="QGridLayout" name="gridLayout_6">
+                    <item row="5" column="0">
+                     <widget class="QLabel" name="label_55">
+                      <property name="text">
+                       <string>Min(Hz)</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="1">
+                     <widget class="QLineEdit" name="lineEdit_10"/>
+                    </item>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_44">
+                      <property name="text">
+                       <string>△Fs,up</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="3">
+                     <widget class="QLabel" name="label_51">
+                      <property name="text">
+                       <string>δFs,do</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="1">
+                     <widget class="QLineEdit" name="lineEdit_70"/>
+                    </item>
+                    <item row="0" column="2">
+                     <widget class="QLabel" name="label_50">
+                      <property name="text">
+                       <string>△Fs,do</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="2">
+                     <widget class="QLineEdit" name="lineEdit_71"/>
+                    </item>
+                    <item row="1" column="3">
+                     <widget class="QLineEdit" name="lineEdit_72"/>
+                    </item>
+                    <item row="3" column="0">
+                     <widget class="QLineEdit" name="lineEdit_73"/>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QLabel" name="label_52">
+                      <property name="text">
+                       <string>Freq(Hz)</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="4" column="0">
+                     <widget class="QLabel" name="label_53">
+                      <property name="text">
+                       <string>Max(Hz)</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="1" column="0">
+                     <widget class="QLineEdit" name="lineEdit_69"/>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QLabel" name="label_45">
+                      <property name="text">
+                       <string>δFs,up</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="5" column="1">
+                     <widget class="QLineEdit" name="lineEdit_52"/>
+                    </item>
+                    <item row="6" column="1">
+                     <spacer name="verticalSpacer_2">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="page_11">
+               <layout class="QHBoxLayout" name="horizontalLayout_14">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_9"/>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="page_12">
+               <layout class="QVBoxLayout" name="verticalLayout_12">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_11"/>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+           <zorder></zorder>
+           <zorder>stackedWidget</zorder>
+          </widget>
+          <widget class="QWidget" name="tab_5">
+           <attribute name="title">
+            <string>波动测试</string>
+           </attribute>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QPushButton" name="startVolTageTuningBtn">
+          <property name="text">
+           <string>启动电压整定</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="startFrequencyTuningBtn">
+          <property name="text">
+           <string>启动频率整定</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_4">
+          <property name="text">
+           <string>启动波动实验</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="stopButton">
+          <property name="text">
+           <string>停止</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="text">
+           <string>导出数据</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

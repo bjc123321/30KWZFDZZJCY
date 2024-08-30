@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#centralWidget{
+background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(85, 85, 127), stop:0.935 rgb(85, 85, 127));
+}
+#treeWidget,#stackedWidget{
+background-color:#55557F;
+color:white;
+}
+#stackedWidget{
+border-radius:10px;
+background-color:#93AAC2;
+}
+#treeWidget::item::selected{
+background-color: rgb(191, 191, 191)
+}
+#treeWidget::item::hover{
+background-color:#C1C1C1;
+}
+SpinBox{
+width:150px;
+height:100px;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item row="0" column="0" colspan="2">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+color:white;
+}</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <pointsize>40</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>30kw自发电装置检测平台</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-image: url(:/res/save1.png);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>res/save.png</normaloff>res/save.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>160</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTreeWidget {
+                border: 1px solid #dcdcdc;
+                border-radius: 10px;
+                background: #55557F;
+            }
+       
+            QTreeWidget::item:hover {
+  
+                border-radius: 10px;  /* 鼠标悬浮时也显示圆角 */
+            }
+            QTreeWidget::branch:has-siblings:!adjoins-item {
+                border-image: url(none);
+            }
+            QTreeWidget::branch:has-siblings:adjoins-item {
+                border-image: url(none);
+            }
+            QTreeWidget::branch:!has-children:!has-siblings:adjoins-item {
+                border-image: url(none);
+            }
+            QTreeWidget::branch:has-children:!has-siblings:closed,
+            QTreeWidget::branch:closed:has-children:has-siblings {
+                border-image: none;
+                image: none;
+            }
+            QTreeWidget::branch:open:has-children:!has-siblings,
+            QTreeWidget::branch:open:has-children:has-siblings  {
+                border-image: none;
+                image: none;
+            }</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QTreeWidget" name="treeWidget">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="autoScrollMargin">
+          <number>16</number>
+         </property>
+         <property name="tabKeyNavigation">
+          <bool>false</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="indentation">
+          <number>20</number>
+         </property>
+         <property name="rootIsDecorated">
+          <bool>true</bool>
+         </property>
+         <property name="uniformRowHeights">
+          <bool>false</bool>
+         </property>
+         <property name="itemsExpandable">
+          <bool>true</bool>
+         </property>
+         <property name="sortingEnabled">
+          <bool>false</bool>
+         </property>
+         <property name="animated">
+          <bool>true</bool>
+         </property>
+         <property name="allColumnsShowFocus">
+          <bool>false</bool>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+         <property name="headerHidden">
+          <bool>true</bool>
+         </property>
+         <attribute name="headerMinimumSectionSize">
+          <number>25</number>
+         </attribute>
+         <attribute name="headerShowSortIndicator" stdset="0">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="headerStretchLastSection">
+          <bool>true</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>App</string>
+          </property>
+         </column>
+         <item>
+          <property name="text">
+           <string>设备自检</string>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/res/autoCheck.png</normaloff>:/res/autoCheck.png</iconset>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>设备检测</string>
+          </property>
+          <property name="textAlignment">
+           <set>AlignLeading|AlignVCenter</set>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/res/testItem.png</normaloff>:/res/testItem.png</iconset>
+          </property>
+          <item>
+           <property name="text">
+            <string>负载设置</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>稳态测试</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>瞬态测试</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>谐波分析</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>录波分析</string>
+           </property>
+          </item>
+         </item>
+         <item>
+          <property name="text">
+           <string>数据管理</string>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/res/dataManager.png</normaloff>:/res/dataManager.png</iconset>
+          </property>
+          <item>
+           <property name="text">
+            <string>自检信息</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>用户信息</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>数据报表</string>
+           </property>
+          </item>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>退出</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="currentIndex">
+       <number>8</number>
+      </property>
+      <widget class="Page1_fzsz" name="page1_fzsz"/>
+      <widget class="Page3_wtcs" name="page3_wtcs"/>
+      <widget class="Page4_stcs" name="page4_stcs"/>
+      <widget class="Page5_xbfx" name="page5_xbfx"/>
+      <widget class="Page6_lbfx" name="page6_lbfx"/>
+      <widget class="Data" name="data"/>
+      <widget class="User" name="user"/>
+      <widget class="SelfInfo" name="selfInfo"/>
+      <widget class="SelfTest" name="selfTest"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>Page1_fzsz</class>
+   <extends>QWidget</extends>
+   <header>App/Page/page1_fzsz.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Page3_wtcs</class>
+   <extends>QWidget</extends>
+   <header>App/Page/page3_wtcs.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Page4_stcs</class>
+   <extends>QWidget</extends>
+   <header>App/Page/page4_stcs.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Page5_xbfx</class>
+   <extends>QWidget</extends>
+   <header>App/Page/page5_xbfx.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Page6_lbfx</class>
+   <extends>QWidget</extends>
+   <header>App/Page/page6_lbfx.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Data</class>
+   <extends>QWidget</extends>
+   <header>App/Page/data.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>User</class>
+   <extends>QWidget</extends>
+   <header>App/Page/user.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SelfInfo</class>
+   <extends>QWidget</extends>
+   <header>App/Page/selfinfo.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SelfTest</class>
+   <extends>QWidget</extends>
+   <header>App/Page/selftest.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/dataManager.png</file>
+        <file>res/save.png</file>
+        <file>res/save1.png</file>
+        <file>res/testItem.png</file>
+        <file>res/autoCheck.png</file>
+        <file>res/light1_1.png</file>
+        <file>res/light1_2.png</file>
+        <file>res/light1_7.png</file>
+        <file>res/light1_4.png</file>
+        <file>res/abnormal.png</file>
+    </qresource>
+</RCC>

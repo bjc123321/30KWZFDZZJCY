@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Login</class>
+ <widget class="QDialog" name="Login">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>932</width>
+    <height>520</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>40</y>
+     <width>700</width>
+     <height>432</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGroupBox
+{
+background-color: rgb(124, 152, 182);
+border-style:solid;
+border-width:5px;
+border-radius:20px;
+	border-color: rgb(255, 255, 255);
+
+
+border-color: qradialgradient(spread:repeat, cx:0.494, cy:0.5, radius:0.719458, fx:0.49435, fy:0.278409, stop:0 rgba(255, 255, 255, 255), stop:1 rgba(0, 85, 127, 255));
+}
+</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QPushButton" name="loginbtn">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>320</y>
+      <width>280</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>280</width>
+      <height>60</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>30</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+border:none;
+background-color: rgb(255, 170, 127);
+color: rgb(255, 255, 255);
+border-radius:15px;
+}
+QPushButton:hover
+{
+background-color: rgb(0, 85, 127);
+}
+QPushButton:pressed
+{
+    padding-left:3px;
+    padding-top:3px;
+}
+
+
+</string>
+    </property>
+    <property name="text">
+     <string>登录</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="nameline">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>130</y>
+      <width>600</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>华光标题宋_CNKI</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+background-color: rgb(0, 85, 127);
+color: rgb(255, 255, 255);
+border-radius:10px;</string>
+    </property>
+    <property name="text">
+     <string>111</string>
+    </property>
+    <property name="cursorPosition">
+     <number>3</number>
+    </property>
+    <property name="placeholderText">
+     <string>  请输入登录账户</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>10</y>
+      <width>500</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>宋体</family>
+      <pointsize>40</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>欢迎登录</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="passwordine">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>200</y>
+      <width>600</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>华光标题宋_CNKI</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:none;
+background-color: rgb(0, 85, 127);
+color: rgb(255, 255, 255);
+border-radius:10px;</string>
+    </property>
+    <property name="text">
+     <string>111</string>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+    <property name="placeholderText">
+     <string>  请输入登录密码</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exitbtn">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>320</y>
+      <width>280</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>280</width>
+      <height>60</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>30</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+border:none;
+background-color: rgb(255, 170, 127);
+color: rgb(255, 255, 255);
+border-radius:15px;
+}
+QPushButton:hover
+{
+background-color: rgb(0, 85, 127);
+}
+QPushButton:pressed
+{
+    padding-left:3px;
+    padding-top:3px;
+}
+
+
+</string>
+    </property>
+    <property name="text">
+     <string>退出</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radRemember">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>270</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>黑体</family>
+      <pointsize>17</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QRadioButton::indicator {
+    width: 20px;
+    height: 20px;
+}
+ 
+QRadioButton::indicator::unchecked {
+image: url(:/res/account/unchecked.png);
+}
+ 
+QRadioButton::indicator:unchecked:hover {
+image: url(:/res/account/unchecked.png);
+}
+ 
+QRadioButton::indicator:unchecked:pressed {
+image: url(:/res/account/unchecked.png);
+}
+ 
+QRadioButton::indicator::checked {
+image: url(:/res/account/checked.png);
+}
+ 
+QRadioButton::indicator:checked:hover {
+image: url(:/res/account/checked.png);
+}
+ 
+QRadioButton::indicator:checked:pressed {
+image: url(:/res/account/checked.png);
+}
+QRadioButton {
+color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>记住密码</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>16</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnPassword">
+    <property name="geometry">
+     <rect>
+      <x>605</x>
+      <y>204</y>
+      <width>40</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+image: url(:/res/account/see.png);
+border:none;
+}
+QPushButton:checked
+{
+image: url(:/res/account/nosee.png);
+border:none;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
