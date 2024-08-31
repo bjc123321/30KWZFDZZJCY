@@ -1,0 +1,38 @@
+# 忽略编译生成的文件
+*.exe
+
+# 忽略 Qt Creator 配置文件
+*.pro.user
+*.qbs.user
+*.creator.*
+*.autosave
+
+# 忽略构建目录
+build-*/
+
+# 忽略编译生成的对象文件和中间文件
+*.o
+*.obj
+*.moc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+
+# 忽略 qmake 生成的文件
+Makefile*
+.qmake.stash
+object_script.*
+
+# 忽略 debug 和 release 目录
+debug/
+release/
+
+# 忽略临时文件
+*.swp
+*.tmp
+
+# 忽略 Qt Creator 的 C++ 内存泄漏检测文件
+.valgrind.log
+
+# 忽略日志文件
+*.log
