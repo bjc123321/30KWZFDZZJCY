@@ -1,15 +1,18 @@
 #include "page1_fzsz.h"
 #include "ui_page1_fzsz.h"
 
+#include <cstdlib>  // for rand() and srand()
+#include <ctime>    // for time()
+
 Page1_fzsz::Page1_fzsz(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Page1_fzsz)
 {
     ui->setupUi(this);
 
-    initSetFzModel(model1Ptr,"YSFZ",ui->tableView,ui->pushButton_4,ui->pushButton_12,ui->pushButton_14,ui->pushButton_15,
-                   ui->pushButton);
-    initAutoFzModel(model2Ptr,"ZDJZ_1",ui->tableView_3);
+    initSetFzModel(model1Ptr,"YSFZ",ui->tableView,ui->pushButton_4,ui->pushButton,ui->pushButton_12,ui->pushButton_14,ui->pushButton_15,ui->pushButton_2);
+
+//    initAutoFzModel(model2Ptr,"ZDJZ_1",ui->tableView_3);
     // 连接滑动条的 valueChanged 信号到文本框的槽函数
 
     int maxKw = 120;
@@ -36,159 +39,134 @@ Page1_fzsz::~Page1_fzsz()
     delete ui;
 }
 
-void Page1_fzsz::initSetFzModel(QSqlTableModel *modelPtr, QString sqlData, QTableView *tableView, QPushButton *add, QPushButton *del, QPushButton *up, QPushButton *down,
-                                QPushButton *set)
+void Page1_fzsz::initSetFzModel(QSqlTableModel* modelPtr,QString tableName,QTableView*tableView,QPushButton*add,QPushButton*clear,QPushButton*del,QPushButton*up,QPushButton*down,
+                                QPushButton*load)
 {
 
-    modelPtr->setTable(sqlData);
-    modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
-    modelPtr->select();
+
+    modelPtr->setTable(tableName);
+    modelPtr->select();  // 重新从数据库中获取"所有"数据，并在视图中更新显示
+    // 设置QTableView
     tableView->setModel(modelPtr);
-    tableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    //数据库管理类设置model
+    DatabaseManager::getInstance("sql.db").setModel(modelPtr);
+    // 设置表头
+    modelPtr->setHeaderData(0, Qt::Horizontal, tr("编号"));
+    modelPtr->setHeaderData(1, Qt::Horizontal, tr("总功率百分比(%)"));
+    modelPtr->setHeaderData(2, Qt::Horizontal, tr("功率因数"));
+    modelPtr->setHeaderData(3, Qt::Horizontal, tr("持续时间"));
+
+
+    // 设置单行选中和不可编辑
     tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    // 禁用所有编辑触发器
-        tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-
-    QRegExp regexp_NoEdit("");
-    QRegExp regexp_0To100("^([0-9]|[1-9]\\d|100)$");
-    QRegExp regexp_0_5To1("^0\.[5-9]\d*|1(\.0*)?$");
-    QRegExp regexp_OnlyNum("^[0-9]+$");
-
-    static CustomItemDelegate delegate_NoEdit(regexp_NoEdit);
-    static CustomItemDelegate delegate_0To100(regexp_0To100);
-    static CustomItemDelegate delegate_0_5To1(regexp_0_5To1);
-    static CustomItemDelegate delegate_OnlyNum(regexp_OnlyNum);
-
-    tableView->setItemDelegateForColumn(0, &delegate_NoEdit);
-    tableView->setItemDelegateForColumn(1, &delegate_0To100); // 第二列只能输入0到100
-    tableView->setItemDelegateForColumn(2, &delegate_0_5To1);   // 第三列只能输入0.5到1
-    tableView->setItemDelegateForColumn(3, &delegate_OnlyNum);   // 第三列只能输入0到1
-
-    connect(add,QPushButton::clicked,this,[=](){
-        if (modelPtr->submitAll()) {
-            int row = modelPtr->rowCount();
-            modelPtr->insertRow(row);
-            tableView->selectRow(row);
-
-            modelPtr->setData(modelPtr->index(row, 0), row);
-            // 填充其他列的数据（假设有4列，0为行号，1、2和3为其他数据）
-            modelPtr->setData(modelPtr->index(row, 1), ui->lineEdit_2->text());   // 第二列填充文本数据
-            modelPtr->setData(modelPtr->index(row, 2), ui->lineEdit->text());   // 第三列填充整数数据
-            modelPtr->setData(modelPtr->index(row, 3), ui->lineEdit_4->text());     // 第四列填充整数数据
-        }
-    });
-
-    connect(del,QPushButton::clicked,this,[=](){
-        int row = tableView->currentIndex().row();
-
-        modelPtr->select();
-
-        if(modelPtr->rowCount() > 0 && row  < modelPtr->rowCount() ){
-            modelPtr->removeRow(row);
-            if(modelPtr->submitAll()){
-                modelPtr->select();
-                for(int i=row;i<modelPtr->rowCount();i++){
-                    modelPtr->setData(modelPtr->index(i, 0), i);
-                }
-            }
-        }
-    });
-
-    connect(up,QPushButton::clicked,this,[=](){
-        int row = tableView->currentIndex().row();
-        if(row == 0){
-            return;
-        }else{
-            for (int column = 1; column < modelPtr->columnCount(); ++column) {
-                QModelIndex index = modelPtr->index(row, column);
-                QModelIndex indexUp = modelPtr->index(row-1, column);
-
-                QVariant data = index.data();
-                QVariant dataUp = indexUp.data();
-
-                modelPtr->setData(modelPtr->index(row, column), dataUp);
-                modelPtr->setData(modelPtr->index(row-1, column), data);
-            }
-        }
-
-    });
-
-    connect(down,QPushButton::clicked,this,[=](){
-        int row = tableView->currentIndex().row();
-        if(row == modelPtr->columnCount()){
-            return;
-        }else{
-            for (int column = 1; column < modelPtr->columnCount(); ++column) {
-                QModelIndex index = modelPtr->index(row, column);
-                QModelIndex indexUp = modelPtr->index(row+1, column);
-
-                QVariant data = index.data();
-                QVariant dataDown = indexUp.data();
-
-                modelPtr->setData(modelPtr->index(row, column), dataDown);
-                modelPtr->setData(modelPtr->index(row+1, column), data);
-            }
-        }
-    });
-
-    connect(set,QPushButton::clicked,this,[=](){
-        int row = tableView->currentIndex().row();
-        if(row > -1 && row < modelPtr->columnCount() ){
-            for (int column = 1; column < modelPtr->columnCount(); ++column) {
-                QModelIndex index = modelPtr->index(row, column);
-                QVariant  data = index.data();
-                switch (column) {
-                case 1:
-//                    box1->setValue(ui->doubleSpinBox_3->maximum() * (data.toDouble()/100));
-                    break;
-                case 2:
-//                    box2->setValue(data.toDouble());
-                    break;
-                case 3:
-//                    box3->setValue(data.toInt());
-                    break;
-                }
-
-            }
-        }
-    });
+    tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     // 设置列宽自动拉伸以填满表格视图
     tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    // 更新表格视图
-    tableView->update();
+    connect(add,&QPushButton::clicked,this,[this](){
+
+        addRow();
+
+    });
+
+    connect(del,&QPushButton::clicked,this,[this,tableView](){
+
+        removeRow(tableView->currentIndex().row());
+
+    });
+
+    connect(clear,&QPushButton::clicked,this,[this](){
+
+        clearRows();
+
+    });
+
+    connect(up,&QPushButton::clicked,this,[this,tableView](){
+
+        moveRowUp(tableView->currentIndex().row());
+
+    });
+
+    connect(down,&QPushButton::clicked,this,[this,tableView](){
+
+        moveRowDown(tableView->currentIndex().row());
+
+    });
+
 }
 
-void Page1_fzsz::initAutoFzModel(QSqlTableModel *modelPtr, QString sqlData, QTableView *tableView)
+void Page1_fzsz::initAutoFzModel(QSqlTableModel *modelPtr, QString tableName, QTableView *tableView)
 {
-    modelPtr->setTable(sqlData);
-    modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
-    modelPtr->select();
     tableView->setModel(modelPtr);
     tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-
-
-    QRegExp regexp_NoEdit("");
-    QRegExp regexp_0To100("^([0-9]|[1-9]\\d|100)$");
-    QRegExp regexp_0_5To1("^0\.[5-9]\d*|1(\.0*)?$");
-    QRegExp regexp_OnlyNum("^[0-9]+$");
-
-    static CustomItemDelegate delegate_NoEdit(regexp_NoEdit);
-    static CustomItemDelegate delegate_0To100(regexp_0To100);
-    static CustomItemDelegate delegate_0_5To1(regexp_0_5To1);
-    static CustomItemDelegate delegate_OnlyNum(regexp_OnlyNum);
-
-    tableView->setItemDelegateForColumn(0, &delegate_NoEdit);
-    tableView->setItemDelegateForColumn(1, &delegate_0To100); // 第二列只能输入0到100
-    tableView->setItemDelegateForColumn(2, &delegate_0_5To1);   // 第三列只能输入0.5到1
-    tableView->setItemDelegateForColumn(3, &delegate_OnlyNum);   // 第三列只能输入0到1
 
     // 设置列宽自动拉伸以填满表格视图
     tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 
+void Page1_fzsz::addRow()
+{
+    // 初始化随机数生成器（只需要一次）
+    static bool seeded = false;
+    if (!seeded) {
+        srand(static_cast<unsigned int>(time(nullptr)));
+        seeded = true;
+    }
 
+    // 生成模拟数据
+    int percentage = rand() % 101;  // 生成0到100之间的随机整数（模拟百分比）
+    double powerFactor = static_cast<double>(rand() % 101) / 100.0;  // 生成0.0到1.0之间的随机小数（模拟功率因数）
+    int duration = rand() % 100 + 1;  // 生成1到100之间的随机整数（模拟持续时间）
+
+
+    // 调用DatabaseManager::getInstance("sql.db")的addRow方法插入新行
+    if (!DatabaseManager::getInstance("sql.db").addRow(percentage, powerFactor, duration)) {
+        QMessageBox::warning(this, "Error", "Failed to add row: " + DatabaseManager::getInstance("sql.db").lastError());
+    }
+}
+
+void Page1_fzsz::removeRow(int row)
+{
+
+    qDebug()<<"RemoveRow:"<<row;
+    if (row >= 0) {
+        if (!DatabaseManager::getInstance("sql.db").removeRow(row)) {
+            QMessageBox::warning(this, "Error", "Failed to remove row: " + DatabaseManager::getInstance("sql.db").lastError());
+        }
+    }
+
+}
+
+
+void Page1_fzsz::clearRows()
+{
+    if (!DatabaseManager::getInstance("sql.db").clearRows()) {
+        QMessageBox::warning(this, "Error", "Failed to clear rows: " + DatabaseManager::getInstance("sql.db").lastError());
+    }
+}
+
+
+void Page1_fzsz::moveRowUp(int row)
+{
+    qDebug()<<"RowUp:"<<row;
+    if (row > 0) {
+        if (!DatabaseManager::getInstance("sql.db").moveRowUp(row)) {
+            QMessageBox::warning(this, "Error", "Failed to move row up: " + DatabaseManager::getInstance("sql.db").lastError());
+        }
+    }
+}
+
+void Page1_fzsz::moveRowDown(int row)
+{
+
+    qDebug()<<"RowDown:"<<row;
+    if (row < DatabaseManager::getInstance("sql.db").getModel()->rowCount() - 1) {
+        if (!DatabaseManager::getInstance("sql.db").moveRowDown(row)) {
+            QMessageBox::warning(this, "Error", "Failed to move row down: " + DatabaseManager::getInstance("sql.db").lastError());
+        }
+    }
+
+}

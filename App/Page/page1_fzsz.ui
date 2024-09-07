@@ -279,9 +279,9 @@ color: rgb(0, 0, 0);
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButton_3">
+                <widget class="QPushButton" name="pushButton">
                  <property name="text">
-                  <string>保存</string>
+                  <string>清空</string>
                  </property>
                 </widget>
                </item>
@@ -359,13 +359,6 @@ QPushButton:pressed {
                <layout class="QHBoxLayout" name="horizontalLayout_16">
                 <item>
                  <layout class="QVBoxLayout" name="verticalLayout_8">
-                  <item>
-                   <widget class="QPushButton" name="pushButton">
-                    <property name="text">
-                     <string>选择</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item>
                    <widget class="QPushButton" name="pushButton_12">
                     <property name="text">

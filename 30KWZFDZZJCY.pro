@@ -10,8 +10,8 @@ QT += axcontainer
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 # Use Precompiled headers (PCH),improve compilation speed!
-    CONFIG += precompile_header
-    PRECOMPILED_HEADER = stable.h
+CONFIG += precompile_header
+PRECOMPILED_HEADER = stable.h
 
 include(ExcelSrc/xlsx/qtxlsx.pri)
 
@@ -50,7 +50,8 @@ SOURCES += main.cpp\
     qcustomplot/qcustomplot.cpp \
     App/CustomWidget/harmonicplot.cpp \
     App/CustomWidget/triangleslider.cpp \
-    App/Data/dataexportmanager.cpp
+    App/Data/dataexportmanager.cpp \
+    Base/BaseFun/Sql/databasemanager.cpp
 
 HEADERS  += mainwindow.h \
     Base/BaseFun/base.h \
@@ -85,7 +86,8 @@ HEADERS  += mainwindow.h \
     App/CustomWidget/harmonicplot.h \
     App/CustomWidget/triangleslider.h \
     App/Data/dataexportmanager.h \
-    globalsettings.h
+    globalsettings.h \
+    Base/BaseFun/Sql/databasemanager.h
 
 FORMS    += mainwindow.ui \
     App/Page/page1_fzsz.ui \
