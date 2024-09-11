@@ -75,8 +75,8 @@
     <widget class="QGroupBox" name="groupBox">
      <property name="minimumSize">
       <size>
-       <width>750</width>
-       <height>550</height>
+       <width>950</width>
+       <height>650</height>
       </size>
      </property>
      <property name="styleSheet">
@@ -381,9 +381,6 @@ QPushButton:pressed {
           </layout>
          </item>
         </layout>
-        <zorder>textEdit</zorder>
-        <zorder>horizontalLayoutWidget</zorder>
-        <zorder>horizontalLayoutWidget_2</zorder>
        </widget>
       </item>
       <item row="1" column="1">

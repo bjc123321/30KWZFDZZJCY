@@ -11,12 +11,13 @@
 #include <QItemDelegate>
 #include <QDoubleSpinBox>
 #include <QSpinBox>
-
+#include <QTimer>
 #include "Base/BaseFun/Sql/databasemanager.h"
 
 namespace Ui {
 class Page1_fzsz;
 }
+
 
 class Page1_fzsz : public QWidget
 {
@@ -44,6 +45,11 @@ public:
     void moveRowUp(int row);
 
     void moveRowDown(int row);
+
+    void selectRowsWithTimer(QTableView *tableView,QSqlTableModel *modelPtr);
+
+    //默认没有开始加载负载,当isLoading值为true时，则禁止其他对表格的操作,包括增删清空和多次点击加载的场景！
+    bool isLoading = false;
 
 private slots:
 

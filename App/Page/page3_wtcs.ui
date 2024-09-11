@@ -6,17 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>973</width>
-    <height>694</height>
+    <width>1819</width>
+    <height>996</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">*{
-font: 14pt &quot;Calibri&quot;;
-}
+   <string notr="true">
 #QTabWidget::pane {
 
         border-radius:5px;
@@ -54,6 +52,12 @@ QTabBar::tab:selected {
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QGroupBox" name="groupBox">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>基本信息</string>
      </property>
@@ -62,6 +66,15 @@ QTabBar::tab:selected {
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="4">
          <widget class="QLabel" name="label_4">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>功率因数</string>
           </property>
@@ -71,10 +84,40 @@ QTabBar::tab:selected {
          </widget>
         </item>
         <item row="0" column="5">
-         <widget class="QLineEdit" name="lineEdit_3"/>
+         <widget class="QLineEdit" name="lineEdit_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="1" column="2">
          <widget class="QLabel" name="label_8">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>机组编号</string>
           </property>
@@ -84,13 +127,64 @@ QTabBar::tab:selected {
          </widget>
         </item>
         <item row="1" column="3">
-         <widget class="QLineEdit" name="lineEdit_6"/>
+         <widget class="QLineEdit" name="lineEdit_6">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="0" column="9">
-         <widget class="QLineEdit" name="lineEdit_9"/>
+         <widget class="QLineEdit" name="lineEdit_9">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="0" column="2">
          <widget class="QLabel" name="label_3">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>额定功率(Kw)</string>
           </property>
@@ -101,6 +195,15 @@ QTabBar::tab:selected {
         </item>
         <item row="0" column="0">
          <widget class="QLabel" name="label">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string> 视在功率(Kw)</string>
           </property>
@@ -110,13 +213,64 @@ QTabBar::tab:selected {
          </widget>
         </item>
         <item row="0" column="7">
-         <widget class="QLineEdit" name="lineEdit_4"/>
+         <widget class="QLineEdit" name="lineEdit_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="lineEdit"/>
+         <widget class="QLineEdit" name="lineEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="0" column="6">
          <widget class="QLabel" name="label_5">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>额定电压(V)</string>
           </property>
@@ -127,6 +281,15 @@ QTabBar::tab:selected {
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_14">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>环境温度(℃)</string>
           </property>
@@ -137,6 +300,15 @@ QTabBar::tab:selected {
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="label_7">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>机组型号</string>
           </property>
@@ -146,10 +318,40 @@ QTabBar::tab:selected {
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="lineEdit_5"/>
+         <widget class="QLineEdit" name="lineEdit_5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="0" column="8">
          <widget class="QLabel" name="label_11">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>额定频率(Hz)</string>
           </property>
@@ -159,13 +361,64 @@ QTabBar::tab:selected {
          </widget>
         </item>
         <item row="0" column="3">
-         <widget class="QLineEdit" name="lineEdit_2"/>
+         <widget class="QLineEdit" name="lineEdit_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="lineEdit_11"/>
+         <widget class="QLineEdit" name="lineEdit_11">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="2" column="2">
          <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>相对湿度(%)</string>
           </property>
@@ -175,10 +428,40 @@ QTabBar::tab:selected {
          </widget>
         </item>
         <item row="2" column="3">
-         <widget class="QLineEdit" name="lineEdit_12"/>
+         <widget class="QLineEdit" name="lineEdit_12">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="2" column="4">
          <widget class="QLabel" name="label_6">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>大气压力(KPa)</string>
           </property>
@@ -188,10 +471,40 @@ QTabBar::tab:selected {
          </widget>
         </item>
         <item row="2" column="5">
-         <widget class="QLineEdit" name="lineEdit_13"/>
+         <widget class="QLineEdit" name="lineEdit_13">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="2" column="6">
          <widget class="QLabel" name="label_13">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>测试编号</string>
           </property>
@@ -201,10 +514,41 @@ QTabBar::tab:selected {
          </widget>
         </item>
         <item row="2" column="7">
-         <widget class="QLineEdit" name="lineEdit_14"/>
+         <widget class="QLineEdit" name="lineEdit_14">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
         <item row="2" column="8">
          <widget class="QLabel" name="label_15">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>14</pointsize>
+            <weight>50</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
           <property name="text">
            <string>测试人员</string>
           </property>
@@ -214,7 +558,28 @@ QTabBar::tab:selected {
          </widget>
         </item>
         <item row="2" column="9">
-         <widget class="QLineEdit" name="lineEdit_15"/>
+         <widget class="QLineEdit" name="lineEdit_15">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -226,7 +591,7 @@ QTabBar::tab:selected {
      <property name="font">
       <font>
        <family>Calibri</family>
-       <pointsize>14</pointsize>
+       <pointsize>20</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -240,7 +605,7 @@ height:40px;
  background-color: #004080;
   color: white;
   border: none;
-  font: 14pt &quot;Calibri&quot;;
+font: 14pt &quot;Calibri&quot;;
  border-radius: 10px;
 }
 QPushButton:hover {
@@ -249,21 +614,17 @@ QPushButton:hover {
 QPushButton:pressed {
 	background-color: #0000FF;
 }
+QLineEdit
+{
 
-QLineEdit {
-          background: rgba(255, 255, 255, 150);
-          border: 1px solid #cccccc;
-           border-radius: 6px;
-        }
-        QLineEdit:hover {
-           background: rgba(255, 255, 255, 200);
-        }
-        QLineEdit:focus {
-           border: 2px solid #66afe9;
-        }
-       QLineEdit:pressed {
-          background: rgba(255, 255, 255, 255);
-        }
+border-width:2px;
+border-style:solid;
+background-color: rgba(0, 0, 0, 50);
+border-radius:6px;
+color:black;
+border:none;
+
+}
 </string>
      </property>
      <property name="title">
@@ -274,10 +635,24 @@ QLineEdit {
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
          <widget class="QTabWidget" name="tabWidget">
+          <property name="font">
+           <font>
+            <family>Calibri</family>
+            <pointsize>20</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
           <property name="currentIndex">
            <number>1</number>
           </property>
           <widget class="QWidget" name="tab_3">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
            <attribute name="title">
             <string>稳态测试</string>
            </attribute>
@@ -285,13 +660,51 @@ QLineEdit {
             <item>
              <layout class="QGridLayout" name="gridLayout_2">
               <item row="3" column="4">
-               <widget class="QLineEdit" name="lineEdit_27"/>
+               <widget class="QLineEdit" name="lineEdit_27">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="3" column="3">
-               <widget class="QLineEdit" name="lineEdit_26"/>
+               <widget class="QLineEdit" name="lineEdit_26">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="label_21">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>L1</string>
                 </property>
@@ -301,13 +714,51 @@ QLineEdit {
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QLineEdit" name="lineEdit_16"/>
+               <widget class="QLineEdit" name="lineEdit_16">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="1" column="3">
-               <widget class="QLineEdit" name="lineEdit_18"/>
+               <widget class="QLineEdit" name="lineEdit_18">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="0" column="3">
                <widget class="QLabel" name="label_19">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>P(W)</string>
                 </property>
@@ -317,10 +768,33 @@ QLineEdit {
                </widget>
               </item>
               <item row="2" column="2">
-               <widget class="QLineEdit" name="lineEdit_21"/>
+               <widget class="QLineEdit" name="lineEdit_21">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="2" column="0">
                <widget class="QLabel" name="label_22">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>L2</string>
                 </property>
@@ -331,6 +805,14 @@ QLineEdit {
               </item>
               <item row="5" column="1">
                <widget class="QLabel" name="label_26">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>U12(V)</string>
                 </property>
@@ -341,6 +823,14 @@ QLineEdit {
               </item>
               <item row="0" column="4">
                <widget class="QLabel" name="label_20">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>PF</string>
                 </property>
@@ -350,10 +840,34 @@ QLineEdit {
                </widget>
               </item>
               <item row="6" column="1">
-               <widget class="QLineEdit" name="lineEdit_32"/>
+               <widget class="QLineEdit" name="lineEdit_32">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="0" column="0">
                <widget class="QLabel" name="label_16">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>18</pointsize>
+                  <weight>9</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">
 font: 75 18pt &quot;Calibri&quot;;</string>
@@ -367,10 +881,33 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                </widget>
               </item>
               <item row="4" column="3">
-               <widget class="QLineEdit" name="lineEdit_30"/>
+               <widget class="QLineEdit" name="lineEdit_30">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="5" column="2">
                <widget class="QLabel" name="label_28">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>U23(V)</string>
                 </property>
@@ -380,10 +917,33 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                </widget>
               </item>
               <item row="4" column="4">
-               <widget class="QLineEdit" name="lineEdit_31"/>
+               <widget class="QLineEdit" name="lineEdit_31">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="0" column="1">
                <widget class="QLabel" name="label_17">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>U(V)</string>
                 </property>
@@ -393,10 +953,33 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QLineEdit" name="lineEdit_20"/>
+               <widget class="QLineEdit" name="lineEdit_20">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="4" column="0">
                <widget class="QLabel" name="label_24">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>∑</string>
                 </property>
@@ -406,10 +989,33 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                </widget>
               </item>
               <item row="3" column="1">
-               <widget class="QLineEdit" name="lineEdit_24"/>
+               <widget class="QLineEdit" name="lineEdit_24">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="5" column="4">
                <widget class="QLabel" name="label_30">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>F(Hz)</string>
                 </property>
@@ -419,16 +1025,69 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                </widget>
               </item>
               <item row="6" column="2">
-               <widget class="QLineEdit" name="lineEdit_33"/>
+               <widget class="QLineEdit" name="lineEdit_33">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="6" column="3">
-               <widget class="QLineEdit" name="lineEdit_34"/>
+               <widget class="QLineEdit" name="lineEdit_34">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="1" column="2">
-               <widget class="QLineEdit" name="lineEdit_17"/>
+               <widget class="QLineEdit" name="lineEdit_17">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="0" column="2">
                <widget class="QLabel" name="label_18">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>I(A)</string>
                 </property>
@@ -439,6 +1098,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
               </item>
               <item row="5" column="3">
                <widget class="QLabel" name="label_29">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>U31(V)</string>
                 </property>
@@ -448,19 +1115,87 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                </widget>
               </item>
               <item row="1" column="4">
-               <widget class="QLineEdit" name="lineEdit_19"/>
+               <widget class="QLineEdit" name="lineEdit_19">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="2" column="3">
-               <widget class="QLineEdit" name="lineEdit_22"/>
+               <widget class="QLineEdit" name="lineEdit_22">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="3" column="2">
-               <widget class="QLineEdit" name="lineEdit_25"/>
+               <widget class="QLineEdit" name="lineEdit_25">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="2" column="4">
-               <widget class="QLineEdit" name="lineEdit_23"/>
+               <widget class="QLineEdit" name="lineEdit_23">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="3" column="0">
                <widget class="QLabel" name="label_23">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>L3</string>
                 </property>
@@ -470,13 +1205,58 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                </widget>
               </item>
               <item row="4" column="1">
-               <widget class="QLineEdit" name="lineEdit_28"/>
+               <widget class="QLineEdit" name="lineEdit_28">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="4" column="2">
-               <widget class="QLineEdit" name="lineEdit_29"/>
+               <widget class="QLineEdit" name="lineEdit_29">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="6" column="4">
-               <widget class="QLineEdit" name="lineEdit_35"/>
+               <widget class="QLineEdit" name="lineEdit_35">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -484,6 +1264,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
              <layout class="QGridLayout" name="gridLayout_4">
               <item row="2" column="0">
                <widget class="QLabel" name="label_36">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>L2</string>
                 </property>
@@ -494,6 +1282,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
               </item>
               <item row="0" column="3">
                <widget class="QLabel" name="label_33">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>S(VA)</string>
                 </property>
@@ -504,6 +1300,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
               </item>
               <item row="3" column="0">
                <widget class="QLabel" name="label_37">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>L3</string>
                 </property>
@@ -514,6 +1318,15 @@ font: 75 18pt &quot;Calibri&quot;;</string>
               </item>
               <item row="0" column="0">
                <widget class="QLabel" name="label_25">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>18</pointsize>
+                  <weight>9</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">font: 75 18pt &quot;Calibri&quot;;</string>
                 </property>
@@ -527,6 +1340,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
               </item>
               <item row="0" column="1">
                <widget class="QLabel" name="label_31">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>EP(Wh)</string>
                 </property>
@@ -537,6 +1358,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
               </item>
               <item row="0" column="2">
                <widget class="QLabel" name="label_32">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>EQ(Varh)</string>
                 </property>
@@ -547,6 +1376,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
               </item>
               <item row="0" column="4">
                <widget class="QLabel" name="label_34">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>Q(Var)</string>
                 </property>
@@ -557,6 +1394,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="label_35">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>L1</string>
                 </property>
@@ -567,6 +1412,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
               </item>
               <item row="4" column="0">
                <widget class="QLabel" name="label_38">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>24</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string>∑</string>
                 </property>
@@ -576,52 +1429,292 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QLineEdit" name="lineEdit_36"/>
+               <widget class="QLineEdit" name="lineEdit_36">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="1" column="2">
-               <widget class="QLineEdit" name="lineEdit_37"/>
+               <widget class="QLineEdit" name="lineEdit_37">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="1" column="3">
-               <widget class="QLineEdit" name="lineEdit_38"/>
+               <widget class="QLineEdit" name="lineEdit_38">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="1" column="4">
-               <widget class="QLineEdit" name="lineEdit_39"/>
+               <widget class="QLineEdit" name="lineEdit_39">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QLineEdit" name="lineEdit_40"/>
+               <widget class="QLineEdit" name="lineEdit_40">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="2" column="2">
-               <widget class="QLineEdit" name="lineEdit_41"/>
+               <widget class="QLineEdit" name="lineEdit_41">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="2" column="3">
-               <widget class="QLineEdit" name="lineEdit_42"/>
+               <widget class="QLineEdit" name="lineEdit_42">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="2" column="4">
-               <widget class="QLineEdit" name="lineEdit_43"/>
+               <widget class="QLineEdit" name="lineEdit_43">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="3" column="1">
-               <widget class="QLineEdit" name="lineEdit_44"/>
+               <widget class="QLineEdit" name="lineEdit_44">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="3" column="2">
-               <widget class="QLineEdit" name="lineEdit_45"/>
+               <widget class="QLineEdit" name="lineEdit_45">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="3" column="3">
-               <widget class="QLineEdit" name="lineEdit_46"/>
+               <widget class="QLineEdit" name="lineEdit_46">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="3" column="4">
-               <widget class="QLineEdit" name="lineEdit_47"/>
+               <widget class="QLineEdit" name="lineEdit_47">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="4" column="1">
-               <widget class="QLineEdit" name="lineEdit_48"/>
+               <widget class="QLineEdit" name="lineEdit_48">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="4" column="2">
-               <widget class="QLineEdit" name="lineEdit_49"/>
+               <widget class="QLineEdit" name="lineEdit_49">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="4" column="3">
-               <widget class="QLineEdit" name="lineEdit_50"/>
+               <widget class="QLineEdit" name="lineEdit_50">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
               <item row="4" column="4">
-               <widget class="QLineEdit" name="lineEdit_51"/>
+               <widget class="QLineEdit" name="lineEdit_51">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -680,97 +1773,22 @@ font: 75 18pt &quot;Calibri&quot;;</string>
             <item>
              <widget class="QStackedWidget" name="stackedWidget">
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="page_3">
-               <layout class="QHBoxLayout" name="horizontalLayout_7">
-                <item>
+               <layout class="QGridLayout" name="gridLayout_10">
+                <item row="0" column="0">
                  <layout class="QGridLayout" name="gridLayout_5">
-                  <item row="4" column="4">
-                   <widget class="QLineEdit" name="lineEdit_68"/>
-                  </item>
-                  <item row="6" column="0">
-                   <widget class="QLabel" name="label_47">
-                    <property name="text">
-                     <string>Min(V)</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="6" column="1">
-                   <widget class="QLineEdit" name="lineEdit_8"/>
-                  </item>
-                  <item row="4" column="3">
-                   <widget class="QLineEdit" name="lineEdit_67"/>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QLineEdit" name="lineEdit_53"/>
-                  </item>
-                  <item row="1" column="3">
-                   <widget class="QLineEdit" name="lineEdit_55"/>
-                  </item>
-                  <item row="1" column="4">
-                   <widget class="QLineEdit" name="lineEdit_56"/>
-                  </item>
-                  <item row="2" column="1">
-                   <widget class="QLineEdit" name="lineEdit_57"/>
-                  </item>
-                  <item row="2" column="2">
-                   <widget class="QLineEdit" name="lineEdit_58"/>
-                  </item>
-                  <item row="2" column="3">
-                   <widget class="QLineEdit" name="lineEdit_59"/>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QLabel" name="label_10">
-                    <property name="text">
-                     <string>△Us,up</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="label_12">
-                    <property name="text">
-                     <string>δUs,up</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="label_41">
-                    <property name="text">
-                     <string>L2</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QLineEdit" name="lineEdit_54"/>
-                  </item>
-                  <item row="2" column="4">
-                   <widget class="QLineEdit" name="lineEdit_60"/>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="label_42">
-                    <property name="text">
-                     <string>L3</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="4" column="0">
                    <widget class="QLabel" name="label_43">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>∑</string>
                     </property>
@@ -779,25 +1797,162 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                     </property>
                    </widget>
                   </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_42">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>L3</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="4">
+                   <widget class="QLineEdit" name="lineEdit_60">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-0.385</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="3" column="3">
-                   <widget class="QLineEdit" name="lineEdit_63"/>
-                  </item>
-                  <item row="3" column="2">
-                   <widget class="QLineEdit" name="lineEdit_62"/>
-                  </item>
-                  <item row="4" column="2">
-                   <widget class="QLineEdit" name="lineEdit_66"/>
+                   <widget class="QLineEdit" name="lineEdit_63">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-0.942</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
                   </item>
                   <item row="3" column="4">
-                   <widget class="QLineEdit" name="lineEdit_64"/>
+                   <widget class="QLineEdit" name="lineEdit_64">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-0.425</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="2">
+                   <widget class="QLineEdit" name="lineEdit_62">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>1.342</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="2">
+                   <widget class="QLineEdit" name="lineEdit_66">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>1.325</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
                   </item>
                   <item row="4" column="1">
-                   <widget class="QLineEdit" name="lineEdit_65"/>
-                  </item>
-                  <item row="0" column="3">
-                   <widget class="QLabel" name="label_27">
+                   <widget class="QLineEdit" name="lineEdit_65">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="text">
-                     <string>△Us,do</string>
+                     <string>2.915</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -806,6 +1961,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="label_40">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>L1</string>
                     </property>
@@ -816,6 +1979,14 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   </item>
                   <item row="0" column="4">
                    <widget class="QLabel" name="label_39">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>δUs,do</string>
                     </property>
@@ -824,8 +1995,58 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                     </property>
                    </widget>
                   </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_27">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>△Us,do</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QLineEdit" name="lineEdit_61">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>2.955</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_9">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>电压整定</string>
                     </property>
@@ -834,158 +2055,933 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="5" column="0">
-                   <widget class="QLabel" name="label_46">
+                  <item row="4" column="4">
+                   <widget class="QLineEdit" name="lineEdit_68">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
                     <property name="text">
-                     <string>Max(V)</string>
+                     <string>-0.404</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
                     </property>
                    </widget>
                   </item>
-                  <item row="3" column="1">
-                   <widget class="QLineEdit" name="lineEdit_61"/>
-                  </item>
-                  <item row="5" column="1">
-                   <widget class="QLineEdit" name="lineEdit_7"/>
-                  </item>
-                  <item row="7" column="1">
-                   <spacer name="verticalSpacer">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
+                  <item row="4" column="3">
+                   <widget class="QLineEdit" name="lineEdit_67">
+                    <property name="minimumSize">
                      <size>
-                      <width>20</width>
-                      <height>40</height>
+                      <width>150</width>
+                      <height>55</height>
                      </size>
                     </property>
-                   </spacer>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-0.895</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="lineEdit_53">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>2.914</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLineEdit" name="lineEdit_55">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-0.891</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="lineEdit_57">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>2.857</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="4">
+                   <widget class="QLineEdit" name="lineEdit_56">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-0.412</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="3">
+                   <widget class="QLineEdit" name="lineEdit_59">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>-0.853</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QLineEdit" name="lineEdit_58">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>1.322</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_10">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>△Us,up</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_12">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>δUs,up</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLineEdit" name="lineEdit_54">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>1.320</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLabel" name="label_41">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>L2</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
+                </item>
+                <item row="1" column="0">
+                 <layout class="QGridLayout" name="gridLayout_9">
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_46">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>∑U(V)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_47">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>U3(V)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_56">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>U1(V)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_55">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>U2(V)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLineEdit" name="lineEdit_7">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>221.1</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="lineEdit_8">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>221.0</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLineEdit" name="lineEdit_76">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>221.0</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLineEdit" name="lineEdit_77">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>221.1</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QPlainTextEdit" name="plainTextEdit"/>
                 </item>
                </layout>
               </widget>
               <widget class="QWidget" name="page_4">
-               <layout class="QHBoxLayout" name="horizontalLayout_12">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_10">
-                  <item>
-                   <layout class="QGridLayout" name="gridLayout_6">
-                    <item row="5" column="0">
-                     <widget class="QLabel" name="label_55">
-                      <property name="text">
-                       <string>Min(Hz)</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="4" column="1">
-                     <widget class="QLineEdit" name="lineEdit_10"/>
-                    </item>
-                    <item row="0" column="0">
-                     <widget class="QLabel" name="label_44">
-                      <property name="text">
-                       <string>△Fs,up</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="3">
-                     <widget class="QLabel" name="label_51">
-                      <property name="text">
-                       <string>δFs,do</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="1">
-                     <widget class="QLineEdit" name="lineEdit_70"/>
-                    </item>
-                    <item row="0" column="2">
-                     <widget class="QLabel" name="label_50">
-                      <property name="text">
-                       <string>△Fs,do</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="2">
-                     <widget class="QLineEdit" name="lineEdit_71"/>
-                    </item>
-                    <item row="1" column="3">
-                     <widget class="QLineEdit" name="lineEdit_72"/>
-                    </item>
-                    <item row="3" column="0">
-                     <widget class="QLineEdit" name="lineEdit_73"/>
-                    </item>
-                    <item row="2" column="0">
-                     <widget class="QLabel" name="label_52">
-                      <property name="text">
-                       <string>Freq(Hz)</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="4" column="0">
-                     <widget class="QLabel" name="label_53">
-                      <property name="text">
-                       <string>Max(Hz)</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="0">
-                     <widget class="QLineEdit" name="lineEdit_69"/>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QLabel" name="label_45">
-                      <property name="text">
-                       <string>δFs,up</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="5" column="1">
-                     <widget class="QLineEdit" name="lineEdit_52"/>
-                    </item>
-                    <item row="6" column="1">
-                     <spacer name="verticalSpacer_2">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>20</width>
-                        <height>40</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                   </layout>
+               <layout class="QGridLayout" name="gridLayout_8">
+                <item row="1" column="0">
+                 <layout class="QGridLayout" name="gridLayout_7">
+                  <item row="1" column="0">
+                   <widget class="QLineEdit" name="lineEdit_72">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>220</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_54">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>U1(V)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_52">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>U3(V)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_51">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>  ∑U(V)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_53">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>U2(V)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="lineEdit_73">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>220</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLineEdit" name="lineEdit_74">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>220</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLineEdit" name="lineEdit_75">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>220</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
+                </item>
+                <item row="0" column="0">
+                 <layout class="QGridLayout" name="gridLayout_3">
+                  <item row="0" column="4">
+                   <widget class="QLabel" name="label_44">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Freq(Hz)</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_45">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>δFs,do</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_48">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>△Fs,do</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_50">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>△Fs,up</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_49">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>δFs,up</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLineEdit" name="lineEdit_10">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0.01</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="lineEdit_52">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0.12</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLineEdit" name="lineEdit_69">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0.02</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="3">
+                   <widget class="QLineEdit" name="lineEdit_70">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0.12</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="4">
+                   <widget class="QLineEdit" name="lineEdit_71">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>49.99</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QPlainTextEdit" name="plainTextEdit_2"/>
                 </item>
                </layout>
               </widget>
               <widget class="QWidget" name="page_11">
-               <layout class="QHBoxLayout" name="horizontalLayout_14">
-                <item>
+               <layout class="QGridLayout" name="gridLayout_13">
+                <item row="1" column="0">
+                 <layout class="QGridLayout" name="gridLayout_12">
+                  <item row="0" column="3">
+                   <widget class="QLineEdit" name="lineEdit_79">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>120</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_57">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Max(V):</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="lineEdit_78">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>220</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_58">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Min(V):</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="0" column="0">
                  <layout class="QHBoxLayout" name="horizontalLayout_9"/>
                 </item>
                </layout>
@@ -994,6 +2990,82 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                <layout class="QVBoxLayout" name="verticalLayout_12">
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_11"/>
+                </item>
+                <item>
+                 <layout class="QGridLayout" name="gridLayout_14">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_61">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>20</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Max(Hz):</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="lineEdit_80">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>20</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QLineEdit" name="lineEdit_81">
+                    <property name="minimumSize">
+                     <size>
+                      <width>150</width>
+                      <height>55</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>20</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_63">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>20</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Min(Hz):</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                </layout>
               </widget>

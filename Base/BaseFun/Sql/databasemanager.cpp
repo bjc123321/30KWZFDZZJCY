@@ -32,7 +32,7 @@ bool DatabaseManager::initialize()
     // 检查数据库中是否存在表，如果不存在则创建
     if (db.tables().isEmpty()) {
         QSqlQuery query;
-        if (!query.exec("CREATE TABLE data ("
+        if (!query.exec("CREATE TABLE YSFZ ("
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "percentage INTEGER, "
                         "power_factor REAL, "
@@ -44,8 +44,10 @@ bool DatabaseManager::initialize()
 
     // 初始化模型
     model = new QSqlTableModel(nullptr, db);
-    model->setTable("data");
-    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    model->setTable("YSFZ");
+//    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    model->setEditStrategy(QSqlTableModel::OnFieldChange);
+
 
     model->select();  // 重新从数据库中获取"所有"数据，并在视图中更新显示
 
@@ -72,7 +74,7 @@ QSqlTableModel* DatabaseManager::getModel()
 
 void DatabaseManager::loadMoreData_2(int batchSize)
 {
-    QString queryStr = QString("SELECT * FROM data LIMIT %1 OFFSET %2")
+    QString queryStr = QString("SELECT * FROM YSFZ LIMIT %1 OFFSET %2")
                            .arg(batchSize)
                            .arg(currentRowIndex);
 
@@ -193,7 +195,13 @@ bool DatabaseManager::removeRow(int row)
     if (!model || row < 0 || row >= model->rowCount()) return false;
 
     model->removeRow(row);
-    return model->submitAll();
+    if (!model->submitAll()) {
+        qDebug() << "Error submitting changes:" << model->lastError().text();
+        model->revertAll();
+        return false;
+    }
+    model->select();  // 强制刷新模型，确保视图更新
+    return true;
 }
 
 bool DatabaseManager::clearRows()

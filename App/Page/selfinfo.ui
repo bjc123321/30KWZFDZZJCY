@@ -51,16 +51,13 @@
       <font>
        <family>Calibri</family>
        <pointsize>16</pointsize>
-       <weight>9</weight>
+       <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">*{
-font: 75 16pt &quot;Calibri&quot;;
-
-}
+      <string notr="true">
 QLabel{
 color: rgb(255, 255, 255);
 }
@@ -88,6 +85,15 @@ color: rgb(255, 255, 255);
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QTableView" name="tableView">
+        <property name="font">
+         <font>
+          <family>Calibri</family>
+          <pointsize>20</pointsize>
+          <weight>9</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="gridStyle">
          <enum>Qt::CustomDashLine</enum>
         </property>

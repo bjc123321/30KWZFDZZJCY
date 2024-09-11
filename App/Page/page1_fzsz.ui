@@ -2,13 +2,11 @@
 <ui version="4.0">
  <class>Page1_fzsz</class>
  <widget class="QWidget" name="Page1_fzsz">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>860</width>
-    <height>718</height>
-   </rect>
+  <property name="font">
+   <font>
+    <family>Calibri</family>
+    <pointsize>20</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -54,13 +52,14 @@ QTabBar::tab:selected {
     <widget class="QTabWidget" name="tabWidget">
      <property name="font">
       <font>
-       <pointsize>20</pointsize>
+       <family>Calibri</family>
+       <pointsize>22</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">
-
-QLineEdit {
+      <string notr="true">QLineEdit {
           background: rgba(255, 255, 255, 150);
           border: 1px solid #cccccc;
            border-radius: 6px;
@@ -74,7 +73,22 @@ QLineEdit {
        QLineEdit:pressed {
           background: rgba(255, 255, 255, 255);
         }
-</string>
+
+
+QPushButton{
+width:150px;
+height:50px;
+ background-color: #004080;
+  color: white;
+  border: none;
+ border-radius: 10px;
+}
+QPushButton:hover {
+	background-color: #0080FF;
+}
+QPushButton:pressed {
+	background-color: #0000FF;
+}</string>
      </property>
      <property name="tabPosition">
       <enum>QTabWidget::North</enum>
@@ -95,10 +109,17 @@ QLineEdit {
       <layout class="QVBoxLayout" name="verticalLayout_13">
        <item>
         <widget class="QGroupBox" name="groupBox_8">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>20</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
          <property name="styleSheet">
-          <string notr="true">*{
-font: 75 14pt &quot;Calibri&quot;;
-}</string>
+          <string notr="true"/>
          </property>
          <property name="title">
           <string>手动预设加载</string>
@@ -109,17 +130,14 @@ font: 75 14pt &quot;Calibri&quot;;
          <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
            <widget class="QGroupBox" name="groupBox_9">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">QLineEdit,QSpinBox,QDoubleSpinBox{
-width: 150px;
-height: 40px;
-
-}
-QPushButton{
-width:150px;
-height:50px;
-color: rgb(0, 0, 0);
-}</string>
+             <string notr="true"/>
             </property>
             <property name="title">
              <string>当前负载</string>
@@ -131,6 +149,12 @@ color: rgb(0, 0, 0);
                 <layout class="QHBoxLayout" name="horizontalLayout_2">
                  <item>
                   <widget class="QLabel" name="label_4">
+                   <property name="font">
+                    <font>
+                     <family>Calibri</family>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>负载:</string>
                    </property>
@@ -141,6 +165,24 @@ color: rgb(0, 0, 0);
                  </item>
                  <item>
                   <widget class="QLineEdit" name="lineEdit_2">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>150</width>
+                     <height>45</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Calibri</family>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>0</string>
                    </property>
@@ -154,6 +196,12 @@ color: rgb(0, 0, 0);
                  </item>
                  <item>
                   <widget class="QLabel" name="label">
+                   <property name="font">
+                    <font>
+                     <family>Calibri</family>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>%</string>
                    </property>
@@ -161,6 +209,24 @@ color: rgb(0, 0, 0);
                  </item>
                  <item>
                   <widget class="QLineEdit" name="lineEdit_3">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>150</width>
+                     <height>45</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Calibri</family>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>0</string>
                    </property>
@@ -174,6 +240,12 @@ color: rgb(0, 0, 0);
                  </item>
                  <item>
                   <widget class="QLabel" name="label_7">
+                   <property name="font">
+                    <font>
+                     <family>Calibri</family>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>Kw</string>
                    </property>
@@ -207,6 +279,12 @@ color: rgb(0, 0, 0);
                 <layout class="QHBoxLayout" name="horizontalLayout_5">
                  <item>
                   <widget class="QLabel" name="label_2">
+                   <property name="font">
+                    <font>
+                     <family>Calibri</family>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>功率因数:</string>
                    </property>
@@ -217,6 +295,24 @@ color: rgb(0, 0, 0);
                  </item>
                  <item>
                   <widget class="QLineEdit" name="lineEdit">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>150</width>
+                     <height>45</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Calibri</family>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>0</string>
                    </property>
@@ -247,6 +343,12 @@ color: rgb(0, 0, 0);
                 <layout class="QHBoxLayout" name="horizontalLayout_7">
                  <item>
                   <widget class="QLabel" name="label_3">
+                   <property name="font">
+                    <font>
+                     <family>Calibri</family>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>持续时间(s):</string>
                    </property>
@@ -257,6 +359,24 @@ color: rgb(0, 0, 0);
                  </item>
                  <item>
                   <widget class="QLineEdit" name="lineEdit_4">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>150</width>
+                     <height>45</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Calibri</family>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
                    <property name="text">
                     <string>1</string>
                    </property>
@@ -273,6 +393,12 @@ color: rgb(0, 0, 0);
               <layout class="QVBoxLayout" name="verticalLayout_3">
                <item>
                 <widget class="QPushButton" name="pushButton_4">
+                 <property name="font">
+                  <font>
+                   <family>Calibri</family>
+                   <pointsize>24</pointsize>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>添加</string>
                  </property>
@@ -280,6 +406,12 @@ color: rgb(0, 0, 0);
                </item>
                <item>
                 <widget class="QPushButton" name="pushButton">
+                 <property name="font">
+                  <font>
+                   <family>Calibri</family>
+                   <pointsize>24</pointsize>
+                  </font>
+                 </property>
                  <property name="text">
                   <string>清空</string>
                  </property>
@@ -295,8 +427,8 @@ color: rgb(0, 0, 0);
             <property name="font">
              <font>
               <family>Calibri</family>
-              <pointsize>14</pointsize>
-              <weight>9</weight>
+              <pointsize>20</pointsize>
+              <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
@@ -310,11 +442,38 @@ color: rgb(0, 0, 0);
             <layout class="QGridLayout" name="gridLayout_4">
              <item row="0" column="0">
               <widget class="QTableView" name="tableView">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Calibri</family>
+                 <pointsize>20</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Box</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Sunken</enum>
+               </property>
+               <property name="midLineWidth">
+                <number>0</number>
+               </property>
                <property name="alternatingRowColors">
                 <bool>true</bool>
                </property>
                <property name="textElideMode">
                 <enum>Qt::ElideNone</enum>
+               </property>
+               <property name="gridStyle">
+                <enum>Qt::SolidLine</enum>
                </property>
                <attribute name="horizontalHeaderCascadingSectionResizes">
                 <bool>true</bool>
@@ -332,27 +491,6 @@ color: rgb(0, 0, 0);
              </item>
              <item row="0" column="1">
               <widget class="QGroupBox" name="groupBox_13">
-               <property name="styleSheet">
-                <string notr="true">QLineEdit,QSpinBox,QDoubleSpinBox{
-width: 150px;
-height: 40px;
-
-}
-QPushButton{
-width:150px;
-height:50px;
- background-color: #004080;
-  color: white;
-  border: none;
- border-radius: 10px;
-}
-QPushButton:hover {
-	background-color: #0080FF;
-}
-QPushButton:pressed {
-	background-color: #0000FF;
-}</string>
-               </property>
                <property name="title">
                 <string/>
                </property>
@@ -361,6 +499,12 @@ QPushButton:pressed {
                  <layout class="QVBoxLayout" name="verticalLayout_8">
                   <item>
                    <widget class="QPushButton" name="pushButton_12">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>删除</string>
                     </property>
@@ -368,6 +512,12 @@ QPushButton:pressed {
                   </item>
                   <item>
                    <widget class="QPushButton" name="pushButton_14">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>上升</string>
                     </property>
@@ -375,6 +525,12 @@ QPushButton:pressed {
                   </item>
                   <item>
                    <widget class="QPushButton" name="pushButton_15">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>下降</string>
                     </property>
@@ -382,8 +538,27 @@ QPushButton:pressed {
                   </item>
                   <item>
                    <widget class="QPushButton" name="pushButton_2">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>加载</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_3">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>停止加载</string>
                     </property>
                    </widget>
                   </item>
@@ -407,10 +582,14 @@ QPushButton:pressed {
       <layout class="QGridLayout" name="gridLayout_10">
        <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="groupBox_11">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
          <property name="styleSheet">
-          <string notr="true">*{
-font: 75 14pt &quot;Calibri&quot;;
-}</string>
+          <string notr="true"/>
          </property>
          <property name="title">
           <string>自动加载</string>
@@ -421,6 +600,12 @@ font: 75 14pt &quot;Calibri&quot;;
          <layout class="QVBoxLayout" name="verticalLayout_10">
           <item>
            <widget class="QGroupBox" name="groupBox_16">
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>20</pointsize>
+             </font>
+            </property>
             <property name="styleSheet">
              <string notr="true"/>
             </property>
@@ -443,20 +628,14 @@ font: 75 14pt &quot;Calibri&quot;;
             <property name="font">
              <font>
               <family>Calibri</family>
-              <pointsize>14</pointsize>
-              <weight>9</weight>
+              <pointsize>20</pointsize>
+              <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">
-QPushButton{
-width:150px;
-height:50px;
-color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);
-}</string>
+             <string notr="true"/>
             </property>
             <property name="title">
              <string>加载负载</string>
@@ -465,21 +644,7 @@ background-color: rgb(255, 255, 255);
              <item row="0" column="1">
               <widget class="QGroupBox" name="groupBox_4">
                <property name="styleSheet">
-                <string notr="true">
-QPushButton{
-width:150px;
-height:50px;
- background-color: #004080;
-  color: white;
-  border: none;
- border-radius: 10px;
-}
-QPushButton:hover {
-	background-color: #0080FF;
-}
-QPushButton:pressed {
-	background-color: #0000FF;
-}</string>
+                <string notr="true"/>
                </property>
                <property name="title">
                 <string/>
@@ -489,6 +654,12 @@ QPushButton:pressed {
                  <layout class="QVBoxLayout" name="verticalLayout_9">
                   <item>
                    <widget class="QPushButton" name="pushButton_16">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string> 选择</string>
                     </property>
@@ -496,6 +667,12 @@ QPushButton:pressed {
                   </item>
                   <item>
                    <widget class="QPushButton" name="pushButton_13">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string> 添加</string>
                     </property>
@@ -503,6 +680,12 @@ QPushButton:pressed {
                   </item>
                   <item>
                    <widget class="QPushButton" name="pushButton_17">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>清除</string>
                     </property>
@@ -510,6 +693,12 @@ QPushButton:pressed {
                   </item>
                   <item>
                    <widget class="QPushButton" name="pushButton_18">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>上升</string>
                     </property>
@@ -517,6 +706,12 @@ QPushButton:pressed {
                   </item>
                   <item>
                    <widget class="QPushButton" name="pushButton_19">
+                    <property name="font">
+                     <font>
+                      <family>Calibri</family>
+                      <pointsize>24</pointsize>
+                     </font>
+                    </property>
                     <property name="text">
                      <string>下降</string>
                     </property>

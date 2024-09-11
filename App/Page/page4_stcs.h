@@ -15,11 +15,8 @@ public:
     explicit Page4_stcs(QWidget *parent = 0);
     ~Page4_stcs();
     init();
-    void dealTime(bool isStart);
 private slots:
-    void on_pushButton_clicked();
 
-    void on_pushButton_2_clicked();
 
 private:
     Ui::Page4_stcs *ui;

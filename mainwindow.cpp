@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 //    this->setWindowFlags(Qt::FramelessWindowHint | Qt::Window);//大屏时解开，无边框代码注释
 //    this->showFullScreen();//大屏时解开，全屏代码注释
+    this->showMaximized();
     ui->treeWidget->setIconSize(QSize(32,32));
 }
 
