@@ -48,7 +48,6 @@ void Page3_wtcs::signalBind()
             this, [=](QAbstractButton *button) {
         for (auto btn : buttonGroup->buttons()) {
             if (btn == button) {
-                qDebug()<<"ssssssssssssssssssss";
                 btn->setStyleSheet("background-color: #41CD52;"); // 被点击的按钮变浅绿色
             } else {
                 btn->setStyleSheet(""); // 其他按钮恢复默认颜色

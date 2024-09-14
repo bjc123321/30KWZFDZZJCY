@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>Page1_fzsz</class>
  <widget class="QWidget" name="Page1_fzsz">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1055</width>
+    <height>766</height>
+   </rect>
+  </property>
   <property name="font">
    <font>
     <family>Calibri</family>
@@ -33,19 +41,19 @@ QTabBar::tab {
 color:white;
 }
 
-QTabBar::tab:hover {
-        color:#B0E0E6;
-		background:white;
-
-}
-
 QTabBar::tab:selected {
 
 		color:#33A1C9;
 		background:white;
 
 }
-</string>
+
+
+QTabBar::tab:hover {
+        color:#B0E0E6;
+		background:white;
+
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_7">
    <item>
