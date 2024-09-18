@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${env:QT_DIR}/5.12.12/mingw73_64/include/**"  //告诉 VSCode 的 C/C++ 插件，在哪些目录中查找头文件（.h、.hpp 文件）
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath":"${env:QT_DIR}/Tools/mingw730_64/bin/g++.exe",   //告诉 VSCode IntelliSense 使用哪个编译器，并且该编译器的路径将用于查找系统头文件和提供代码补全等功能
+            "cStandard": "c11",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}

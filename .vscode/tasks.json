@@ -1,0 +1,138 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            //在当前项目目录创建build文件夹
+            "label": "mkdir", //任务名称
+            "type": "shell", //任务类型，定义任务是被作为进程运行还是在 shell 中作为命令运行。
+            "options": {
+                "cwd": "${workspaceFolder}" //已执行程序或脚本的当前工作目录，设置当前项目文件夹
+            },
+            "command": "mkdir", //命令
+            "args": [ //命令后面跟的参数
+                "-Force",
+                "build"
+            ]
+        },
+        {
+            "label": "qmake-debug",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build" //进入build目录
+            },
+            "command": "qmake", //qmake命令，这里没用完整路径，是因为配置到环境变量了 C:/Qt/5.15.2/mingw81_64/bin/qmake.exe
+            "args": [ //跟的参数是不是很熟悉，就是上面分析出来的Qt Creator执行流程
+                "../${workspaceFolderBasename}.pro", //在build目录上一级哦
+                "-spec",
+                "win32-g++",
+                "\"CONFIG+=debug\"",
+                "\"CONFIG+=console\""
+            ],
+            "dependsOn": [ //这是本条命令依赖的前置条件，就是上面创建build文件夹的task，直接执行本task会自动先调用依赖的task
+                "mkdir" //其实可以手动执行一次，后面不用每次都执行创建目录的操作
+            ]
+        },
+        {
+            "label": "make-debug",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "mingw32-make", //MinGW这个也配置在环境变量了，不用写完整路径了 C:/Qt/Tools/mingw810_64/bin/mingw32-make.exe
+            "args": [
+                "-f",
+                "Makefile.Debug", //-f 选择makefile，这是qmake编译出来的
+                "-j4" //编译用的线程数量(根据自己设备看几线程的)
+            ],
+            "dependsOn": [
+                "qmake-debug"
+            ]
+        },
+        {
+            "label": "run-debug",
+            "type": "process", //运行就不能选择shell执行了，要选择process
+            "options": {
+                "cwd": "${workspaceFolder}/build/debug" //没在.pro配置DESTDIR,会生成到build目录下面对应目录
+            },
+            "command": "${workspaceFolderBasename}.exe", //执行的exe名字，一般当前项目文件夹的名称，自定义可以写其他的
+            "dependsOn": [
+                "make-debug"
+            ]
+        },
+        {
+            "label": "qmake-release",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "qmake",
+            "args": [ //注意release跟debug参数的差异
+                "../${workspaceFolderBasename}.pro",
+                "-spec",
+                "win32-g++",
+                "\"CONFIG+=qtquickcompiler\""
+            ],
+            "dependsOn": [
+                // "mkdir" //不用每次都创建吧
+                 
+            ]
+        },
+        {
+            "label": "make-release",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "mingw32-make",
+            "args": [
+                "-f",
+                "Makefile.Release", //注意release跟debug参数的差异
+                "-j4"   //编译用的线程数量(根据自己设备看几线程的)
+            ],
+            "dependsOn": [
+                "qmake-release"
+            ]
+        },
+        {
+            "label": "run-release",
+            "type": "process",
+            "options": {
+                "cwd": "${workspaceFolder}/build/release"
+            },
+            "command": "${workspaceFolderBasename}.exe",
+            "dependsOn": [
+                "make-release"
+            ]
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "command": "mingw32-make",
+            "args": [
+                "clean"
+            ]
+        },
+        {
+            "label": "Open UI in Qt Designer",
+            "type": "shell",
+            "command": "designer.exe ${file}",
+            "group": {
+              "kind": "build",
+              "isDefault": true
+            },
+            "problemMatcher": [],
+            "presentation": {
+              "echo": true,
+              "reveal": "always",
+              "focus": false,
+              "panel": "shared"
+            }
+        }
+        
+    ]
+}

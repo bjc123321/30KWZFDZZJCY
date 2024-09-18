@@ -79,16 +79,6 @@
        <height>650</height>
       </size>
      </property>
-     <property name="styleSheet">
-      <string notr="true">*{
-
-font-size:30px;
-
-}
-
-
-</string>
-     </property>
      <property name="title">
       <string>设备自检</string>
      </property>
@@ -125,6 +115,9 @@ font-size:30px;
            </property>
            <item>
             <widget class="QPushButton" name="pushButton_4">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="minimumSize">
               <size>
                <width>64</width>
@@ -136,9 +129,6 @@ font-size:30px;
                <width>120</width>
                <height>120</height>
               </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border-image:url(:/res/light1_1.png);</string>
              </property>
              <property name="text">
               <string/>
@@ -154,10 +144,19 @@ font-size:30px;
               </size>
              </property>
              <property name="checkable">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="checked">
               <bool>false</bool>
+             </property>
+             <property name="autoDefault">
+              <bool>false</bool>
+             </property>
+             <property name="default">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -176,6 +175,9 @@ font-size:30px;
            </item>
            <item>
             <widget class="QPushButton" name="pushButton_3">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="minimumSize">
               <size>
                <width>120</width>
@@ -187,9 +189,6 @@ font-size:30px;
                <width>120</width>
                <height>120</height>
               </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border-image:url(:/res/light1_1.png);</string>
              </property>
              <property name="text">
               <string/>
@@ -203,6 +202,21 @@ font-size:30px;
                <width>120</width>
                <height>120</height>
               </size>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+             <property name="autoDefault">
+              <bool>false</bool>
+             </property>
+             <property name="default">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -221,14 +235,14 @@ font-size:30px;
            </item>
            <item>
             <widget class="QPushButton" name="pushButton_5">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
              <property name="maximumSize">
               <size>
                <width>120</width>
                <height>120</height>
               </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">border-image:url(:/res/light1_4.png);</string>
              </property>
              <property name="text">
               <string/>
@@ -242,6 +256,15 @@ font-size:30px;
                <width>120</width>
                <height>120</height>
               </size>
+             </property>
+             <property name="autoDefault">
+              <bool>true</bool>
+             </property>
+             <property name="default">
+              <bool>true</bool>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -412,9 +435,6 @@ QPushButton:pressed {
             <height>64</height>
            </size>
           </property>
-          <property name="styleSheet">
-           <string notr="true">border-image:url(:/res/abnormal.png);</string>
-          </property>
           <property name="text">
            <string/>
           </property>
@@ -427,6 +447,9 @@ QPushButton:pressed {
             <width>64</width>
             <height>64</height>
            </size>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
           </property>
          </widget>
         </item>

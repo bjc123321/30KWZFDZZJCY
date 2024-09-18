@@ -11,6 +11,17 @@ SelfTest::SelfTest(QWidget *parent) :
 
     signalBind();
 
+    // 设置按钮初始图标为灰色（替换成你上传的图片路径）
+            QIcon greyIcon("/res/light1_1.png");  // 灰色图标路径
+            ui->pushButton_3->setIcon(greyIcon);
+            ui->pushButton_3->setIconSize(QSize(120, 120));  // 设置图标大小
+
+            // 设置按钮大小为和图标相同
+            ui->pushButton_3->setFixedSize(120, 120);
+
+            // 设置按钮文本为空
+            ui->pushButton_3->setText("");
+
 }
 
 void SelfTest::signalBind()
@@ -43,13 +54,17 @@ void SelfTest::setFanState(bool isOpen)
         qDebug()<<"风机打开!";
         ui->pushButton_6->hide();
         ui->label_4->hide();
-        ui->pushButton_3->setStyleSheet("border-image:url(:/res/light1_4.png);");
-//        DataCom3::U().setFJKG(true);//待其他功能实现后在解开注释
+        QIcon greenIcon("/res/light1_4.png");  // 绿色图标路径
+        ui->pushButton_3->setIcon(greenIcon);
+//        ui->pushButton_3->setStyleSheet("border-image:url(:/res/light1_4.png);");
+    //    DataCom3::U().setFJKG(true);//待其他功能实现后在解开注释
     }else{
         qDebug()<<"风机未开,请先开风机!";
         ui->pushButton_6->show();
         ui->label_4->show();
-        ui->pushButton_3->setStyleSheet("border-image:url(:/res/light1_1.png);");
+         QIcon greyIcon("/res/light1_1.png");  // 灰色图标路径
+        ui->pushButton_3->setIcon(greyIcon);
+//        ui->pushButton_3->setStyleSheet("border-image:url(:/res/light1_1.png);");
     }
 
 }
