@@ -326,7 +326,7 @@ color:white;
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>8</number>
+       <number>1</number>
       </property>
       <widget class="Page1_fzsz" name="page1_fzsz"/>
       <widget class="Page3_wtcs" name="page3_wtcs"/>

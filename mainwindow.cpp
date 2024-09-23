@@ -8,6 +8,7 @@
 
 #include <QMessageBox>
 #include "App/Page/save.h"
+#include "App/Page/page3_wtcs.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -57,6 +58,7 @@ void MainWindow::initNavTree()
         if(treeMap.contains(text)){
             for(auto tnode : ui->stackedWidget->children()){
                 if(treeMap[text] == tnode->objectName()){
+                    qDebug()<<"此节点为:"<<tnode;
                     ui->stackedWidget->setCurrentWidget(qobject_cast<QWidget*>(tnode));
                     return;
                 }

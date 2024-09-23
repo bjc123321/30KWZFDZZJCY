@@ -7,6 +7,8 @@
 #include "Base/BaseFun/base.h"
 #include "Base/Communication/Com/ModbusRTU/modbusrtu.h"
 #include "Base/BaseFun/TimerPool/timerpool.h"
+
+#include "Base/Communication/serialCom/serialportmanager.h"
 class DevCenter : public QObject
 {
     Q_OBJECT

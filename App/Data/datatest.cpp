@@ -1,4 +1,4 @@
-﻿#include "datatest.h"
+#include "datatest.h"
 
 #include "App/Data/database.h"
 
@@ -80,7 +80,7 @@ void DataTest::init()
 
     if(type == DataTest::Steady){
         qDebug()<<"稳态测试";
-        Steady_Test();
+//        Steady_Test();//2024.9.21注释
 
     }else if(type == DataTest::Fluctuation){
         qDebug()<<"波动测试";
@@ -99,8 +99,8 @@ void DataTest::init()
     //    DataBase::U().ComRTU_wlockPage(0x01,0);
 
 
-    //    DataBase::U().ComRTU_writeData(0x01,0x00,0x00,1,QVector<char>{0x00,0x20});//停止进行中的整定、波动、突加、突减测试等
-    //    DataBase::U().ComRTU_writeData(0x01,0x00,0x00,1,QVector<char>{0x00,0x41});//仪表界面切换
+        DataBase::U().ComRTU_writeData(0x01,0x00,0x00,1,QVector<char>{0x00,0x20});//停止进行中的整定、波动、突加、突减测试等
+//        DataBase::U().ComRTU_writeData(0x01,0x00,0x00,1,QVector<char>{0x00,0x41});//仪表界面切换
 }
 
 void DataTest::resolveData(QByteArray data)

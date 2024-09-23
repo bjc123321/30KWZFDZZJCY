@@ -19,6 +19,9 @@ TARGET = 30KWZFDZZJCY
 TEMPLATE = app
 
 SOURCES += main.cpp\
+    App/Data/dataserialcom.cpp \
+    Base/Communication/serialCom/modbusprotocolparser.cpp \
+    Base/Communication/serialCom/serialportmanager.cpp \
         mainwindow.cpp \
     Base/BaseFun/base.cpp \
     Base/BaseFun/Sql/sql.cpp \
@@ -54,6 +57,7 @@ SOURCES += main.cpp\
     Base/BaseFun/Sql/databasemanager.cpp
 
 HEADERS  += mainwindow.h \
+    App/Data/dataserialcom.h \
     Base/BaseFun/base.h \
     Base/BaseFun/Sql/sql.h \
     Base/BaseFun/ConfigIni/ConfigIni.h \
@@ -62,6 +66,8 @@ HEADERS  += mainwindow.h \
     Base/Communication/Com/ModbusRTU/modbusrtu.h \
     Base/Communication/devcenter.h \
     App/Data/database.h \
+    Base/Communication/serialCom/modbusprotocolparser.h \
+    Base/Communication/serialCom/serialportmanager.h \
     Base/SaveInfo/SaveText/officeopt.h \
     App/Page/page1_fzsz.h \
     App/Page/page3_wtcs.h \

@@ -277,6 +277,14 @@
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
             <widget class="QPushButton" name="pushButton">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>24</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
 width:150px;
@@ -304,6 +312,14 @@ QPushButton:pressed {
            </item>
            <item>
             <widget class="QPushButton" name="pushButton_2">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>24</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
 width:150px;
@@ -328,6 +344,14 @@ QPushButton:pressed {
            </item>
            <item>
             <widget class="QPushButton" name="pushButton_7">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>24</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
 width:150px;

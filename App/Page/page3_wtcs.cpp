@@ -1,7 +1,8 @@
-﻿#include "page3_wtcs.h"
+#include "page3_wtcs.h"
 #include "ui_page3_wtcs.h"
 #include <QDebug>
 
+#include "App/Data/dataserialcom.h"
 Page3_wtcs::Page3_wtcs(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Page3_wtcs)
@@ -18,6 +19,12 @@ Page3_wtcs::Page3_wtcs(QWidget *parent) :
     buttonGroup->addButton(ui->pushButton_3);
     buttonGroup->addButton(ui->pushButton_5);
     buttonGroup->addButton(ui->pushButton_6);
+
+
+    initSteadyUI();
+    initTuningUI();
+
+
     signalBind();
 
 
@@ -27,11 +34,11 @@ void Page3_wtcs::signalBind()
 {
 
     connect(ui->pushButton_2,&QPushButton::clicked,this,[&](){
-        //切换到电压整定页面
+        //切换到电压整定数据页面
         ui->stackedWidget->setCurrentIndex(0);
     });
     connect(ui->pushButton_3,&QPushButton::clicked,this,[&](){
-        //切换到频率整定页面
+        //切换到频率整定数据页面
         ui->stackedWidget->setCurrentIndex(1);
     });
     connect(ui->pushButton_5,&QPushButton::clicked,this,[&](){
@@ -93,12 +100,129 @@ void Page3_wtcs::signalBind()
     });
 
 
+    DataSerialCom &dtSerialCom = DataSerialCom::getInstance();
+    connect(ui->tabWidget, &QTabWidget::currentChanged, &dtSerialCom, &DataSerialCom::onTabChanged);
+
+    //点击电能数据按钮显示电能数据
+    /*
+     * display(电能数据)
+     * connect(button,clicked,dtSerialCom,requestElecticData)请求电能数据函数作为稳态测试页中的独立的功能
+    */
+    connect(&dtSerialCom,&DataSerialCom::updatePage,this,&Page3_wtcs::displayData);
 
 }
 
-void Page3_wtcs::displayData()
+void Page3_wtcs::initSteadyUI()
 {
-    qDebug()<<"文本显示的浮点数为：";
+    //将文本框组放在容器里
+    lineEdits.append(ui->lineEdit_16);
+    lineEdits.append(ui->lineEdit_20);
+    lineEdits.append(ui->lineEdit_24);
+    lineEdits.append(ui->lineEdit_17);
+    lineEdits.append(ui->lineEdit_21);
+    lineEdits.append(ui->lineEdit_25);
+    lineEdits.append(ui->lineEdit_18);
+    lineEdits.append(ui->lineEdit_22);
+    lineEdits.append(ui->lineEdit_26);
+    lineEdits.append(ui->lineEdit_19);
+    lineEdits.append(ui->lineEdit_23);
+    lineEdits.append(ui->lineEdit_27);
+    //电压平均、电流平均、合计总功率、合计总功率因数
+    lineEdits.append(ui->lineEdit_28);
+    lineEdits.append(ui->lineEdit_29);
+    lineEdits.append(ui->lineEdit_30);
+    lineEdits.append(ui->lineEdit_31);
+    //u12、u23、u13和频率
+    lineEdits.append(ui->lineEdit_32);
+    lineEdits.append(ui->lineEdit_33);
+    lineEdits.append(ui->lineEdit_34);
+    lineEdits.append(ui->lineEdit_35);
+
+}
+
+void Page3_wtcs::initTuningUI()
+{
+    //线路电压整定上升范围
+    tuningDataEdits.append(ui->lineEdit_53);
+    tuningDataEdits.append(ui->lineEdit_57);
+    tuningDataEdits.append(ui->lineEdit_61);
+    tuningDataEdits.append(ui->lineEdit_65);
+    //相对电压整定上升范围
+    tuningDataEdits.append(ui->lineEdit_54);
+    tuningDataEdits.append(ui->lineEdit_58);
+    tuningDataEdits.append(ui->lineEdit_62);
+    tuningDataEdits.append(ui->lineEdit_66);
+    //整定电压下降范围
+    tuningDataEdits.append(ui->lineEdit_55);
+    tuningDataEdits.append(ui->lineEdit_59);
+    tuningDataEdits.append(ui->lineEdit_63);
+    tuningDataEdits.append(ui->lineEdit_67);
+    //相对电压整定下降范围
+    tuningDataEdits.append(ui->lineEdit_56);
+    tuningDataEdits.append(ui->lineEdit_60);
+    tuningDataEdits.append(ui->lineEdit_64);
+    tuningDataEdits.append(ui->lineEdit_68);
+}
+
+// 假设这是你查找 QTabWidget 中 QLineEdit 的函数
+void Page3_wtcs::findAllLineEditsInTab(QTabWidget *tabWidget, int tabIndex)
+{
+    // 获取特定 tab 的 widget
+    QWidget *tabPage = tabWidget->widget(tabIndex);
+
+    if (tabPage) {
+        // 查找这个 tab 页中的所有 QLineEdit
+        QList<QLineEdit*> lineEdits = tabPage->findChildren<QLineEdit*>();
+
+        // 输出找到的所有 QLineEdit
+        for (QLineEdit *lineEdit : lineEdits) {
+            qDebug() << "Found QLineEdit with text:" << lineEdit->text();
+            lineEdits.append(lineEdit);
+        }
+    } else {
+        qDebug() << "Tab index" << tabIndex << "does not exist.";
+    }
+}
+
+void Page3_wtcs::displayData(QQueue<QString> strQueue)
+{
+    qDebug()<<"ssssssssssssssssssssssssssssss文本显示的浮点数ssssssssssssssssssssssssssssssss";
+
+    qDebug()<<"个数：：：："<<strQueue.length()<<"当前tab页索引为"<<ui->tabWidget->currentIndex();
+
+    if(ui->tabWidget->currentIndex() == 0){
+        //显示稳态数据页面
+        for(int i = 0; i < lineEdits.length(); i++){
+
+            if(!strQueue.isEmpty()){
+                lineEdits.at(i)->setText(strQueue.dequeue());
+            }else{
+                qDebug()<<"稳态数据个数＜文本框个数";
+            }
+
+
+        }
+    }else if(ui->tabWidget->currentIndex() == 1){
+        //显示整定数据页面
+        for(int i = 0; i < tuningDataEdits.length(); i++){
+
+            if(!strQueue.isEmpty()){
+                tuningDataEdits.at(i)->setText(strQueue.dequeue());
+            }else{
+                qDebug()<<"整定数据个数＜文本框个数";
+            }
+
+
+        }
+    }
+
+
+//    while(!strQueue.isEmpty()){
+
+//        QString temp = strQueue.dequeue();
+//         qDebug()<<"**********"<<temp;
+//    }
+
 }
 
 

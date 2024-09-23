@@ -19,6 +19,15 @@ DevCenter::DevCenter(QObject *parent) : QObject(parent)
                  QSerialPort::NoFlowControl);
 
     comRtu2.port->open(QIODevice::ReadWrite);
+
+
+
+
+    SerialPortManager &manager = SerialPortManager::getInstance();
+    manager.addSerialPort("COM4");
+    manager.configurePort("COM4", QSerialPort::Baud9600, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QSerialPort::NoFlowControl);
+    manager.openPort("COM4", QSerialPort::ReadWrite);
+
 }
 
 

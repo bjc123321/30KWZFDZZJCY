@@ -644,7 +644,7 @@ border:none;
            </font>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <property name="font">
@@ -675,6 +675,12 @@ border:none;
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="3" column="3">
@@ -692,6 +698,12 @@ border:none;
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -729,6 +741,12 @@ border:none;
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="1" column="3">
@@ -746,6 +764,12 @@ border:none;
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -782,6 +806,12 @@ border:none;
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -855,6 +885,12 @@ border:none;
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="0" column="0">
@@ -896,6 +932,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="5" column="2">
@@ -931,6 +973,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -968,6 +1016,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="4" column="0">
@@ -1003,6 +1057,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1040,6 +1100,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="6" column="3">
@@ -1058,6 +1124,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="1" column="2">
@@ -1075,6 +1147,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1130,6 +1208,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="2" column="3">
@@ -1147,6 +1231,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1166,6 +1256,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="2" column="4">
@@ -1183,6 +1279,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1220,6 +1322,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="4" column="2">
@@ -1238,6 +1346,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="6" column="4">
@@ -1255,6 +1369,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1444,6 +1564,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="1" column="2">
@@ -1461,6 +1587,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1480,6 +1612,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="1" column="4">
@@ -1497,6 +1635,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1516,6 +1660,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="2" column="2">
@@ -1533,6 +1683,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1552,6 +1708,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="2" column="4">
@@ -1569,6 +1731,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1588,6 +1756,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="3" column="2">
@@ -1605,6 +1779,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1624,6 +1804,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="3" column="4">
@@ -1641,6 +1827,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1660,6 +1852,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="4" column="2">
@@ -1677,6 +1875,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -1696,6 +1900,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="4" column="4">
@@ -1713,6 +1923,12 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>

@@ -21,7 +21,6 @@ Page1_fzsz::Page1_fzsz(QWidget *parent) :
     });
     connect(ui->horizontalSlider_2, &QSlider::valueChanged,this,[this](int value) {
        ui->lineEdit->setText(QString::number(value*0.1)); // 将滑动条的值转换为字符串并显示在文本框中
-
     });
 
     // 创建正则表达式，匹配1到3000之间的数字
