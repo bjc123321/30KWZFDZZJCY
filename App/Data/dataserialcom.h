@@ -17,6 +17,8 @@ public:
     }
 
     void onTabChanged(int index);
+    int getTabIndex() const {return tabIndex;}
+
 
 public:
     // 控制数据命令队列
@@ -33,10 +35,14 @@ public:
 
 
 
+private :
+
+    int tabIndex = 0;
 
 
 signals:
-    void updatePage(QQueue<QString> dataStrQueue);
+    void updatePage(QQueue<QString> dataStrQueue,int index);
+
 
 private slots:
 
@@ -44,6 +50,7 @@ private slots:
 
 public slots:
 
+    void startSuddIncreaseSlot();
 
 
 

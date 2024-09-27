@@ -27,14 +27,27 @@ public:
     ~Page3_wtcs();
 
     void signalBind();
-    void displayData(QQueue<QString> dataStrQueue);//界面上的显示
+    void displayData(QQueue<QString> dataStrQueue,int index);//显示某页数据
     QButtonGroup *buttonGroup = nullptr;
 
     QVector<QLineEdit *> lineEdits;
 
     QVector<QLineEdit *> tuningDataEdits;
 
+    float unLoad_VolMax = 0.000;
+    float unLoad_VolMin = 230.000;
+    float load_VolMax = 0.000;
+    float load_VolMin = 230.000;
+
+    float diffValue = 0.0;
+
+    float unLoad_FluMax = 0.00;
+    float unLoad_FluMin = 50.00;
+    float load_FluMax = 0.00;
+    float load_FluMin = 50.00;
+
 signals:
+
 
 
 private:
@@ -49,8 +62,12 @@ private:
     // 假设这是你查找 QTabWidget 中 QLineEdit 的函数
     void findAllLineEditsInTab(QTabWidget *tabWidget, int tabIndex);
 
-public slots:
+    //计算稳态调整率和波动率相关数据
+    void calculateSteadyData();
 
+
+
+public slots:
 
 
 

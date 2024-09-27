@@ -1,6 +1,5 @@
 #include "dataserialcom.h"
 
-
 #include "Base/Communication/serialCom/serialportmanager.h"
 #include "Base/Communication/serialCom/modbusprotocolparser.h"
 DataSerialCom::DataSerialCom(QObject *parent) : QObject(parent)
@@ -18,9 +17,10 @@ void DataSerialCom::onTabChanged(int index)
 {
     qDebug()<<"切换到了"<<index<<"页";
 
+    tabIndex = index;
     QStringList requestFramList;
     if(index == 0){
-        qDebug()<<"稳态数据：读取...";
+        qDebug()<<"稳态数据：读取...0";
 
         /*
          * 注意：对于只读取仪表示数前，要先锁定当前数据所在页面0，之后切换仪表显示页，再执行请求帧
@@ -40,7 +40,7 @@ void DataSerialCom::onTabChanged(int index)
 
 
     }else if(index == 1){
-        qDebug()<<"进入整定测试页面,默认读取整定电压数据!";
+        qDebug()<<"进入整定测试页面,读取...1";
         requestFramList = QStringList({"011000000001020080","011000000001020045",
                                        "010313da0002","010313dc0002","010313de0002","010313e00002",
                                        "010313e20002","010313e40002","010313e60002","010313e80002",
@@ -66,10 +66,49 @@ void DataSerialCom::onTabChanged(int index)
     if (!isSerialControlBusy) {
         qDebug()<<"如果串口不忙，立即发送";
         sendNextControlData();
+    }else{
+
+         // 弹出一个提示框，告知用户串口正在发送数据请等待...
+        qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
+
     }
 
     requestFramList.clear();
 }
+
+void DataSerialCom::startSuddIncreaseSlot()
+{
+    qDebug()<<"开始突加测试";
+
+    //获取曲线的Y坐标值，034c之后每隔2个寄存器可以获取一个浮点数一直到098c
+    QStringList requestFramList ={"011000000001020081",
+                                  "0103034c0002","0103034e0002","010303500002",
+                                  "010303520002","010303540002","010303560002"
+                                  };
+    for(int i = 0;i<requestFramList.length();i++){
+
+        QString hexString = requestFramList.at(i);  // 获取 QString
+        QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
+        QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
+        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
+    }
+
+    // 如果串口不忙，立即发送
+    if (!isSerialControlBusy) {
+        qDebug()<<"如果串口不忙，立即发送";
+        sendNextControlData();
+    }else{
+
+         // 弹出一个提示框，告知用户串口正在发送数据请等待...
+        qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
+
+    }
+
+    requestFramList.clear();
+}
+
+
 
 void DataSerialCom::sendNextControlData()
 {
@@ -84,9 +123,10 @@ void DataSerialCom::sendNextControlData()
         }
     }else{
         qDebug()<<"队列中数据全部发送完毕!!";
-//        dataStrQueue.clear();
-        emit updatePage(dataStrQueue);
+
+        emit updatePage(dataStrQueue,getTabIndex());
         dataStrQueue.clear();
+
     }
 }
 
@@ -119,7 +159,7 @@ void DataSerialCom::analyzingData(const QByteArray &data)
 
             QByteArray dataField = parser.getDataField();
             qDebug()<<"成功analyzingData返回响应帧的数据域:"<<dataField.toHex();
-            QString dataStr = QString::number(parser.floatData(dataField),'f',3);
+            QString dataStr = QString::number(parser.toFloatData(dataField),'f',3);
             qDebug()<<"dataStr"<<dataStr;
 
 

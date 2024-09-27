@@ -41,14 +41,16 @@ void Page3_wtcs::signalBind()
         //切换到频率整定数据页面
         ui->stackedWidget->setCurrentIndex(1);
     });
-    connect(ui->pushButton_5,&QPushButton::clicked,this,[&](){
+    connect(ui->pushButton_6,&QPushButton::clicked,this,[&](){
         //切换到电压曲线页面
         ui->stackedWidget->setCurrentIndex(2);
+
     });
-    connect(ui->pushButton_6,&QPushButton::clicked,this,[&](){
+    connect(ui->pushButton_5,&QPushButton::clicked,this,[&](){
         //切换到频率曲线页面
         ui->stackedWidget->setCurrentIndex(3);
     });
+
 
     // 信号槽连接
     connect(buttonGroup, static_cast<void(QButtonGroup::*)(QAbstractButton*)>(&QButtonGroup::buttonClicked),
@@ -97,6 +99,13 @@ void Page3_wtcs::signalBind()
         //设置界面上控件的显示
         QString floatStr = QString::number(reponseData.value, 'f', 2);
         qDebug()<<"返回的数据:"<<reponseData.data.toHex()<<"文本显示的浮点数为："<<floatStr;
+    });
+
+    connect(ui->pushButton_9,&QPushButton::clicked,this,[this](){
+
+        qDebug()<<"计算当前负载的数据";
+        calculateSteadyData();
+
     });
 
 
@@ -184,13 +193,13 @@ void Page3_wtcs::findAllLineEditsInTab(QTabWidget *tabWidget, int tabIndex)
     }
 }
 
-void Page3_wtcs::displayData(QQueue<QString> strQueue)
+void Page3_wtcs::displayData(QQueue<QString> strQueue,int index)
 {
     qDebug()<<"ssssssssssssssssssssssssssssss文本显示的浮点数ssssssssssssssssssssssssssssssss";
 
     qDebug()<<"个数：：：："<<strQueue.length()<<"当前tab页索引为"<<ui->tabWidget->currentIndex();
 
-    if(ui->tabWidget->currentIndex() == 0){
+    if(index == 0){
         //显示稳态数据页面
         for(int i = 0; i < lineEdits.length(); i++){
 
@@ -202,7 +211,8 @@ void Page3_wtcs::displayData(QQueue<QString> strQueue)
 
 
         }
-    }else if(ui->tabWidget->currentIndex() == 1){
+
+    }else if(index ==1){
         //显示整定数据页面
         for(int i = 0; i < tuningDataEdits.length(); i++){
 
@@ -216,14 +226,64 @@ void Page3_wtcs::displayData(QQueue<QString> strQueue)
         }
     }
 
+    unLoad_VolMax = std::max(unLoad_VolMax, ui->lineEdit_28->text().toFloat());
+    unLoad_VolMin = std::min(unLoad_VolMin, ui->lineEdit_28->text().toFloat());
+    load_VolMax = std::max(load_VolMax, ui->lineEdit_28->text().toFloat());
+    load_VolMin = std::max(load_VolMin, ui->lineEdit_28->text().toFloat());
 
-//    while(!strQueue.isEmpty()){
 
-//        QString temp = strQueue.dequeue();
-//         qDebug()<<"**********"<<temp;
-//    }
+    diffValue = std::max(diffValue,ui->lineEdit_35->text().toFloat());
+
+    unLoad_FluMax = std::max(unLoad_FluMax,ui->lineEdit_35->text().toFloat());
+    unLoad_FluMin = std::max(unLoad_FluMin,ui->lineEdit_35->text().toFloat());
+    load_FluMax = std::max(load_FluMax,ui->lineEdit_35->text().toFloat());
+    load_FluMin = std::max(load_FluMin,ui->lineEdit_35->text().toFloat());
 
 }
+
+
+void Page3_wtcs::calculateSteadyData()
+{
+    //计算稳态电压调整率，若3相电就取平均值
+
+    float steadyVolreg = (ui->lineEdit_28->text().toFloat() - 220.0)/220.0;
+    qDebug()<<"稳态电压调整率:"<<steadyVolreg<<"%";
+    ui->lineEdit_36->setText(QString::number(steadyVolreg,'f',3));
+
+    //计算稳态电压波动率
+    if(load_VolMax + load_VolMin != 0){
+        float volatility = (unLoad_VolMax - unLoad_VolMin)/(load_VolMax + load_VolMin);
+        qDebug()<<"稳态电压波动率:"<<volatility<<"%";
+        ui->lineEdit_37->setText(QString::number(volatility,'f',3));
+    }else{
+        qDebug()<<"分母为0";
+        ui->lineEdit_37->setText(QString::number(0,'f',3));
+    }
+
+    //计算稳态频率调整率
+
+    float steadyFluc = (diffValue-50.00)/50.00;
+    ui->lineEdit_38->setText(QString::number(steadyFluc,'f',2));
+
+    //计算稳态频率波动率
+    if(load_FluMax + load_FluMin != 0){
+
+        float fluctility = (unLoad_FluMax - unLoad_FluMin)/(load_VolMax + load_VolMin);
+        qDebug()<<"unLoad_FluMax"<<unLoad_FluMax;
+        qDebug()<<"unLoad_FluMin"<<unLoad_FluMin;
+        qDebug()<<"load_FluMax"<<load_FluMax;
+        qDebug()<<"load_FluMax"<<load_FluMin;
+        qDebug()<<"稳态频率波动率:"<<fluctility<<"%";
+        ui->lineEdit_39->setText(QString::number(fluctility,'f',2));
+    }else{
+        qDebug()<<"分母为0";
+        ui->lineEdit_39->setText(QString::number(0,'f',2));
+    }
+
+
+}
+
+
 
 
 

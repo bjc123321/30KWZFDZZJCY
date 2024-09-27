@@ -40,8 +40,11 @@ public:
     // 获取解析后的数据内容
     QByteArray getDataField() const { return dataField; }
 
-    //解析16进制为浮点数
-    float floatData(QByteArray orgData);
+    //解析16进制数据域为浮点数
+    float toFloatData(QByteArray orgData);
+
+    //解析16进制数据域为浮点数组
+    float toFloatArrayData(const QByteArray &orgArrData);
 
 private:
 

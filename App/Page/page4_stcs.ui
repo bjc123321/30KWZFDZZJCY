@@ -352,13 +352,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -373,13 +373,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -394,13 +394,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -415,13 +415,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -436,13 +436,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -457,13 +457,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -478,13 +478,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -517,13 +517,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -538,13 +538,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -559,13 +559,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -634,13 +634,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -655,13 +655,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -676,13 +676,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -733,13 +733,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -772,13 +772,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -796,13 +796,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -893,13 +893,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -914,13 +914,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -935,13 +935,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -956,13 +956,13 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
-                       <pointsize>24</pointsize>
+                       <pointsize>20</pointsize>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
@@ -975,11 +975,335 @@ QPushButton:pressed {
                   </layout>
                  </item>
                  <item row="2" column="0">
+                  <layout class="QGridLayout" name="gridLayout_13">
+                   <item row="1" column="1">
+                    <widget class="QLineEdit" name="lineEdit_53">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QLineEdit" name="lineEdit_58">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_42">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>负载状况(%)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="2">
+                    <widget class="QLineEdit" name="lineEdit_60">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_47">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>频率稳定时间(S)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QLineEdit" name="lineEdit_55">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_46">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>瞬态电压调整率δUs(%)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLineEdit" name="lineEdit_57">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QLineEdit" name="lineEdit_59">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_45">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>瞬态频率调整率δfs(%)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QLineEdit" name="lineEdit_54">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_44">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>0-&gt;100(2)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLabel" name="label_43">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>0-&gt;100(1)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="2">
+                    <widget class="QLineEdit" name="lineEdit_56">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_48">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>电压稳定时间(S)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLabel" name="label_49">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>0-&gt;100(3)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QLineEdit" name="lineEdit_61">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QLineEdit" name="lineEdit_62">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="3">
+                    <widget class="QLineEdit" name="lineEdit_63">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="3">
+                    <widget class="QLineEdit" name="lineEdit_64">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="3" column="0">
                   <widget class="QPlainTextEdit" name="plainTextEdit">
                    <property name="font">
                     <font>
                      <family>Calibri</family>
-                     <pointsize>20</pointsize>
+                     <pointsize>14</pointsize>
                     </font>
                    </property>
                    <property name="frameShadow">
@@ -1361,7 +1685,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1382,7 +1706,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1403,7 +1727,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1424,7 +1748,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1445,7 +1769,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1466,7 +1790,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1487,7 +1811,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1526,7 +1850,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1547,7 +1871,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1568,7 +1892,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1643,7 +1967,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1664,7 +1988,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1685,7 +2009,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1742,7 +2066,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1781,7 +2105,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1805,7 +2129,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1902,7 +2226,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1923,7 +2247,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1944,7 +2268,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1965,7 +2289,7 @@ QPushButton:pressed {
                      <property name="minimumSize">
                       <size>
                        <width>150</width>
-                       <height>55</height>
+                       <height>35</height>
                       </size>
                      </property>
                      <property name="font">
@@ -1984,6 +2308,330 @@ QPushButton:pressed {
                   </layout>
                  </item>
                  <item row="2" column="0">
+                  <layout class="QGridLayout" name="gridLayout_14">
+                   <item row="1" column="1">
+                    <widget class="QLineEdit" name="lineEdit_65">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QLineEdit" name="lineEdit_66">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_50">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>负载状况(%)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="2">
+                    <widget class="QLineEdit" name="lineEdit_67">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_51">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>频率稳定时间(S)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QLineEdit" name="lineEdit_68">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_52">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>瞬态电压调整率δUs(%)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLineEdit" name="lineEdit_69">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QLineEdit" name="lineEdit_70">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_53">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>瞬态频率调整率δfs(%)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QLineEdit" name="lineEdit_71">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_54">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>100-&gt;0(2)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLabel" name="label_55">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>100-&gt;0(1)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="2">
+                    <widget class="QLineEdit" name="lineEdit_72">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_56">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>电压稳定时间(S)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLabel" name="label_57">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>20</pointsize>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>100-&gt;0(3)</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QLineEdit" name="lineEdit_73">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QLineEdit" name="lineEdit_74">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="3">
+                    <widget class="QLineEdit" name="lineEdit_75">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="3">
+                    <widget class="QLineEdit" name="lineEdit_76">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="3" column="0">
                   <widget class="QPlainTextEdit" name="plainTextEdit_2">
                    <property name="font">
                     <font>
