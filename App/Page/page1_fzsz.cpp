@@ -134,11 +134,12 @@ void Page1_fzsz::addRow()
             seeded = true;
         }
 
-        // 生成模拟数据
-        int percentage = rand() % 101;  // 生成0到100之间的随机整数（模拟百分比）
-        double powerFactor = static_cast<double>(rand() % 101) / 100.0;  // 生成0.0到1.0之间的随机小数（模拟功率因数）
-        int duration = rand() % 100 + 1;  // 生成1到100之间的随机整数（模拟持续时间）
-
+        // 获取文本框中的负载百分比
+        int percentage = ui->lineEdit_2->text().toInt();
+        // 获取文本框中的功率因数
+        double powerFactor = ui->lineEdit->text().toDouble();
+        // 获取文本框中的持续时间
+        int duration = ui->lineEdit_4->text().toInt();
 
         // 调用DatabaseManager::getInstance("sql.db")的addRow方法插入新行
         if (!DatabaseManager::getInstance("sql.db").addRow(percentage, powerFactor, duration)) {

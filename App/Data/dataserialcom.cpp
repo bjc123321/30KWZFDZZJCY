@@ -18,6 +18,11 @@ void DataSerialCom::onTabChanged(int index)
     qDebug()<<"切换到了"<<index<<"页";
 
     tabIndex = index;
+
+    if(!SerialPortManager::getInstance().openPort("COM4", QSerialPort::ReadWrite)){
+        return ;
+    }
+
     QStringList requestFramList;
     if(index == 0){
         qDebug()<<"稳态数据：读取...0";

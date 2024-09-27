@@ -18,18 +18,38 @@ SerialPortManager::~SerialPortManager()
 
 bool SerialPortManager::addSerialPort(const QString &portName)
 {
-    if (serialPorts.contains(portName)){
-        qDebug()<<"串口已经存在";
-        return false;  // 端口已经存在
-    }
+    // 检查串口是否存在
+        QList<QSerialPortInfo> ports = QSerialPortInfo::availablePorts();
+        bool portExists = false;
 
-    QSerialPort *serialPort = new QSerialPort(this);
-    serialPort->setPortName(portName);
+        for (const QSerialPortInfo &port : ports) {
+            if (port.portName() == portName) {
+                portExists = true;
+                break;
+            }
+        }
 
-    connect(serialPort, &QSerialPort::readyRead, this, &SerialPortManager::handleReadyRead);
+        if (!portExists) {
+            qDebug() << "串口不存在：" << portName;
+            return false;  // 端口不存在
+        }
 
-    serialPorts.insert(portName, serialPort);
-    return true;
+        if (serialPorts.contains(portName)) {
+            qDebug() << "串口已经存在：" << portName;
+            return false;  // 端口已经存在
+        }
+
+        QSerialPort *serialPort = new QSerialPort(this);
+        serialPort->setPortName(portName);
+
+        // 连接信号
+        connect(serialPort, &QSerialPort::readyRead, this, &SerialPortManager::handleReadyRead);
+        connect(serialPort, &QSerialPort::errorOccurred, this, &SerialPortManager::handleError);
+
+        serialPorts.insert(portName, serialPort);
+        qDebug() << "串口已成功添加：" << portName;
+
+        return true;
 }
 
 bool SerialPortManager::removeSerialPort(const QString &portName)
@@ -66,7 +86,7 @@ bool SerialPortManager::openPort(const QString &portName, QSerialPort::OpenMode 
         return serialPort->open(mode);
     }
 
-    return false;  // 已经打开
+    return true;  // 已经打开
 }
 
 void SerialPortManager::closePort(const QString &portName)
@@ -140,6 +160,24 @@ void SerialPortManager::handleReadyRead()
             emit dataReceived(serialPort->portName(), data);
         }
 
+    }
+}
+
+void SerialPortManager::handleError(QSerialPort::SerialPortError error)
+{
+
+    QSerialPort *serialPort = qobject_cast<QSerialPort *>(sender());
+    if (error == QSerialPort::NoError) {
+        // 设备意外拔出，触发了资源错误
+        qDebug()<<"No problem √";
+
+    }else{
+        //处理其他错误
+        if (serialPort->isOpen()) {
+            serialPort->close();
+            qDebug() << "Serial port closed due to disconnection.";
+        }
+        emit errorOccurred("Permission error while accessing the serial port.");
     }
 }
 
