@@ -27,7 +27,7 @@ public:
     ~Page3_wtcs();
 
     void signalBind();
-    void displayData(QQueue<QString> dataStrQueue,int index);//显示某页数据
+    void displaySteadyData(QQueue<QString> dataStrQueuex);//显示某页数据
     QButtonGroup *buttonGroup = nullptr;
 
     QVector<QLineEdit *> lineEdits;
@@ -45,6 +45,8 @@ public:
     float unLoad_FluMin = 50.00;
     float load_FluMax = 0.00;
     float load_FluMin = 50.00;
+
+
 
 signals:
 

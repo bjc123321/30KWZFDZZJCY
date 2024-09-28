@@ -2,7 +2,7 @@
 #define DATASERIALCOM_H
 
 #include <QObject>
-
+#include <QTimer>
 
 class DataSerialCom : public QObject
 {
@@ -16,8 +16,16 @@ public:
         return instance;
     }
 
+    enum TEST_TYPE{
+        STEADY = 0,     //稳态测试
+        TUNING,          //整定测试
+        SUDD_LOAD,      //突加测试
+        SUDD_UNLOAD    //突卸测试
+
+    };
+
     void onTabChanged(int index);
-    int getTabIndex() const {return tabIndex;}
+
 
 
 public:
@@ -33,16 +41,26 @@ public:
     //解析返回的缓存帧中的数据域
     void analyzingData(const QByteArray &data);
 
+    QTimer *getSuddLoadTimer() { return suddLoadTimer; }
+
+    void requestMessage();
+
+    int type = TEST_TYPE::STEADY;
 
 
 private :
 
-    int tabIndex = 0;
+
+    //请求数据的timer每隔100ms发出请求消息
+    QTimer *suddLoadTimer = nullptr;
+
 
 
 signals:
-    void updatePage(QQueue<QString> dataStrQueue,int index);
 
+    void updateSteadyPageSignal(QQueue<QString> dataStrQueue);
+
+    void updateSuddLoadPageSignal(QQueue<QString> dataStrQueue);
 
 private slots:
 
@@ -52,6 +70,7 @@ public slots:
 
     void startSuddIncreaseSlot();
 
+    void stopSuddLoadSlot();
 
 
 

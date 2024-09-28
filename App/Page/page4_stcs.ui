@@ -320,7 +320,7 @@ QPushButton:pressed {
                 </font>
                </property>
                <property name="currentIndex">
-                <number>0</number>
+                <number>1</number>
                </property>
                <widget class="QWidget" name="tab">
                 <attribute name="title">
@@ -1350,13 +1350,13 @@ QPushButton:pressed {
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_8">
                     <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_6"/>
+                     <layout class="QHBoxLayout" name="horizontalLayout_2"/>
                     </item>
                    </layout>
                   </widget>
                  </item>
                  <item>
-                  <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0" columnstretch="0,0,0,0,0,0,0" rowminimumheight="0,0">
+                  <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0" columnstretch="0,0,0,0,0,0,0">
                    <property name="leftMargin">
                     <number>0</number>
                    </property>
@@ -1369,8 +1369,14 @@ QPushButton:pressed {
                    <property name="spacing">
                     <number>10</number>
                    </property>
-                   <item row="0" column="6">
-                    <widget class="QLabel" name="label_19">
+                   <item row="1" column="5">
+                    <widget class="QLineEdit" name="lineEdit_26">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>55</height>
+                      </size>
+                     </property>
                      <property name="font">
                       <font>
                        <family>Calibri</family>
@@ -1380,22 +1386,7 @@ QPushButton:pressed {
                       </font>
                      </property>
                      <property name="text">
-                      <string>Hz</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_17">
-                     <property name="font">
-                      <font>
-                       <family>Calibri</family>
-                       <pointsize>24</pointsize>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>V</string>
+                      <string>49.99</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -1450,6 +1441,39 @@ QPushButton:pressed {
                      </property>
                     </widget>
                    </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_20">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>24</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Min:</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="6">
+                    <widget class="QLabel" name="label_23">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>24</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Hz</string>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="0" column="1">
                     <widget class="QLineEdit" name="lineEdit_21">
                      <property name="minimumSize">
@@ -1474,8 +1498,65 @@ QPushButton:pressed {
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="4">
-                    <widget class="QLabel" name="label_18">
+                   <item row="1" column="1">
+                    <widget class="QLineEdit" name="lineEdit_24">
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>55</height>
+                      </size>
+                     </property>
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>24</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>197.1</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="6">
+                    <widget class="QLabel" name="label_19">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>24</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>Hz</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_17">
+                     <property name="font">
+                      <font>
+                       <family>Calibri</family>
+                       <pointsize>24</pointsize>
+                       <weight>75</weight>
+                       <bold>true</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>V</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="4">
+                    <widget class="QLabel" name="label_22">
                      <property name="font">
                       <font>
                        <family>Calibri</family>
@@ -1504,48 +1585,6 @@ QPushButton:pressed {
                      </property>
                      <property name="text">
                       <string>Max:</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="label_20">
-                     <property name="font">
-                      <font>
-                       <family>Calibri</family>
-                       <pointsize>24</pointsize>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>Min:</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="QLineEdit" name="lineEdit_24">
-                     <property name="minimumSize">
-                      <size>
-                       <width>150</width>
-                       <height>55</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <family>Calibri</family>
-                       <pointsize>24</pointsize>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>197.1</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -1594,8 +1633,8 @@ QPushButton:pressed {
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="4">
-                    <widget class="QLabel" name="label_22">
+                   <item row="0" column="4">
+                    <widget class="QLabel" name="label_18">
                      <property name="font">
                       <font>
                        <family>Calibri</family>
@@ -1609,45 +1648,6 @@ QPushButton:pressed {
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="5">
-                    <widget class="QLineEdit" name="lineEdit_26">
-                     <property name="minimumSize">
-                      <size>
-                       <width>150</width>
-                       <height>55</height>
-                      </size>
-                     </property>
-                     <property name="font">
-                      <font>
-                       <family>Calibri</family>
-                       <pointsize>24</pointsize>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>49.99</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="6">
-                    <widget class="QLabel" name="label_23">
-                     <property name="font">
-                      <font>
-                       <family>Calibri</family>
-                       <pointsize>24</pointsize>
-                       <weight>75</weight>
-                       <bold>true</bold>
-                      </font>
-                     </property>
-                     <property name="text">
-                      <string>Hz</string>
                      </property>
                     </widget>
                    </item>

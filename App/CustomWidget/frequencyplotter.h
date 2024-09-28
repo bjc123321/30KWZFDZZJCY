@@ -21,14 +21,15 @@ public:
 
 private slots:
     void updatePlot(double time, double y1, double y2, double y3);
-    void on_checkBox_stateChanged(int state);
+
+    void showCurve(int index, bool show);
 
 private:
     QCustomPlot *customPlot;
     double frequency;
     QVector<double> timeData, y1Data, y2Data, y3Data;
     QCheckBox *checkBox1, *checkBox2, *checkBox3;
-    DataProcessor *dataProcessor;
+
 };
 
 #endif // FREQUENCYPLOTTER_H

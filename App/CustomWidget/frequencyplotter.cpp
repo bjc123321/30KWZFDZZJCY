@@ -41,37 +41,39 @@ FrequencyPlotter::FrequencyPlotter(QWidget *parent)
     checkBox2->setChecked(true);
     checkBox3->setChecked(true);
 
-    connect(checkBox1, &QCheckBox::stateChanged, this, &FrequencyPlotter::on_checkBox_stateChanged);
-    connect(checkBox2, &QCheckBox::stateChanged, this, &FrequencyPlotter::on_checkBox_stateChanged);
-    connect(checkBox3, &QCheckBox::stateChanged, this, &FrequencyPlotter::on_checkBox_stateChanged);
+    connect(checkBox1, &QCheckBox::stateChanged, this, [this](bool checked) { showCurve(0, checked); });
+    connect(checkBox2, &QCheckBox::stateChanged, this, [this](bool checked) { showCurve(1, checked); });
+    connect(checkBox3, &QCheckBox::stateChanged, this, [this](bool checked) { showCurve(2, checked); });
 
     // 在主窗口布局中添加复选框
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(customPlot);
     layout->addWidget(checkBox1);
     layout->addWidget(checkBox2);
     layout->addWidget(checkBox3);
+    layout->addWidget(customPlot);
     QWidget *widget = new QWidget();
     widget->setLayout(layout);
     setCentralWidget(widget);
 
     // 初始化数据处理器
-    dataProcessor = new DataProcessor(this);
-    connect(dataProcessor, &DataProcessor::newData, this, &FrequencyPlotter::updatePlot);
 
+    DataProcessor &dtProcessor = DataProcessor::getInstance();
+    //后期要区分，updatePlot函数不可以更新同一个波形类
+    connect(&dtProcessor, &DataProcessor::newData, this, &FrequencyPlotter::updatePlot);
+    connect(&dtProcessor, &DataProcessor::drawSignal, this, &FrequencyPlotter::updatePlot);
 
 }
 
 void FrequencyPlotter::startTuningFreqTest()
 {
     qDebug()<<"开始整定频率波形";
-    dataProcessor->startProcessing();
+    DataProcessor::getInstance().startProcessing();
 }
 
 void FrequencyPlotter::stopTuningFreqTest()
 {
     qDebug()<<"停止整定频率波形";
-    dataProcessor->stopProcessing();
+    DataProcessor::getInstance().stopProcessing();
 }
 
 void FrequencyPlotter::updatePlot(double time, double y1, double y2, double y3)
@@ -107,9 +109,10 @@ void FrequencyPlotter::updatePlot(double time, double y1, double y2, double y3)
     customPlot->replot();
 }
 
-void FrequencyPlotter::on_checkBox_stateChanged(int state)
+
+void FrequencyPlotter::showCurve(int index, bool show)
 {
-    Q_UNUSED(state);
+    customPlot->graph(index)->setVisible(show);
     customPlot->replot();
 }
 

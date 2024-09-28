@@ -8,23 +8,28 @@ DataSerialCom::DataSerialCom(QObject *parent) : QObject(parent)
     SerialPortManager &serialManager = SerialPortManager::getInstance();
     //绑定onDataReceived槽,即当串口接收到数据后台处理
     connect(&serialManager, &SerialPortManager::dataReceived, this, &DataSerialCom::onDataReceived);
+    suddLoadTimer = new QTimer(this);
+    connect(suddLoadTimer,&QTimer::timeout,this,[this](){
+
+        requestMessage();
+    });
 
 
 }
 
-
+//稳态数据更新页面
 void DataSerialCom::onTabChanged(int index)
 {
     qDebug()<<"切换到了"<<index<<"页";
 
-    tabIndex = index;
+    type = index;
 
     if(!SerialPortManager::getInstance().openPort("COM4", QSerialPort::ReadWrite)){
         return ;
     }
 
     QStringList requestFramList;
-    if(index == 0){
+    if(type == TEST_TYPE::STEADY){
         qDebug()<<"稳态数据：读取...0";
 
         /*
@@ -44,7 +49,7 @@ void DataSerialCom::onTabChanged(int index)
 
 
 
-    }else if(index == 1){
+    }else if(type == TEST_TYPE::TUNING){
         qDebug()<<"进入整定测试页面,读取...1";
         requestFramList = QStringList({"011000000001020080","011000000001020045",
                                        "010313da0002","010313dc0002","010313de0002","010313e00002",
@@ -81,14 +86,14 @@ void DataSerialCom::onTabChanged(int index)
     requestFramList.clear();
 }
 
-void DataSerialCom::startSuddIncreaseSlot()
+void DataSerialCom::requestMessage()
 {
-    qDebug()<<"开始突加测试";
+    qDebug()<<"突加请求测试";
 
     //获取曲线的Y坐标值，034c之后每隔2个寄存器可以获取一个浮点数一直到098c
+    //获取平均突加电压、平均突加电流和突加频率的Y轴数据
     QStringList requestFramList ={"011000000001020081",
-                                  "0103034c0002","0103034e0002","010303500002",
-                                  "010303520002","010303540002","010303560002"
+                                  "0103160c0002","0103354c0002","01031c4c0002"//从左向右依次读取：电压、电流和频率
                                   };
     for(int i = 0;i<requestFramList.length();i++){
 
@@ -113,7 +118,18 @@ void DataSerialCom::startSuddIncreaseSlot()
     requestFramList.clear();
 }
 
+void DataSerialCom::startSuddIncreaseSlot()
+{
+    qDebug()<<"开始突加测试";
+    suddLoadTimer->start(200);
 
+
+}
+
+void DataSerialCom::stopSuddLoadSlot()
+{
+    suddLoadTimer->stop();
+}
 
 void DataSerialCom::sendNextControlData()
 {
@@ -127,9 +143,16 @@ void DataSerialCom::sendNextControlData()
             qDebug()<<"长时间未写入数据,执行失败No..........";
         }
     }else{
-        qDebug()<<"队列中数据全部发送完毕!!";
+        qDebug()<<"队列中一轮数据全部发送完毕!!";
 
-        emit updatePage(dataStrQueue,getTabIndex());
+        if(DataSerialCom::getInstance().type == TEST_TYPE::STEADY){
+            emit updateSteadyPageSignal(dataStrQueue);
+        }else if(DataSerialCom::getInstance().type == TEST_TYPE::SUDD_LOAD){
+            qDebug()<<"发送突加更新界面信号！！！";
+            emit updateSuddLoadPageSignal(dataStrQueue);
+
+        }
+
         dataStrQueue.clear();
 
     }
@@ -173,6 +196,7 @@ void DataSerialCom::analyzingData(const QByteArray &data)
 
         }else{
             qDebug()<<"数据域解析失败！！！！";
+            stopSuddLoadSlot();
             return ;
         }
 

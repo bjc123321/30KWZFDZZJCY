@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "Base/BaseFun/TimerPool/timerpool.h"
+
+#include "App/CustomWidget/frequencyplotter.h"
 namespace Ui {
 class Page4_stcs;
 }
@@ -21,6 +23,9 @@ public:
 
 signals:
     void startSuddIncrease();
+    void stopSuddLoad();
+
+    void drawSuddLoadPlot(double U,double I,double F);
 
 
 private slots:
@@ -29,7 +34,10 @@ private slots:
 private:
     Ui::Page4_stcs *ui;
 
+    FrequencyPlotter *frePlot = nullptr;
 
+    //此函数要包括显示数据和画波形图
+    void displaySuddLoadView(QQueue<QString> dataStrQueue);
 
     //计算瞬态调整率和波动率相关数据
     void calculateTransientData();

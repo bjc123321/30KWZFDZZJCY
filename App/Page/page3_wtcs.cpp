@@ -117,7 +117,7 @@ void Page3_wtcs::signalBind()
      * display(电能数据)
      * connect(button,clicked,dtSerialCom,requestElecticData)请求电能数据函数作为稳态测试页中的独立的功能
     */
-    connect(&dtSerialCom,&DataSerialCom::updatePage,this,&Page3_wtcs::displayData);
+    connect(&dtSerialCom,&DataSerialCom::updateSteadyPageSignal,this,&Page3_wtcs::displaySteadyData);
 
 }
 
@@ -193,13 +193,13 @@ void Page3_wtcs::findAllLineEditsInTab(QTabWidget *tabWidget, int tabIndex)
     }
 }
 
-void Page3_wtcs::displayData(QQueue<QString> strQueue,int index)
+void Page3_wtcs::displaySteadyData(QQueue<QString> strQueue)
 {
     qDebug()<<"ssssssssssssssssssssssssssssss文本显示的浮点数ssssssssssssssssssssssssssssssss";
 
     qDebug()<<"个数：：：："<<strQueue.length()<<"当前tab页索引为"<<ui->tabWidget->currentIndex();
 
-    if(index == 0){
+    if(DataSerialCom::getInstance().type == DataSerialCom::STEADY){
         //显示稳态数据页面
         for(int i = 0; i < lineEdits.length(); i++){
 
@@ -212,7 +212,7 @@ void Page3_wtcs::displayData(QQueue<QString> strQueue,int index)
 
         }
 
-    }else if(index ==1){
+    }else if(DataSerialCom::getInstance().type == DataSerialCom::TUNING){
         //显示整定数据页面
         for(int i = 0; i < tuningDataEdits.length(); i++){
 
@@ -224,6 +224,8 @@ void Page3_wtcs::displayData(QQueue<QString> strQueue,int index)
 
 
         }
+    }else{
+        return  ;
     }
 
     unLoad_VolMax = std::max(unLoad_VolMax, ui->lineEdit_28->text().toFloat());
