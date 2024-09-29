@@ -66,6 +66,8 @@ void Page4_stcs::displaySuddLoadView(QQueue<QString> dataStrQueue)
 
     }
 
+    //计算平均的最大值和最小值
+
 
 
     qDebug()<<"平均突加电压:"<<threePhase[0]

@@ -17,10 +17,11 @@ public:
     }
 
     enum TEST_TYPE{
-        STEADY = 0,     //稳态测试
+        STEADY = 0,      //稳态测试
         TUNING,          //整定测试
-        SUDD_LOAD,      //突加测试
-        SUDD_UNLOAD    //突卸测试
+        SUDD_LOAD,       //突加测试
+        SUDD_UNLOAD,     //突卸测试
+        RECOR_DWAVE       //录波测试
 
     };
 

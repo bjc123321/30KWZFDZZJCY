@@ -19,6 +19,7 @@ TARGET = 30KWZFDZZJCY
 TEMPLATE = app
 
 SOURCES += main.cpp\
+    App/CustomWidget/recordwaveplot.cpp \
     App/Data/dataserialcom.cpp \
     Base/Communication/serialCom/modbusprotocolparser.cpp \
     Base/Communication/serialCom/serialportmanager.cpp \
@@ -57,6 +58,7 @@ SOURCES += main.cpp\
     Base/BaseFun/Sql/databasemanager.cpp
 
 HEADERS  += mainwindow.h \
+    App/CustomWidget/recordwaveplot.h \
     App/Data/dataserialcom.h \
     Base/BaseFun/base.h \
     Base/BaseFun/Sql/sql.h \
