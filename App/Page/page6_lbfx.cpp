@@ -16,5 +16,8 @@ Page6_lbfx::~Page6_lbfx()
 
 Page6_lbfx::init()
 {
-    Tool::SetCustomPlot(ui->widget,ui->checkBox_40,ui->checkBox_41,ui->checkBox_42);
+
+    recordWave = new RecordWavePlot(this);
+    ui->horizontalLayout_3->addWidget(recordWave);
+
 }

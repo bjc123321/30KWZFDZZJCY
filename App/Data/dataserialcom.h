@@ -21,7 +21,7 @@ public:
         TUNING,          //整定测试
         SUDD_LOAD,       //突加测试
         SUDD_UNLOAD,     //突卸测试
-        RECOR_DWAVE       //录波测试
+        RECOR_DWAVE      //录波测试
 
     };
 
