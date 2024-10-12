@@ -5,6 +5,8 @@
 #include <cstdlib>  // for rand() and srand()
 #include <ctime>    // for time()
 
+#include "globalsettings.h"
+
 Page1_fzsz::Page1_fzsz(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Page1_fzsz)
@@ -16,6 +18,8 @@ Page1_fzsz::Page1_fzsz(QWidget *parent) :
 //    initAutoFzModel(model2Ptr,"ZDJZ_1",ui->tableView_3);
     // 连接滑动条的 valueChanged 信号到文本框的槽函数
     connect(ui->horizontalSlider, &QSlider::valueChanged,this,[this](int value) {
+       GlobalSettings::instance().setCurrentLoad(value);
+       qDebug()<<"负载"<<GlobalSettings::instance().getCurrentLoad();
        ui->lineEdit_2->setText(QString::number(value)); // 将滑动条的值转换为字符串并显示在文本框中
        ui->lineEdit_3->setText(QString::number(value*1.0/100*120)); // 将滑动条的值转换为字符串并显示在文本框中
     });

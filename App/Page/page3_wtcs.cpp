@@ -3,6 +3,8 @@
 #include <QDebug>
 
 #include "App/Data/dataserialcom.h"
+#include "globalsettings.h"
+
 Page3_wtcs::Page3_wtcs(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Page3_wtcs)
@@ -25,6 +27,8 @@ Page3_wtcs::Page3_wtcs(QWidget *parent) :
     initTuningUI();
 
 
+
+
     signalBind();
 
 
@@ -32,6 +36,8 @@ Page3_wtcs::Page3_wtcs(QWidget *parent) :
 
 void Page3_wtcs::signalBind()
 {
+
+    DataSerialCom& dtSerialCom = DataSerialCom::getInstance();
 
     connect(ui->pushButton_2,&QPushButton::clicked,this,[&](){
         //切换到电压整定数据页面
@@ -105,12 +111,15 @@ void Page3_wtcs::signalBind()
 
         qDebug()<<"计算当前负载的数据";
         calculateSteadyData();
+        ui->lineEdit_82->setText(QString::number(GlobalSettings::instance().getCurrentLoad()));
 
     });
 
 
-    DataSerialCom &dtSerialCom = DataSerialCom::getInstance();
+
     connect(ui->tabWidget, &QTabWidget::currentChanged, &dtSerialCom, &DataSerialCom::onTabChanged);
+    connect(ui->pushButton_7,&QPushButton::clicked,&dtSerialCom,&DataSerialCom::StartSteadySlot);
+    connect(ui->pushButton_10,&QPushButton::clicked,&dtSerialCom,&DataSerialCom::StopSteadySlot);
 
     //点击电能数据按钮显示电能数据
     /*
@@ -146,6 +155,8 @@ void Page3_wtcs::initSteadyUI()
     lineEdits.append(ui->lineEdit_33);
     lineEdits.append(ui->lineEdit_34);
     lineEdits.append(ui->lineEdit_35);
+
+
 
 }
 

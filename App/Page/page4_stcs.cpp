@@ -16,8 +16,11 @@ Page4_stcs::Page4_stcs(QWidget *parent) :
 
 void Page4_stcs::init()
 {
-    frePlot = new FrequencyPlotter(this);
-    ui->horizontalLayout_2->addWidget(frePlot);
+//    frePlot = new FrequencyPlotter(this);
+//    ui->horizontalLayout_2->addWidget(frePlot);
+
+    threePlot = new ThreePhasePlot(this);
+    ui->horizontalLayout_2->addWidget(threePlot);
 
 }
 

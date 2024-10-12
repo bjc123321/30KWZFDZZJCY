@@ -8,13 +8,68 @@ DataSerialCom::DataSerialCom(QObject *parent) : QObject(parent)
     SerialPortManager &serialManager = SerialPortManager::getInstance();
     //绑定onDataReceived槽,即当串口接收到数据后台处理
     connect(&serialManager, &SerialPortManager::dataReceived, this, &DataSerialCom::onDataReceived);
+
+    steadyTimer = new QTimer(this);
+    connect(steadyTimer,&QTimer::timeout,this,[this](){
+
+        steadyRequest();
+
+    });
     suddLoadTimer = new QTimer(this);
     connect(suddLoadTimer,&QTimer::timeout,this,[this](){
 
-        requestMessage();
+        suddLoadRequest();
     });
 
 
+}
+
+void DataSerialCom::StartSteadySlot()
+{
+
+    qDebug()<<"先切换至逻辑0页";
+    pageCodeRequest(0);
+    steadyTimer->start(1000);
+}
+
+
+void DataSerialCom::StopSteadySlot()
+{
+    steadyTimer->stop();
+}
+
+void DataSerialCom::pageCodeRequest(int index)
+{
+
+    qDebug()<<"先切换至逻辑0页,再切换仪表页面0+1......";
+    QStringList requestFramList;
+    if(index == 0){
+        requestFramList =QStringList({"011000000001020080","011000000001020041"});
+    }else if(index == 1){
+
+    }else{
+
+    }
+
+    for(int i = 0;i<requestFramList.length();i++){
+
+        QString hexString = requestFramList.at(i);  // 获取 QString
+        QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
+        QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
+        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
+    }
+    // 如果串口不忙，立即发送
+    if (!isSerialControlBusy) {
+        qDebug()<<"如果串口不忙，立即发送";
+        sendNextControlData();
+    }else{
+
+         // 弹出一个提示框，告知用户串口正在发送数据请等待...
+        qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
+    }
+
+    requestFramList.clear();
 }
 
 //稳态数据更新页面
@@ -32,25 +87,9 @@ void DataSerialCom::onTabChanged(int index)
     if(type == TEST_TYPE::STEADY){
         qDebug()<<"稳态数据：读取...0";
 
-        /*
-         * 注意：对于只读取仪表示数前，要先锁定当前数据所在页面0，之后切换仪表显示页，再执行请求帧
-         * 这里的requestFramList.at(1):读取线路1瞬时电压偏差-
-         * 这里的requestFramList.at(2):读取线路1电压恢复时间
-        */
-
-//        SerialPortManager::getInstance().writeData("COM4", QByteArray::fromHex("011000000001020080"));
-        requestFramList =QStringList( {"011000000001020080","011000000001020041",
-                                       "0103001e0002","010300200002","010300220002",
-                                       "0103002e0002","010300300002","010300320002",
-                                       "010300380002","0103003a0002","0103003c0002",
-                                       "010300520002","010300540002","010300560002",
-                                       "0103002a0002","010300340002","0103003e0002","010300580002",
-                                       "010300240002","010300260002","010300280002","0103002c0002"});
-
-
-
     }else if(type == TEST_TYPE::TUNING){
         qDebug()<<"进入整定测试页面,读取...1";
+
         requestFramList = QStringList({"011000000001020080","011000000001020045",
                                        "010313da0002","010313dc0002","010313de0002","010313e00002",
                                        "010313e20002","010313e40002","010313e60002","010313e80002",
@@ -86,7 +125,53 @@ void DataSerialCom::onTabChanged(int index)
     requestFramList.clear();
 }
 
-void DataSerialCom::requestMessage()
+
+void DataSerialCom::steadyRequest()
+{
+
+    if (isProcessing) {
+        // 如果当前正在处理一轮请求，跳过新的请求
+        qDebug() << "上一轮数据尚未处理完毕，跳过本次请求。";
+        return;
+    }
+
+    isProcessing = true;
+    /*
+     * 注意：对于只读取仪表示数前，要先锁定当前数据所在页面0，之后切换仪表显示页，再执行请求帧
+     * 这里的requestFramList.at(1):读取线路1瞬时电压偏差-
+     * 这里的requestFramList.at(2):读取线路1电压恢复时间
+    */
+    QStringList requestFramList = QStringList( {"0103001e0002","010300200002","010300220002",
+                                   "0103002e0002","010300300002","010300320002",
+                                   "010300380002","0103003a0002","0103003c0002",
+                                   "010300520002","010300540002","010300560002",
+                                   "0103002a0002","010300340002","0103003e0002","010300580002",
+                                   "010300240002","010300260002","010300280002","0103002c0002"});
+
+    for(int i = 0;i<requestFramList.length();i++){
+
+        QString hexString = requestFramList.at(i);  // 获取 QString
+        QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
+        QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
+        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
+    }
+
+    // 如果串口不忙，立即发送
+    if (!isSerialControlBusy) {
+        qDebug()<<"如果串口不忙，立即发送";
+        sendNextControlData();
+    }else{
+
+         // 弹出一个提示框，告知用户串口正在发送数据请等待...
+        qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
+    }
+
+    requestFramList.clear();
+
+}
+
+void DataSerialCom::suddLoadRequest()
 {
     qDebug()<<"突加请求测试";
 
@@ -110,7 +195,7 @@ void DataSerialCom::requestMessage()
         sendNextControlData();
     }else{
 
-         // 弹出一个提示框，告知用户串口正在发送数据请等待...
+        // 弹出一个提示框，告知用户串口正在发送数据请等待...
         qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
 
     }
@@ -121,6 +206,7 @@ void DataSerialCom::requestMessage()
 void DataSerialCom::startSuddIncreaseSlot()
 {
     qDebug()<<"开始突加测试";
+
     suddLoadTimer->start(200);
 
 
@@ -129,6 +215,68 @@ void DataSerialCom::startSuddIncreaseSlot()
 void DataSerialCom::stopSuddLoadSlot()
 {
     suddLoadTimer->stop();
+}
+
+
+void DataSerialCom::startRecordWaveSlot()
+{
+
+    qDebug()<<"启动录波";
+    QStringList requestFramList ={"011000000001020031"
+                                 };
+    for(int i = 0;i<requestFramList.length();i++){
+
+        QString hexString = requestFramList.at(i);  // 获取 QString
+        QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
+        QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
+        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
+    }
+
+    // 如果串口不忙，立即发送
+    if (!isSerialControlBusy) {
+        qDebug()<<"如果串口不忙，立即发送";
+        sendNextControlData();
+    }else{
+
+        // 弹出一个提示框，告知用户串口正在发送数据请等待...
+        qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
+
+    }
+
+    requestFramList.clear();
+}
+
+void DataSerialCom::readRecordWaveSlot()
+{
+
+    qDebug()<<"读取录波数据";
+
+
+    QStringList requestFramList ={"011000000001020082",
+                                "0103000a0002","0103000b0002","0103000c0002"//从左向右依次读取
+                                 };
+    for(int i = 0;i<requestFramList.length();i++){
+
+        QString hexString = requestFramList.at(i);  // 获取 QString
+        QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
+        QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
+        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
+    }
+
+    // 如果串口不忙，立即发送
+    if (!isSerialControlBusy) {
+        qDebug()<<"如果串口不忙，立即发送";
+        sendNextControlData();
+    }else{
+
+        // 弹出一个提示框，告知用户串口正在发送数据请等待...
+        qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
+
+    }
+
+    requestFramList.clear();
 }
 
 void DataSerialCom::sendNextControlData()
@@ -143,11 +291,14 @@ void DataSerialCom::sendNextControlData()
             qDebug()<<"长时间未写入数据,执行失败No..........";
         }
     }else{
-        qDebug()<<"队列中一轮数据全部发送完毕!!";
+        // 队列中的所有数据已经发送完毕，设置为处理完成状态
+        qDebug() << "队列中的数据全部发送完毕！";
+        isProcessing = false;  // 标记处理完成，允许下一轮数据处理
 
-        if(DataSerialCom::getInstance().type == TEST_TYPE::STEADY){
+        if(type == TEST_TYPE::STEADY){
+            qDebug()<<"是稳态页面...................................................................................................................";
             emit updateSteadyPageSignal(dataStrQueue);
-        }else if(DataSerialCom::getInstance().type == TEST_TYPE::SUDD_LOAD){
+        }else if(type == TEST_TYPE::SUDD_LOAD){
             qDebug()<<"发送突加更新界面信号！！！";
             emit updateSuddLoadPageSignal(dataStrQueue);
 

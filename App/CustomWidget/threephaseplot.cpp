@@ -1,14 +1,13 @@
-#include "frequencyplotter.h"
+#include "threephaseplot.h"
 
 #include <QDebug>
 
-FrequencyPlotter::FrequencyPlotter(QWidget *parent)
-    : QMainWindow(parent),
-      frequency(1.0)
+ThreePhasePlot::ThreePhasePlot(QWidget *parent) : QWidget(parent),
+    frequency(1.0)
 {
+
     // 创建QCustomPlot对象
     customPlot = new QCustomPlot(this);
-    setCentralWidget(customPlot);
 
     // 添加三条曲线
     customPlot->addGraph(); // Graph for y1
@@ -19,8 +18,9 @@ FrequencyPlotter::FrequencyPlotter(QWidget *parent)
     customPlot->graph(1)->setPen(QPen(Qt::green));  // 绿色曲线
     customPlot->graph(2)->setPen(QPen(Qt::blue));   // 蓝色曲线
 
-    customPlot->xAxis->setLabel("Time [s]");
-    customPlot->yAxis->setLabel("Amplitude");
+    customPlot->xAxis->setLabel("时间 [s]");
+    customPlot->yAxis->setLabel("电压 [V]");
+    customPlot->yAxis->setRange(-100, 100);
 
     customPlot->xAxis->grid()->setSubGridVisible(true);
     customPlot->yAxis->grid()->setSubGridVisible(true);
@@ -28,14 +28,14 @@ FrequencyPlotter::FrequencyPlotter(QWidget *parent)
     customPlot->yAxis->grid()->setPen(QPen(Qt::lightGray, 1, Qt::DashLine));
 
     customPlot->legend->setVisible(true);
-    customPlot->graph(0)->setName("Frequency 1");
-    customPlot->graph(1)->setName("Frequency 2");
-    customPlot->graph(2)->setName("Frequency 3");
+    customPlot->graph(0)->setName("电压 1");
+    customPlot->graph(1)->setName("电压 2");
+    customPlot->graph(2)->setName("电压 3");
 
     // 添加复选框用于选择显示的曲线
-    checkBox1 = new QCheckBox("Show Frequency 1", this);
-    checkBox2 = new QCheckBox("Show Frequency 2", this);
-    checkBox3 = new QCheckBox("Show Frequency 3", this);
+    checkBox1 = new QCheckBox("显示电压1", this);
+    checkBox2 = new QCheckBox("显示电压2", this);
+    checkBox3 = new QCheckBox("显示电压3", this);
 
     checkBox1->setChecked(true);
     checkBox2->setChecked(true);
@@ -46,36 +46,37 @@ FrequencyPlotter::FrequencyPlotter(QWidget *parent)
     connect(checkBox3, &QCheckBox::stateChanged, this, [this](bool checked) { showCurve(2, checked); });
 
     // 在主窗口布局中添加复选框
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(checkBox1);
-    layout->addWidget(checkBox2);
-    layout->addWidget(checkBox3);
-    layout->addWidget(customPlot);
-    QWidget *widget = new QWidget();
-    widget->setLayout(layout);
-    setCentralWidget(widget);
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    QHBoxLayout *hLayout = new QHBoxLayout(this);
 
+    // 将复选框添加到布局中
+    hLayout->addWidget(checkBox1);
+    hLayout->addWidget(checkBox2);
+    hLayout->addWidget(checkBox3);
+    hLayout->addStretch();
+    layout->addLayout(hLayout);
+    layout->addWidget(customPlot);
     // 初始化数据处理器
 
     DataProcessor &dtProcessor = DataProcessor::getInstance();
     //后期要区分，updatePlot函数不可以更新同一个波形类
-    connect(&dtProcessor, &DataProcessor::newData, this, &FrequencyPlotter::updatePlot);
+    connect(&dtProcessor, &DataProcessor::drawSignal, this, &ThreePhasePlot::updatePlot);
 
 }
 
-void FrequencyPlotter::startTuningFreqTest()
+void ThreePhasePlot::startTuningFreqTest()
 {
     qDebug()<<"开始整定频率波形";
     DataProcessor::getInstance().startProcessing();
 }
 
-void FrequencyPlotter::stopTuningFreqTest()
+void ThreePhasePlot::stopTuningFreqTest()
 {
     qDebug()<<"停止整定频率波形";
     DataProcessor::getInstance().stopProcessing();
 }
 
-void FrequencyPlotter::updatePlot(double time, double y1, double y2, double y3)
+void ThreePhasePlot::updatePlot(double time, double y1, double y2, double y3)
 {
     timeData.append(time);
     y1Data.append(y1);
@@ -109,12 +110,10 @@ void FrequencyPlotter::updatePlot(double time, double y1, double y2, double y3)
 }
 
 
-void FrequencyPlotter::showCurve(int index, bool show)
+void ThreePhasePlot::showCurve(int index, bool show)
 {
     customPlot->graph(index)->setVisible(show);
     customPlot->replot();
 }
 
-FrequencyPlotter::~FrequencyPlotter()
-{
-}
+

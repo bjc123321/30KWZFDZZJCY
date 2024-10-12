@@ -197,7 +197,7 @@ void DataExportManager::createStaticTestExcel()
         xlsx.write("L29", "稳态频率波动率指标：", headerFormat4);
 
         // 保存Excel文件到桌面
-        QString filePath = QDir::homePath() + "/Desktop/StaticWorking.xlsx";
+        QString filePath = QDir::currentPath() + "/Doc/StaticWorking.xlsx";
         if (xlsx.saveAs(filePath)) {
             qDebug() << "Excel report with two tables created and saved at:" << filePath;
         } else {

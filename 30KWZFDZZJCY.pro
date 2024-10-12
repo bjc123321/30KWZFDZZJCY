@@ -20,7 +20,9 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     App/CustomWidget/recordwaveplot.cpp \
+    App/CustomWidget/threephaseplot.cpp \
     App/Data/dataserialcom.cpp \
+    App/Page/steadytable.cpp \
     Base/Communication/serialCom/modbusprotocolparser.cpp \
     Base/Communication/serialCom/serialportmanager.cpp \
         mainwindow.cpp \
@@ -59,7 +61,9 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     App/CustomWidget/recordwaveplot.h \
+    App/CustomWidget/threephaseplot.h \
     App/Data/dataserialcom.h \
+    App/Page/steadytable.h \
     Base/BaseFun/base.h \
     Base/BaseFun/Sql/sql.h \
     Base/BaseFun/ConfigIni/ConfigIni.h \
@@ -89,12 +93,12 @@ HEADERS  += mainwindow.h \
     App/Page/save.h \
     App/CustomWidget/frequencyplotter.h \
     App/Data/dataprocessor.h \
+    GlobalSettings.h \
     qcustomplot/qcustomplot.h \
     stable.h \
     App/CustomWidget/harmonicplot.h \
     App/CustomWidget/triangleslider.h \
     App/Data/dataexportmanager.h \
-    globalsettings.h \
     Base/BaseFun/Sql/databasemanager.h
 
 FORMS    += mainwindow.ui \
@@ -103,6 +107,7 @@ FORMS    += mainwindow.ui \
     App/Page/page4_stcs.ui \
     App/Page/page5_xbfx.ui \
     App/Page/page6_lbfx.ui \
+    App/Page/steadytable.ui \
     App/Page/user.ui \
     App/Page/data.ui \
     App/Page/selftest.ui \

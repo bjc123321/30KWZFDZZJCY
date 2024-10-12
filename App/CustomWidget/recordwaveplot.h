@@ -27,7 +27,7 @@ private:
     QCPItemLine *verticalLine;
     QSlider *slider;
     QCPItemText *labelPhaseA, *labelPhaseB, *labelPhaseC;
-    double getYValueAtX(QCPGraph *graph, double x);  // 获取指定x处曲线的y值
+    double getYValueAtX(QCPGraph *graph, double x);  //获取指定x处曲线的y值
     void updateIntersectionPoints(double x); // 更新交点
 
     void generateThreePhaseVoltage(); // 生成三相电压数据

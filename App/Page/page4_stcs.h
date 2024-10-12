@@ -5,6 +5,8 @@
 #include "Base/BaseFun/TimerPool/timerpool.h"
 
 #include "App/CustomWidget/frequencyplotter.h"
+#include "App/CustomWidget/threephaseplot.h"
+
 namespace Ui {
 class Page4_stcs;
 }
@@ -35,6 +37,7 @@ private:
     Ui::Page4_stcs *ui;
 
     FrequencyPlotter *frePlot = nullptr;
+    ThreePhasePlot *threePlot = nullptr;
 
     //此函数要包括显示数据和画波形图
     void displaySuddLoadView(QQueue<QString> dataStrQueue);

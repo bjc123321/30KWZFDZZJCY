@@ -18,8 +18,16 @@ public:
 
     RecordWavePlot *recordWave = nullptr;
 
+
+signals:
+
+    void startRecordWaveSignal();//启动录波测试信号
+    void readRecordWaveSignal();//读取录波数据
+
 private:
     Ui::Page6_lbfx *ui;
+
+
 };
 
 #endif // PAGE6_LBFX_H

@@ -47,8 +47,8 @@ RecordWavePlot::RecordWavePlot(QWidget *parent) : QWidget(parent)
     // 创建竖直线
         verticalLine = new QCPItemLine(customPlot);
         verticalLine->setVisible(false);  // 初始不可见
-        verticalLine->start->setCoords(0, -320);
-        verticalLine->end->setCoords(0, 320);
+        verticalLine->start->setCoords(0, -400);
+        verticalLine->end->setCoords(0, 400);
         verticalLine->setPen(QPen(Qt::DashLine));
 
         // 创建交点标签
@@ -83,8 +83,8 @@ void RecordWavePlot::mousePressEvent(QMouseEvent *event)
     double x = customPlot->xAxis->pixelToCoord(event->pos().x());
 
     // 更新竖直线的位置
-    verticalLine->start->setCoords(x, -320);
-    verticalLine->end->setCoords(x, 320);
+    verticalLine->start->setCoords(x, -400);
+    verticalLine->end->setCoords(x, 400);
     verticalLine->setVisible(true);
 
     // 更新交点
@@ -106,8 +106,8 @@ void RecordWavePlot::mouseMoveEvent(QMouseEvent *event)
         double x = customPlot->xAxis->pixelToCoord(event->pos().x());
 
         // 更新竖直线的位置
-        verticalLine->start->setCoords(x, -320);
-        verticalLine->end->setCoords(x, 320);
+        verticalLine->start->setCoords(x, -400);
+        verticalLine->end->setCoords(x, 400);
 
         // 更新交点
         updateIntersectionPoints(x);
@@ -127,8 +127,8 @@ void RecordWavePlot::handleSliderValueChanged(int value)
     double x = value / 100.0;
 
     // 更新竖直线的位置
-    verticalLine->start->setCoords(x, -320);
-    verticalLine->end->setCoords(x, 320);
+    verticalLine->start->setCoords(x, -400);
+    verticalLine->end->setCoords(x, 400);
     verticalLine->setVisible(true);
 
     // 更新交点
@@ -210,7 +210,7 @@ void RecordWavePlot::generateThreePhaseVoltage()
     QVector<double> phaseA(numPoints), phaseB(numPoints), phaseC(numPoints);
 
     double frequency = 50.0;  // 50Hz
-    double amplitude = 311.0; // 311V，峰值
+    double amplitude = 375.0; // 375V，峰值
     double timeInterval = 0.02;  // 20ms
 
     for (int i = 0; i < numPoints; ++i)
@@ -243,7 +243,7 @@ void RecordWavePlot::generateThreePhaseVoltage()
     customPlot->xAxis->setRange(0, 1);
 
     // 设置y轴范围，电压范围为-320到320V
-    customPlot->yAxis->setRange(-320, 320);
+    customPlot->yAxis->setRange(-400, 400);
 
     customPlot->replot();  // 重新绘制图表
 }

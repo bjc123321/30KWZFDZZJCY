@@ -31,7 +31,7 @@ void SelfTest::signalBind()
 void SelfTest::setFanState(bool isOpen)
 {
     // 如果当前风机状态与要设置的状态相同，则直接返回，避免重复操作
-    if (globalSettingsInstance().fanIsOpen == isOpen) {
+    if (GlobalSettings::instance().getFanIsOpen() == isOpen) {
         if (isOpen) {
             // 弹出一个提示框，告知用户风机已经打开
             QMessageBox::warning(this, tr("操作无效"), tr("风机已经处于打开状态，不能重复打开!"));
@@ -41,8 +41,8 @@ void SelfTest::setFanState(bool isOpen)
         return;
     }
 
-    globalSettingsInstance().fanIsOpen = isOpen;
-    if(globalSettingsInstance().fanIsOpen){
+    GlobalSettings::instance().setFanIsOpen(isOpen);
+    if(GlobalSettings::instance().getFanIsOpen()){
         qDebug()<<"风机打开!";
         ui->pushButton_6->hide();
         ui->label_4->hide();

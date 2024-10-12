@@ -105,6 +105,12 @@ QTabBar::tab:selected {
             <bold>false</bold>
            </font>
           </property>
+          <property name="text">
+           <string>0.85</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="1" column="2">
@@ -148,6 +154,12 @@ QTabBar::tab:selected {
             <bold>false</bold>
            </font>
           </property>
+          <property name="text">
+           <string>FDJCY20213359</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="0" column="9">
@@ -171,6 +183,12 @@ QTabBar::tab:selected {
             <weight>75</weight>
             <bold>true</bold>
            </font>
+          </property>
+          <property name="text">
+           <string>50</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -234,6 +252,12 @@ QTabBar::tab:selected {
             <bold>false</bold>
            </font>
           </property>
+          <property name="text">
+           <string>220</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="0" column="1">
@@ -257,6 +281,12 @@ QTabBar::tab:selected {
             <weight>50</weight>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="text">
+           <string>250</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -339,6 +369,12 @@ QTabBar::tab:selected {
             <bold>false</bold>
            </font>
           </property>
+          <property name="text">
+           <string>型号A</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="0" column="8">
@@ -382,6 +418,12 @@ QTabBar::tab:selected {
             <bold>false</bold>
            </font>
           </property>
+          <property name="text">
+           <string>300</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="2" column="1">
@@ -405,6 +447,12 @@ QTabBar::tab:selected {
             <weight>50</weight>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="text">
+           <string>27</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -449,6 +497,12 @@ QTabBar::tab:selected {
             <bold>false</bold>
            </font>
           </property>
+          <property name="text">
+           <string>30</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="2" column="4">
@@ -491,6 +545,12 @@ QTabBar::tab:selected {
             <weight>50</weight>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="text">
+           <string>10</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -536,6 +596,12 @@ QTabBar::tab:selected {
             <bold>false</bold>
            </font>
           </property>
+          <property name="text">
+           <string>20241011144555</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item row="2" column="8">
@@ -578,6 +644,12 @@ QTabBar::tab:selected {
             <weight>50</weight>
             <bold>false</bold>
            </font>
+          </property>
+          <property name="text">
+           <string>XXX</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -644,7 +716,7 @@ border:none;
            </font>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <property name="font">
@@ -657,6 +729,106 @@ border:none;
             <string>稳态测试</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QLabel" name="label_59">
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>18</pointsize>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>当前负载(%):</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_82">
+                <property name="maximumSize">
+                 <size>
+                  <width>150</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Calibri</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_7">
+                <property name="text">
+                 <string>开始显示稳态数据</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_10">
+                <property name="text">
+                 <string>暂停显示</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_9">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>计算调整率相关</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_8">
+                <property name="text">
+                 <string>显示表格数据</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="text">
+                 <string>导出为Excel</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
             <item>
              <layout class="QGridLayout" name="gridLayout_2">
               <item row="3" column="4">
@@ -2109,98 +2281,6 @@ font: 75 18pt &quot;Calibri&quot;;</string>
              </layout>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout">
-              <item>
-               <widget class="QLabel" name="label_59">
-                <property name="font">
-                 <font>
-                  <family>Calibri</family>
-                  <pointsize>18</pointsize>
-                  <weight>50</weight>
-                  <bold>false</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>  当前负载(%):</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="lineEdit_82">
-                <property name="font">
-                 <font>
-                  <family>Calibri</family>
-                  <pointsize>20</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-                <property name="readOnly">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton_9">
-                <property name="minimumSize">
-                 <size>
-                  <width>200</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>计算当前负载数据</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton_10">
-                <property name="minimumSize">
-                 <size>
-                  <width>200</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>渐进增加测试结果Max</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton_11">
-                <property name="minimumSize">
-                 <size>
-                  <width>200</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>渐进减少测试结果Max</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
              <layout class="QHBoxLayout" name="horizontalLayout_3">
               <item>
                <widget class="QPlainTextEdit" name="plainTextEdit_3">
@@ -3612,13 +3692,6 @@ font: 75 18pt &quot;Calibri&quot;;</string>
          <widget class="QPushButton" name="stopButton">
           <property name="text">
            <string>停止</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton">
-          <property name="text">
-           <string>导出数据</string>
           </property>
          </widget>
         </item>
