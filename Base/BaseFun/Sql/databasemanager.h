@@ -1,4 +1,4 @@
-#ifndef DATABASEMANAGER_H
+﻿#ifndef DATABASEMANAGER_H
 #define DATABASEMANAGER_H
 
 #include <QSqlDatabase>
@@ -48,6 +48,9 @@ public:
 
     // 下移选中的行
     bool moveRowDown(int row);
+
+    //根据数据信息查询
+    bool queryRecordNum(QString id);
 
     // 获取数据库错误信息
     QString lastError() const;

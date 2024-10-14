@@ -1,4 +1,4 @@
-#include "databasemanager.h"
+﻿#include "databasemanager.h"
 #include <QDebug>
 #include <QApplication>
 #include <cstdlib>  // for rand() and srand()
@@ -280,6 +280,36 @@ bool DatabaseManager::moveRowDown(int row)
     return true;
 }
 
+
+bool DatabaseManager::queryRecordNum(QString id)
+{
+    qDebug()<<"查询记录编号为"<<id<<"的数据";
+
+    QString queryStr = QString("SELECT * FROM T_static_data");
+
+    QSqlQuery query(queryStr, model->database());
+    // 使用参数绑定，避免直接拼接字符串
+//        query.bindValue(":id", id); // 绑定参数
+
+
+    if (query.exec()) {
+        qDebug()<<"执行成功";
+        while (query.next()) {
+            // 处理查询结果
+            QString date = query.value("测试日期").toString();
+            QString time = query.value("测试时长").toString();
+            // 其他字段...
+            qDebug()<<"测试日期:"<<date<<"测试时长:"<<time;
+
+        }
+        return true;
+    } else {
+        qDebug() << "查询执行失败: " << query.lastError().text();
+            return false;
+    }
+
+
+}
 
 QString DatabaseManager::lastError() const
 {

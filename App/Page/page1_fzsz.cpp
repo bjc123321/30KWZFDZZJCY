@@ -1,4 +1,4 @@
-#include "page1_fzsz.h"
+﻿#include "page1_fzsz.h"
 #include "ui_page1_fzsz.h"
 
 
@@ -131,7 +131,6 @@ void Page1_fzsz::initAutoFzModel(QSqlTableModel *modelPtr, QString tableName, QT
 void Page1_fzsz::addRow()
 {
     if(!isLoading){
-        // 初始化随机数生成器（只需要一次）
         static bool seeded = false;
         if (!seeded) {
             srand(static_cast<unsigned int>(time(nullptr)));
