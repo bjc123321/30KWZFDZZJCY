@@ -816,7 +816,7 @@ border:none;
               <item>
                <widget class="QPushButton" name="pushButton_8">
                 <property name="text">
-                 <string>显示表格数据</string>
+                 <string>保存数据</string>
                 </property>
                </widget>
               </item>

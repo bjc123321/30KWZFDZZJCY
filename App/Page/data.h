@@ -1,10 +1,12 @@
-#ifndef DATA_H
+﻿#ifndef DATA_H
 #define DATA_H
 
 #include <QWidget>
 #include <QSqlTableModel>
 #include <QPushButton>
 #include "Base/BaseFun/Sql/sql.h"
+
+
 namespace Ui {
 class Data;
 }
@@ -16,7 +18,9 @@ class Data : public QWidget
 public:
     explicit Data(QWidget *parent = 0);
     ~Data();
-    init();
+    void init();
+    void signalBind();
+    void detailPageView();
     void initSetFzModel(QPushButton *del);
 private:
     Ui::Data *ui;
