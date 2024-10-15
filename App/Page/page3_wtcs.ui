@@ -716,7 +716,7 @@ border:none;
            </font>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <property name="font">
@@ -890,7 +890,7 @@ border:none;
                  </font>
                 </property>
                 <property name="text">
-                 <string>L1</string>
+                 <string>A相L1</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -956,7 +956,7 @@ border:none;
                  </font>
                 </property>
                 <property name="text">
-                 <string>P(W)</string>
+                 <string>功率P(W)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -998,7 +998,7 @@ border:none;
                  </font>
                 </property>
                 <property name="text">
-                 <string>L2</string>
+                 <string>B相L2</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1034,7 +1034,7 @@ border:none;
                  </font>
                 </property>
                 <property name="text">
-                 <string>PF</string>
+                 <string>功率因数PF</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1165,7 +1165,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                  </font>
                 </property>
                 <property name="text">
-                 <string>U(V)</string>
+                 <string>电压U(V)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1249,7 +1249,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                  </font>
                 </property>
                 <property name="text">
-                 <string>F(Hz)</string>
+                 <string>频率F(Hz)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1339,7 +1339,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                  </font>
                 </property>
                 <property name="text">
-                 <string>I(A)</string>
+                 <string>电流I(A)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1471,7 +1471,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                  </font>
                 </property>
                 <property name="text">
-                 <string>L3</string>
+                 <string>C相L3</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2389,7 +2389,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>L3</string>
+                     <string>C相L3</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2551,7 +2551,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>L1</string>
+                     <string>A相L1</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2569,7 +2569,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>δUs,do</string>
+                     <string>相对下降δUs,do</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2587,7 +2587,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>△Us,do</string>
+                     <string>下降△Us,do</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2839,7 +2839,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>△Us,up</string>
+                     <string>上升△Us,up</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2857,7 +2857,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>δUs,up</string>
+                     <string>相对上升δUs,up</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2899,7 +2899,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>L2</string>
+                     <string>B相L2</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>

@@ -11,9 +11,9 @@ RecordWavePlot::RecordWavePlot(QWidget *parent) : QWidget(parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
 
     // 创建复选框
-    QCheckBox *checkBoxA = new QCheckBox("Show Phase A", this);
-    QCheckBox *checkBoxB = new QCheckBox("Show Phase B", this);
-    QCheckBox *checkBoxC = new QCheckBox("Show Phase C", this);
+    QCheckBox *checkBoxA = new QCheckBox("显示A相", this);
+    QCheckBox *checkBoxB = new QCheckBox("显示B相", this);
+    QCheckBox *checkBoxC = new QCheckBox("显示C相", this);
 
     QHBoxLayout *hLayout = new QHBoxLayout(this);
 
@@ -184,9 +184,9 @@ void RecordWavePlot::updateIntersectionPoints(double x)
     double yC = getYValueAtX(customPlot->graph(2), x);
 
     // 更新文本标签
-    labelPhaseA->setText(QString("Phase A: %1 V").arg(yA, 0, 'f', 2));
-    labelPhaseB->setText(QString("Phase B: %1 V").arg(yB, 0, 'f', 2));
-    labelPhaseC->setText(QString("Phase C: %1 V").arg(yC, 0, 'f', 2));
+    labelPhaseA->setText(QString("A相: %1 V").arg(yA, 0, 'f', 2));
+    labelPhaseB->setText(QString("B相: %1 V").arg(yB, 0, 'f', 2));
+    labelPhaseC->setText(QString("C相: %1 V").arg(yC, 0, 'f', 2));
 
     // 设置文本标签的位置
     labelPhaseA->position->setCoords(x, yA);
@@ -201,8 +201,8 @@ void RecordWavePlot::updateIntersectionPoints(double x)
 void RecordWavePlot::generateThreePhaseVoltage()
 {
     // 设置x轴和y轴的标签
-    customPlot->xAxis->setLabel("Time [s]");
-    customPlot->yAxis->setLabel("Voltage [V]");
+    customPlot->xAxis->setLabel("时间 [s]");
+    customPlot->yAxis->setLabel("电压 [V]");
 
     // 生成数据
     int numPoints = 50; // 每个相有50个点
@@ -225,19 +225,19 @@ void RecordWavePlot::generateThreePhaseVoltage()
     customPlot->addGraph();
     customPlot->graph(0)->setData(time, phaseA);
     customPlot->graph(0)->setPen(QPen(Qt::red));  // A相用红色表示
-    customPlot->graph(0)->setName("Phase A");
+    customPlot->graph(0)->setName("A相");
 
     // 添加B相数据到QCustomPlot
     customPlot->addGraph();
     customPlot->graph(1)->setData(time, phaseB);
     customPlot->graph(1)->setPen(QPen(Qt::green));  // B相用绿色表示
-    customPlot->graph(1)->setName("Phase B");
+    customPlot->graph(1)->setName("B相");
 
     // 添加C相数据到QCustomPlot
     customPlot->addGraph();
     customPlot->graph(2)->setData(time, phaseC);
     customPlot->graph(2)->setPen(QPen(Qt::blue));  // C相用蓝色表示
-    customPlot->graph(2)->setName("Phase C");
+    customPlot->graph(2)->setName("C相");
 
     // 设置x轴范围，显示1秒的数据
     customPlot->xAxis->setRange(0, 1);

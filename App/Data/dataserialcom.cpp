@@ -41,10 +41,10 @@ void DataSerialCom::StopSteadySlot()
 void DataSerialCom::pageCodeRequest(int index)
 {
 
-    qDebug()<<"先切换至逻辑0页,再切换仪表页面0+1......";
+    qDebug()<<"读数据时,先切换至逻辑0页,再切换仪表页面0+1......";
     QStringList requestFramList;
     if(index == 0){
-        requestFramList =QStringList({"011000000001020080","011000000001020041"});
+        requestFramList = QStringList({"011000000001020080","011000000001020041"});
     }else if(index == 1){
 
     }else{
