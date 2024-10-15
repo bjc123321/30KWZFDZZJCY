@@ -22,7 +22,7 @@ SOURCES += main.cpp\
     App/CustomWidget/recordwaveplot.cpp \
     App/CustomWidget/threephaseplot.cpp \
     App/Data/dataserialcom.cpp \
-    App/Page/steadytable.cpp \
+    App/Page/detailpage.cpp \
     Base/Communication/serialCom/modbusprotocolparser.cpp \
     Base/Communication/serialCom/serialportmanager.cpp \
         mainwindow.cpp \
@@ -63,7 +63,7 @@ HEADERS  += mainwindow.h \
     App/CustomWidget/recordwaveplot.h \
     App/CustomWidget/threephaseplot.h \
     App/Data/dataserialcom.h \
-    App/Page/steadytable.h \
+    App/Page/detailpage.h \
     Base/BaseFun/base.h \
     Base/BaseFun/Sql/sql.h \
     Base/BaseFun/ConfigIni/ConfigIni.h \
@@ -102,12 +102,12 @@ HEADERS  += mainwindow.h \
     Base/BaseFun/Sql/databasemanager.h
 
 FORMS    += mainwindow.ui \
+    App/Page/detailpage.ui \
     App/Page/page1_fzsz.ui \
     App/Page/page3_wtcs.ui \
     App/Page/page4_stcs.ui \
     App/Page/page5_xbfx.ui \
     App/Page/page6_lbfx.ui \
-    App/Page/steadytable.ui \
     App/Page/user.ui \
     App/Page/data.ui \
     App/Page/selftest.ui \

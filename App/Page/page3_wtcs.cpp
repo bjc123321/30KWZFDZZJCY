@@ -1,8 +1,9 @@
 #include "page3_wtcs.h"
 #include "ui_page3_wtcs.h"
 #include <QDebug>
-
+#include <QDateTime>
 #include "App/Data/dataserialcom.h"
+#include "App/Page/save.h"
 #include "globalsettings.h"
 
 Page3_wtcs::Page3_wtcs(QWidget *parent) :
@@ -107,6 +108,12 @@ void Page3_wtcs::signalBind()
         qDebug()<<"返回的数据:"<<reponseData.data.toHex()<<"文本显示的浮点数为："<<floatStr;
     });
 
+    connect(ui->pushButton_8,&QPushButton::clicked,this,[this](){
+
+        saveSteadyData();
+    });
+
+
     connect(ui->pushButton_9,&QPushButton::clicked,this,[this](){
 
         qDebug()<<"计算当前负载的数据";
@@ -156,6 +163,14 @@ void Page3_wtcs::initSteadyUI()
     lineEdits.append(ui->lineEdit_34);
     lineEdits.append(ui->lineEdit_35);
 
+
+    // 获取当前时间
+    QDateTime current = QDateTime::currentDateTime();
+    // 转换为指定格式的字符串
+    QString sequenceNumber = current.toString("yyyyMMddHHmmsszzz");
+
+    ui->lineEdit_14->setText(sequenceNumber);
+    ui->lineEdit_14->setToolTip(ui->lineEdit_14->text());
 
 
 }
@@ -296,7 +311,36 @@ void Page3_wtcs::calculateSteadyData()
 
 }
 
+void Page3_wtcs::saveSteadyData()
+{
 
+    qDebug()<<"保存稳态数据";
+
+
+
+
+
+//    Detection record(uniqueID,"电机","稳态测试","xxx",current.toString(),"Yes");
+
+    Save::Detection record(ui->lineEdit_14->text(),
+                           "电机",
+                           "稳态测试",
+                           ui->lineEdit_15->text(),
+                           QDateTime::currentDateTime().toString("yyyy-MM-dd-HH-mm-ss"),
+                           "Yes");
+
+    // 打印信息
+            qDebug() << "检测编号:" << record.detectionID;
+            qDebug() << "检测元件:" << record.detectionComponent;
+            qDebug() << "类型:" << record.type;
+            qDebug() << "检测人员:" << record.inspector;
+            qDebug() << "检测时间:" << record.detectionTime;
+            qDebug() << "检测结果:" << record.result;
+    Save::U().updateSteadyData(record);
+
+    Save::U().exec();
+
+}
 
 
 

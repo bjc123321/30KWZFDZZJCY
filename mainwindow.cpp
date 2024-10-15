@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //    this->showFullScreen();//大屏时解开，全屏代码注释
     this->showMaximized();
     ui->treeWidget->setIconSize(QSize(32,32));
+
 }
 
 MainWindow::~MainWindow()
@@ -75,8 +76,8 @@ void MainWindow::initClose()
          qApp->quit();
     });
     connect(ui->pushButton_2,&QPushButton::clicked,this,[&]{
-        qDebug()<<"点击了保存";
-        Save::U().exec();
+//        qDebug()<<"点击了保存";
+//        Save::U().exec();
     });
 }
 

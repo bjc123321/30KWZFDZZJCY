@@ -1,4 +1,4 @@
-﻿#ifndef DATA_H
+#ifndef DATA_H
 #define DATA_H
 
 #include <QWidget>
@@ -22,6 +22,11 @@ public:
     void signalBind();
     void detailPageView();
     void initSetFzModel(QPushButton *del);
+
+signals:
+
+
+
 private:
     Ui::Data *ui;
 };

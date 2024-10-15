@@ -1,8 +1,9 @@
-﻿#ifndef DATABASEMANAGER_H
+#ifndef DATABASEMANAGER_H
 #define DATABASEMANAGER_H
 
 #include <QSqlDatabase>
 #include <QSqlTableModel>
+#include <QSqlQueryModel>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QSqlRecord>
@@ -10,8 +11,8 @@
 
 class DatabaseManager
 {
-public:
 
+public:
 
     static DatabaseManager& getInstance(const QString &dbName) {
         static DatabaseManager instance(dbName);
@@ -50,13 +51,14 @@ public:
     bool moveRowDown(int row);
 
     //根据数据信息查询
-    bool queryRecordNum(QString id);
+    QSqlQueryModel* queryRecordNum(QString id);
 
     // 获取数据库错误信息
     QString lastError() const;
 
     void loadMoreData_2(int batchSize);
     int currentRowIndex = 0;  // 初始化加载起点
+
 
 
 private:
@@ -70,6 +72,7 @@ private:
 
     QSqlDatabase db;
     QSqlTableModel* model = nullptr;
+
 
 
 

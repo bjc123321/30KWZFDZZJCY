@@ -26,6 +26,8 @@ public:
     explicit Page3_wtcs(QWidget *parent = 0);
     ~Page3_wtcs();
 
+public:
+
     void signalBind();
     void displaySteadyData(QQueue<QString> dataStrQueuex);//显示某页数据
     QButtonGroup *buttonGroup = nullptr;
@@ -46,12 +48,6 @@ public:
     float load_FluMax = 0.00;
     float load_FluMin = 50.00;
 
-
-
-signals:
-
-
-
 private:
 
     Ui::Page3_wtcs *ui;
@@ -67,6 +63,8 @@ private:
     //计算稳态调整率和波动率相关数据
     void calculateSteadyData();
 
+
+    void saveSteadyData();
 
 
 public slots:

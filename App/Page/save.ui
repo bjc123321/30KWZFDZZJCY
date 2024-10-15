@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>340</width>
-    <height>376</height>
+    <width>437</width>
+    <height>472</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,66 +43,70 @@ QPushButton:pressed {
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_3">
-     <property name="text">
-      <string>元件编号</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QLineEdit" name="lineEdit">
-     <property name="text">
-      <string>电机</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0" colspan="2">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="0">
+   <item row="1" column="0">
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>检测元件</string>
+      <string>测试编号</string>
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="label">
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="lineEdit_5">
      <property name="text">
-      <string>元件类型</string>
+      <string>2024-10-15-14-45</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="1">
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>检测项</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
     <widget class="QLineEdit" name="lineEdit_3">
      <property name="text">
-      <string>1</string>
+      <string>稳态检测</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="label_6">
+     <property name="text">
+      <string>检测时间</string>
      </property>
     </widget>
    </item>
    <item row="4" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string>检测人员</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>测试元件</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="lineEdit_4">
+     <property name="text">
+      <string>xxx</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
     <widget class="QLabel" name="label_4">
      <property name="text">
       <string>检测结果</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="1">
-    <widget class="QLineEdit" name="lineEdit_2">
-     <property name="text">
-      <string>电机</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1">
+   <item row="6" column="1">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
       <string/>
@@ -128,17 +132,27 @@ QPushButton:pressed {
      </layout>
     </widget>
    </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="label_5">
-     <property name="text">
-      <string>检验项</string>
+   <item row="7" column="0" colspan="2">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
      </property>
     </widget>
    </item>
-   <item row="3" column="1">
-    <widget class="QLineEdit" name="lineEdit_4">
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="lineEdit_2">
      <property name="text">
-      <string>稳态检测</string>
+      <string>电机</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="text">
+      <string>随机(主键不重复)</string>
      </property>
     </widget>
    </item>
