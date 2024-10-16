@@ -328,15 +328,14 @@ void Page3_wtcs::saveSteadyData()
                            ui->lineEdit_15->text(),
                            QDateTime::currentDateTime().toString("yyyy-MM-dd-HH-mm-ss"),
                            "Yes");
-
     // 打印信息
-            qDebug() << "检测编号:" << record.detectionID;
-            qDebug() << "检测元件:" << record.detectionComponent;
-            qDebug() << "类型:" << record.type;
-            qDebug() << "检测人员:" << record.inspector;
-            qDebug() << "检测时间:" << record.detectionTime;
-            qDebug() << "检测结果:" << record.result;
-    Save::U().updateSteadyData(record);
+    qDebug() << "检测编号:" << record.detectionID;
+    qDebug() << "检测元件:" << record.detectionComponent;
+    qDebug() << "类型:" << record.type;
+    qDebug() << "检测人员:" << record.inspector;
+    qDebug() << "检测时间:" << record.detectionTime;
+    qDebug() << "检测结果:" << record.result;
+    Save::U().updateT_dataView(record);
 
     Save::U().exec();
 

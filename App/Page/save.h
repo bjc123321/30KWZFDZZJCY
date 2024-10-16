@@ -2,6 +2,7 @@
 #define SAVE_H
 
 #include <QDialog>
+#include <QSqlTableModel>
 #include "Base/BaseFun/base.h"
 namespace Ui {
 class Save;
@@ -38,7 +39,11 @@ public:
 
 public:
 
-    void updateSteadyData(Detection record);
+    QSqlTableModel *model = nullptr;
+
+    void updateT_dataView(Detection record);
+    void saveTestRecord();
+    void bindDataBaseTable();
 
 private:
     Ui::Save *ui;

@@ -7,6 +7,7 @@ Sql::Sql(QString basePath, QObject *parent) :
     query(QSqlQuery(db))
 {
 
+    //后期将Sql的数据库路径：/Depend/Base/sql.db转移至DataBaseManager类中统一管理
     //注意检查如果数据库被移动则要做好判断
     if (!QFile::exists(strPath)) {
         QMessageBox::critical(nullptr, "Database Error",strPath + ".The database file does not exist.");

@@ -180,6 +180,8 @@ bool DatabaseManager::addRow(int percentage, double powerFactor, int duration)
 {
     if (!model) return false;
 
+    qDebug() << "插入" << model->tableName()<<"表字段个数"<<model->columnCount();
+
     qDebug()<<"执行了";
     int row = model->rowCount();
     model->insertRow(row);
@@ -319,6 +321,44 @@ QSqlQueryModel* DatabaseManager::queryRecordNum(QString id)
     return queryModel;
 
 }
+
+bool DatabaseManager::insertData(QString table, QVector<QVariant> vdata)
+{
+    if (!model) {
+            qDebug() << "insertData错误: model is null";
+            return false;
+        }
+
+        qDebug() << "插入" << model->tableName() << "字段个数:" << vdata.size()<<"表的字段个数"<<model->columnCount();
+        // 检查 vdata 的大小
+        if (vdata.size() != model->columnCount()) { // 看数据字段是否与表字段数量一致
+            qDebug() << "插入失败: 数据字段数量与表字段数量不匹配";
+            return false;
+        }
+
+
+
+        int row = model->rowCount();
+        model->insertRow(row);
+
+        // 设置数据
+        for (int i = 0; i < vdata.size(); ++i) {
+            model->setData(model->index(row, i), vdata.at(i));
+        }
+
+        // 提交修改
+        if (!model->submitAll()) {
+            qDebug() << "Submit failed: " << model->lastError().text();
+            return false;
+        }
+
+        qDebug() << "插入" << vdata.at(0) << "数据到" << table;
+        return true;
+
+
+
+}
+
 
 QString DatabaseManager::lastError() const
 {

@@ -47,7 +47,7 @@ void SelfTest::setFanState(bool isOpen)
         ui->pushButton_6->hide();
         ui->label_4->hide();
         ui->pushButton_3->setStyleSheet("border-image:url(:/res/light1_4.png);");
-    //    DataCom3::U().setFJKG(true);//待其他功能实现后在解开注释
+//        DataCom3::U().setFJKG(true);//待其他功能实现后在解开注释
     }else{
         qDebug()<<"风机未开,请先开风机!";
         ui->pushButton_6->show();

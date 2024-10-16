@@ -53,6 +53,9 @@ public:
     //根据数据信息查询
     QSqlQueryModel* queryRecordNum(QString id);
 
+    //向指定表中插入一条数据(通用数据:数组和结构体等)
+    bool insertData(QString table, QVector<QVariant> vdata);
+
     // 获取数据库错误信息
     QString lastError() const;
 
