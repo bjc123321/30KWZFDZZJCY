@@ -2,12 +2,16 @@
 #include "ui_selftest.h"
 #include "base/BaseFun/TimerPool/timerpool.h"
 #include "globalsettings.h"
+#include "App/Data/dataserialcom.h"
 
 SelfTest::SelfTest(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SelfTest)
 {
     ui->setupUi(this);
+
+
+
 
     signalBind();
     ui->pushButton_3->setStyleSheet("border-image:url(:/res/light1_1.png);");
@@ -18,6 +22,9 @@ SelfTest::SelfTest(QWidget *parent) :
 
 void SelfTest::signalBind()
 {
+
+    DataSerialCom& dtSerialCom = DataSerialCom::getInstance();
+
     connect(ui->pushButton_2,&QPushButton::clicked,this,[&](){
         //打开风机
         setFanState(true);
@@ -26,6 +33,9 @@ void SelfTest::signalBind()
         //关闭风机,要注意先卸掉所有负载之后延时关闭风机，防止负载箱内设备过热
         setFanState(false);
     });
+
+    connect(this,&SelfTest::setFJSignal,&dtSerialCom,&DataSerialCom::setFengJiSlot);
+
 }
 
 void SelfTest::setFanState(bool isOpen)
@@ -47,12 +57,15 @@ void SelfTest::setFanState(bool isOpen)
         ui->pushButton_6->hide();
         ui->label_4->hide();
         ui->pushButton_3->setStyleSheet("border-image:url(:/res/light1_4.png);");
+        emit setFJSignal(isOpen);
 //        DataCom3::U().setFJKG(true);//待其他功能实现后在解开注释
     }else{
-        qDebug()<<"风机未开,请先开风机!";
+        qDebug()<<"关闭风机!";
         ui->pushButton_6->show();
         ui->label_4->show();
         ui->pushButton_3->setStyleSheet("border-image:url(:/res/light1_1.png);");
+        emit setFJSignal(isOpen);
+//        DataCom3::U().setFJKG(false);//待其他功能实现后在解开注释
     }
 
 }

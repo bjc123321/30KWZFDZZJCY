@@ -146,18 +146,28 @@ void SerialPortManager::handleReadyRead()
        通过这种方式,在处理多个串口对象时，区分哪个串口对象发出了信号，并对该对象进行相应的操作。
     */
     QSerialPort *serialPort = qobject_cast<QSerialPort *>(sender());
+    qDebug()<<serialPort->portName()<<"发送了数据";
     if (serialPort) {
 
         //读取串口缓存区中数据
         QByteArray data = serialPort->readAll();
         qDebug()<<"4.ReadyRead缓存区待读数据:"<<data.toHex()<<"ReadyRead缓存区数据大小:"<<data.size()<<"串口名:"<<serialPort->portName();
+        // 检查并修正设备地址
+        if (buffer.size() > 0 && (buffer[0] != static_cast<char>(0x01))) {
+
+            qDebug() << "返回设备地址异常码为:"<<buffer[0];
+            buffer[0] = static_cast<char>(0x01); // 修改设备地址
+            qDebug() << "设备地址已修改";
+        }
+        buffer.append(data); // 将分段的数据帧添加到缓冲区
         ModbusProtocolParser parser;
-        if(parser.parseReponse(data)){
+        if(parser.parseReponse(buffer)){
 
             QByteArray dataField = parser.getDataField();
             qDebug()<<"6.成功解析仪表返回响应帧的数据域:"<<dataField.toHex();
-//            parser.floatData(dataField); // 如果 floatData 是静态函数，则可以用类名直接调用
-            emit dataReceived(serialPort->portName(), data);
+//          parser.floatData(dataField); // 如果 floatData 是静态函数，则可以用类名直接调用
+            emit dataReceived(serialPort->portName(), buffer);
+            buffer.clear();
         }
 
     }

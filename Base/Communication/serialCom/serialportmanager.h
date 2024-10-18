@@ -20,6 +20,9 @@ public:
         return instance;
     }
 
+    // 防止有些串口数据返回响应帧时分段发送。则用此缓冲区为把不完整的数据帧进行拼接
+    QByteArray buffer;
+
     bool addSerialPort(const QString &portName);
     bool removeSerialPort(const QString &portName);
     QSerialPort* getSerialPort(const QString &portName);

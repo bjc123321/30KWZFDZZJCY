@@ -30,17 +30,31 @@ public:
 
 
 public:
-    // 控制数据命令队列
-    QQueue<QByteArray> controlDataQueue;
 
     //待输出到页面的字符串队列
     QQueue<QString> dataStrQueue;
-    // 每条串口收到的数据是否在处理标志
-    bool isSerialControlBusy = false;
-    //每轮数据是否正在处理处理标志
+
+    //每"轮"数据是否正在处理处理标志
     bool isProcessing = false;
-    // 从队列发送下一个控制的数据
-    void sendNextControlData();
+
+    /*********************仪表****************************/
+    // 控制仪表命令队列
+    QQueue<QByteArray> controlPanelQueue;
+    // 每条串口收到的"控制仪表"16进制命令忙碌标志
+    bool isControlPanelHexBusy = false;
+    // 从队列发送下一个"控制仪表"的16进制命令
+    void sendControlPanelHex();
+
+    /*********************负载****************************/
+    // 控制负载命令队列
+    QQueue<QByteArray> controlLoadQueue;
+    // 每条串口收到的"控制负载"16进制命令忙碌标志
+    bool isControlLoadHexBusy = false;
+    // 从队列发送下一个"控制负载"的16进制命令
+    void sendControlLoadHex();
+
+
+
     //解析返回的缓存帧中的数据域
     void analyzingData(const QByteArray &data);
 
@@ -89,6 +103,8 @@ public slots:
 
     void readRecordWaveSlot();
 
+
+    void setFengJiSlot(bool isOpen);
 
 
 

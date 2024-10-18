@@ -25,6 +25,8 @@ private slots:
 
 signals:
 
+    void setFJSignal(bool isOpen);
+
 private:
     Ui::SelfTest *ui;
 };

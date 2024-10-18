@@ -24,6 +24,35 @@ DataSerialCom::DataSerialCom(QObject *parent) : QObject(parent)
 
 }
 
+
+void DataSerialCom::setFengJiSlot(bool isOpen)
+{
+    if(isOpen == true){
+
+        qDebug()<<"打开风机！";
+
+        QByteArray dataToSend = QByteArray::fromHex("010600010001");
+        controlLoadQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlLoadHexBusy;
+        // 如果串口不忙，立即发送
+        if (!isControlLoadHexBusy) {
+            sendControlLoadHex();
+        }
+
+
+    }else{
+
+        qDebug()<<"关闭风机！";
+        QByteArray dataToSend = QByteArray::fromHex("010600010000");
+        controlLoadQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlLoadHexBusy;
+        // 如果串口不忙，立即发送
+        if (!isControlLoadHexBusy) {
+            sendControlLoadHex();
+        }
+    }
+}
+
 void DataSerialCom::StartSteadySlot()
 {
 
@@ -41,35 +70,15 @@ void DataSerialCom::StopSteadySlot()
 void DataSerialCom::pageCodeRequest(int index)
 {
 
-    qDebug()<<"读数据时,先切换至逻辑0页,再切换仪表页面0+1......";
-    QStringList requestFramList;
-    if(index == 0){
-        requestFramList = QStringList({"011000000001020080","011000000001020041"});
-    }else if(index == 1){
-
-    }else{
-
-    }
-
-    for(int i = 0;i<requestFramList.length();i++){
-
-        QString hexString = requestFramList.at(i);  // 获取 QString
-        QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
-        QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
-        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
-        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
-    }
+    // 发送指定的16进制数据
+     qDebug()<<"锁定页面0";
+    QByteArray dataToSend = QByteArray::fromHex("011000000001020000");
+    controlPanelQueue.enqueue(dataToSend); // 将数据加入队列
+    qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlPanelHexBusy;
     // 如果串口不忙，立即发送
-    if (!isSerialControlBusy) {
-        qDebug()<<"如果串口不忙，立即发送";
-        sendNextControlData();
-    }else{
-
-         // 弹出一个提示框，告知用户串口正在发送数据请等待...
-        qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
+    if (!isControlPanelHexBusy) {
+        sendControlPanelHex();
     }
-
-    requestFramList.clear();
 }
 
 //稳态数据更新页面
@@ -107,14 +116,14 @@ void DataSerialCom::onTabChanged(int index)
         QString hexString = requestFramList.at(i);  // 获取 QString
         QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
         QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
-        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
-        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
+        controlPanelQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlPanelHexBusy;
     }
 
     // 如果串口不忙，立即发送
-    if (!isSerialControlBusy) {
+    if (!isControlPanelHexBusy) {
         qDebug()<<"如果串口不忙，立即发送";
-        sendNextControlData();
+        sendControlPanelHex();
     }else{
 
          // 弹出一个提示框，告知用户串口正在发送数据请等待...
@@ -148,19 +157,20 @@ void DataSerialCom::steadyRequest()
                                    "0103002a0002","010300340002","0103003e0002","010300580002",
                                    "010300240002","010300260002","010300280002","0103002c0002"});
 
+
     for(int i = 0;i<requestFramList.length();i++){
 
         QString hexString = requestFramList.at(i);  // 获取 QString
         QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
         QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
-        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
-        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
+        controlPanelQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlPanelHexBusy;
     }
 
     // 如果串口不忙，立即发送
-    if (!isSerialControlBusy) {
+    if (!isControlPanelHexBusy) {
         qDebug()<<"如果串口不忙，立即发送";
-        sendNextControlData();
+        sendControlPanelHex();
     }else{
 
          // 弹出一个提示框，告知用户串口正在发送数据请等待...
@@ -185,14 +195,14 @@ void DataSerialCom::suddLoadRequest()
         QString hexString = requestFramList.at(i);  // 获取 QString
         QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
         QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
-        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
-        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
+        controlPanelQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlPanelHexBusy;
     }
 
     // 如果串口不忙，立即发送
-    if (!isSerialControlBusy) {
+    if (!isControlPanelHexBusy) {
         qDebug()<<"如果串口不忙，立即发送";
-        sendNextControlData();
+        sendControlPanelHex();
     }else{
 
         // 弹出一个提示框，告知用户串口正在发送数据请等待...
@@ -207,7 +217,7 @@ void DataSerialCom::startSuddIncreaseSlot()
 {
     qDebug()<<"开始突加测试";
 
-    suddLoadTimer->start(200);
+    suddLoadTimer->start(500);
 
 
 }
@@ -229,14 +239,14 @@ void DataSerialCom::startRecordWaveSlot()
         QString hexString = requestFramList.at(i);  // 获取 QString
         QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
         QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
-        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
-        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
+        controlPanelQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlPanelHexBusy;
     }
 
     // 如果串口不忙，立即发送
-    if (!isSerialControlBusy) {
+    if (!isControlPanelHexBusy) {
         qDebug()<<"如果串口不忙，立即发送";
-        sendNextControlData();
+        sendControlPanelHex();
     }else{
 
         // 弹出一个提示框，告知用户串口正在发送数据请等待...
@@ -261,14 +271,14 @@ void DataSerialCom::readRecordWaveSlot()
         QString hexString = requestFramList.at(i);  // 获取 QString
         QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
         QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
-        controlDataQueue.enqueue(dataToSend); // 将数据加入队列
-        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isSerialControlBusy;
+        controlPanelQueue.enqueue(dataToSend); // 将数据加入队列
+        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlPanelHexBusy;
     }
 
     // 如果串口不忙，立即发送
-    if (!isSerialControlBusy) {
+    if (!isControlPanelHexBusy) {
         qDebug()<<"如果串口不忙，立即发送";
-        sendNextControlData();
+        sendControlPanelHex();
     }else{
 
         // 弹出一个提示框，告知用户串口正在发送数据请等待...
@@ -279,13 +289,13 @@ void DataSerialCom::readRecordWaveSlot()
     requestFramList.clear();
 }
 
-void DataSerialCom::sendNextControlData()
+void DataSerialCom::sendControlPanelHex()
 {
-    qDebug()<<"********************队列中数据个数:"<<controlDataQueue.length()<<"*******************";
-    if (!controlDataQueue.isEmpty()) {
-        QByteArray nextData = controlDataQueue.dequeue(); // 从队列中取出数据
-        isSerialControlBusy = true; // 标记为忙碌
-        if(SerialPortManager::getInstance().writeData("COM4", nextData)){
+    qDebug()<<"********************队列中数据个数:"<<controlPanelQueue.length()<<"*******************";
+    if (!controlPanelQueue.isEmpty()) {
+        QByteArray nextData = controlPanelQueue.dequeue(); // 从队列中取出数据
+        isControlPanelHexBusy = true; // 标记为忙碌
+        if(SerialPortManager::getInstance().writeData("COM7", nextData)){
             qDebug()<<"写数据执行成功Yes";
         }else{
             qDebug()<<"长时间未写入数据,执行失败No..........";
@@ -309,16 +319,49 @@ void DataSerialCom::sendNextControlData()
     }
 }
 
+
+void DataSerialCom::sendControlLoadHex()
+{
+    qDebug()<<"********************队列中数据个数:"<<controlPanelQueue.length()<<"*******************";
+    if (!controlLoadQueue.isEmpty()) {
+        QByteArray nextData = controlLoadQueue.dequeue(); // 从队列中取出数据
+        isControlLoadHexBusy = true; // 标记为忙碌
+        if(SerialPortManager::getInstance().writeData("COM5", nextData)){
+            qDebug()<<"写数据执行成功Yes";
+        }else{
+            qDebug()<<"长时间未写入数据,执行失败No..........";
+        }
+    }else{
+        // 队列中的所有数据已经发送完毕，设置为处理完成状态
+        qDebug() << "队列中的数据全部发送完毕！";
+        isProcessing = false;  // 标记处理完成，允许下一轮数据处理
+        dataStrQueue.clear();
+
+    }
+}
+
+
 void DataSerialCom::onDataReceived(const QString &portName, const QByteArray &data)
 {
      // 仪表返回到主机缓存的数据
     qDebug() << "Data received on port" << portName << ":" << data.toHex();
     //解析缓存的响应帧数据
     analyzingData(data);
-    //解析完之后，标记不忙碌。
-    isSerialControlBusy = false;
-    //继续发送缓存队列中的下一个响应帧数据
-    sendNextControlData();
+
+    if(portName == "COM5"){
+
+        // 标记为负载控制不忙碌
+        isControlLoadHexBusy = false;
+        // 继续发送队列中的下一个数据
+        sendControlLoadHex();
+
+    }else if(portName == "COM7"){
+
+        // 标记仪表控制为不忙碌
+        isControlPanelHexBusy = false;
+        // 继续发送队列中的下一个数据
+        sendControlPanelHex();
+    }
 
 
 }

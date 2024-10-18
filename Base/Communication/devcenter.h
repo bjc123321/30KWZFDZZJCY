@@ -18,6 +18,13 @@ class DevCenter : public QObject
 public:
     ModbusRTU comRtu1;
     ModbusRTU comRtu2;
+
+
+    // 列出指定类型如:USB串口设备
+    void listUsbSerialPorts();
+    //判断是不是usb的串口com
+    bool isUsbSerialPort(const QSerialPortInfo &portInfo);
+
 signals:
 
 public slots:
