@@ -42,7 +42,7 @@ public slots:
 
 
 signals:
-    void dataReceived(const QString &portName, const QByteArray &data);
+    void dataReceived(const QSerialPort &port, const QByteArray &data);
     //自定义的错误处理信号用于发送给应用层
     void errorOccurred(const QString &errorMsg);
 

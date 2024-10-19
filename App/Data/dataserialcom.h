@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QTimer>
+#include <QSerialPort>
+#include <QSerialPortInfo>
 
 class DataSerialCom : public QObject
 {
@@ -30,6 +32,9 @@ public:
 
 
 public:
+
+
+    QString portName = "";
 
     //待输出到页面的字符串队列
     QQueue<QString> dataStrQueue;
@@ -87,7 +92,7 @@ signals:
 
 private slots:
 
-    void onDataReceived(const QString &portName, const QByteArray &data);//测试
+    void onDataReceived(const QSerialPort &port, const QByteArray &data);//测试
 
 public slots:
 

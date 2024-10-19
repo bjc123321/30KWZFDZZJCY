@@ -100,6 +100,7 @@ void SerialPortManager::closePort(const QString &portName)
 bool SerialPortManager::writeData(const QString &portName, const QByteArray &data)
 {
     QSerialPort *serialPort = getSerialPort(portName);
+    qDebug()<<"写*******************************"<<portName;
     if (!serialPort || !serialPort->isOpen()){
         qDebug()<<"串口没打开!";
         return false;
@@ -152,6 +153,8 @@ void SerialPortManager::handleReadyRead()
         //读取串口缓存区中数据
         QByteArray data = serialPort->readAll();
         qDebug()<<"4.ReadyRead缓存区待读数据:"<<data.toHex()<<"ReadyRead缓存区数据大小:"<<data.size()<<"串口名:"<<serialPort->portName();
+
+
         // 检查并修正设备地址
         if (buffer.size() > 0 && (buffer[0] != static_cast<char>(0x01))) {
 
@@ -165,8 +168,8 @@ void SerialPortManager::handleReadyRead()
 
             QByteArray dataField = parser.getDataField();
             qDebug()<<"6.成功解析仪表返回响应帧的数据域:"<<dataField.toHex();
-//          parser.floatData(dataField); // 如果 floatData 是静态函数，则可以用类名直接调用
-            emit dataReceived(serialPort->portName(), buffer);
+//            parser.toFloatData(dataField); // 如果 floatData 是静态函数，则可以用类名直接调用
+            emit dataReceived(*serialPort, buffer);
             buffer.clear();
         }
 

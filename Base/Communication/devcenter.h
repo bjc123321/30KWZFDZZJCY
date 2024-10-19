@@ -15,6 +15,9 @@ class DevCenter : public QObject
     B_INSTANCE(DevCenter)
     public:
         explicit DevCenter(QObject *parent = 0);
+
+
+
 public:
     ModbusRTU comRtu1;
     ModbusRTU comRtu2;
@@ -24,6 +27,9 @@ public:
     void listUsbSerialPorts();
     //判断是不是usb的串口com
     bool isUsbSerialPort(const QSerialPortInfo &portInfo);
+
+    QString comName = "";
+
 
 signals:
 
