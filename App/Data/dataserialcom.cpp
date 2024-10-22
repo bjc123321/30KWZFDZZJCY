@@ -41,9 +41,9 @@ void DataSerialCom::setFengJiSlot(bool isOpen)
         controlLoadQueue.enqueue(dataToSend); // 将数据加入队列
         qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlLoadHexBusy;
         // 如果串口不忙，立即发送
-        if (!isControlLoadHexBusy) {
+
             sendControlLoadHex();
-        }
+
 
 
     }else{
@@ -53,9 +53,9 @@ void DataSerialCom::setFengJiSlot(bool isOpen)
         controlLoadQueue.enqueue(dataToSend); // 将数据加入队列
         qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlLoadHexBusy;
         // 如果串口不忙，立即发送
-        if (!isControlLoadHexBusy) {
+
             sendControlLoadHex();
-        }
+
     }
 
 }
@@ -166,12 +166,11 @@ void DataSerialCom::onTabChanged(int index)
 void DataSerialCom::steadyRequest()
 {
 
-
+    // 如果串口不忙，立即发送
+    if (!isControlPanelHexBusy) {
 
         /*
          * 注意：对于只读取仪表示数前，要切换到页面0注意不要锁定页面，再执行请求帧
-         * 这里的requestFramList.at(1):读取线路1瞬时电压偏差-
-         * 这里的requestFramList.at(2):读取线路1电压恢复时间
         */
 
         QStringList requestFramList = QStringList( {"0103001e0002","010300200002","010300220002",
@@ -190,17 +189,18 @@ void DataSerialCom::steadyRequest()
             qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlPanelHexBusy;
         }
 
-        // 如果串口不忙，立即发送
-        if (!isControlPanelHexBusy) {
-            qDebug()<<"如果串口不忙，立即发送";
-            sendControlPanelHex();
-        }else{
 
-             // 弹出一个提示框，告知用户串口正在发送数据请等待...
-            qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
-        }
+        qDebug()<<"如果串口不忙，立即发送";
+        sendControlPanelHex();
+    }else{
 
-        requestFramList.clear();
+        //串口数据，可能有错误未处理应该丢弃，但应该保证数据不卡页面isControlPanelHexBusy仍然要置false;
+        isControlPanelHexBusy =false;
+        // 弹出一个提示框，告知用户串口正在发送数据请等待...
+        qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
+
+    }
+
 
 }
 
@@ -328,12 +328,14 @@ void DataSerialCom::sendControlPanelHex()
         }else if(type == TEST_TYPE::SUDD_LOAD){
             qDebug()<<"发送突加更新界面信号！！！";
 
-//            emit updateSuddLoadPageSignal(dataStrQueue);
+    //            emit updateSuddLoadPageSignal(dataStrQueue);
 
         }
         dataStrQueue.clear();
 
     }
+
+
 }
 
 

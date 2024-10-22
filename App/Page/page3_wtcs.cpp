@@ -230,9 +230,6 @@ void Page3_wtcs::displaySteadyData(QQueue<QString> strQueue)
 
     qDebug()<<"个数：：：："<<strQueue.length()<<"当前tab页索引为"<<ui->tabWidget->currentIndex();
 
-    if(strQueue.length()<1){
-        return ;
-    }
 
     if(DataSerialCom::getInstance().type == DataSerialCom::STEADY){
         //显示稳态数据页面
