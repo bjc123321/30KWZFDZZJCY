@@ -112,7 +112,11 @@ void Page3_wtcs::signalBind()
 
     connect(ui->pushButton_8,&QPushButton::clicked,this,[this](){
 
+        //保存稳态数据
+
         saveSteadyData();
+
+
     });
 
 
@@ -127,7 +131,10 @@ void Page3_wtcs::signalBind()
 
 
     connect(ui->tabWidget, &QTabWidget::currentChanged, &dtSerialCom, &DataSerialCom::onTabChanged);
+
+    //发送稳态数据实时更新
     connect(ui->pushButton_7,&QPushButton::clicked,&dtSerialCom,&DataSerialCom::StartSteadySlot);
+    //停止稳态数据实时更新
     connect(ui->pushButton_10,&QPushButton::clicked,&dtSerialCom,&DataSerialCom::StopSteadySlot);
 
     //点击电能数据按钮显示电能数据
@@ -231,7 +238,7 @@ void Page3_wtcs::displaySteadyData(QQueue<QString> strQueue)
     qDebug()<<"个数：：：："<<strQueue.length()<<"当前tab页索引为"<<ui->tabWidget->currentIndex();
 
 
-    if(DataSerialCom::getInstance().type == DataSerialCom::STEADY){
+    if(GlobalSettings::instance().getCurrentTestType() == GlobalSettings::STEADY){
         //显示稳态数据页面
 
         //每秒把全局变量读取出来更新负载百分比
@@ -248,7 +255,7 @@ void Page3_wtcs::displaySteadyData(QQueue<QString> strQueue)
 
         }
 
-    }else if(DataSerialCom::getInstance().type == DataSerialCom::TUNING){
+    }else if(GlobalSettings::instance().getCurrentTestType() == GlobalSettings::TUNING){
         //显示整定数据页面
         for(int i = 0; i < tuningDataEdits.length(); i++){
 
@@ -369,6 +376,8 @@ void Page3_wtcs::saveSteadyData()
     vdata.append("");
     vdata.append("");
 
+
+    //把稳态界面详细的数据打包成vdata
     Save::U().packSteadyDetailRecord(vdata);
 
 

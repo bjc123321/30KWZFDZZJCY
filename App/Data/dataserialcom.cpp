@@ -4,6 +4,8 @@
 #include "Base/Communication/serialCom/modbusprotocolparser.h"
 #include "Base/Communication/devcenter.h"
 
+#include "GlobalSettings.h"
+
 DataSerialCom::DataSerialCom(QObject *parent) : QObject(parent)
 {
 
@@ -63,6 +65,7 @@ void DataSerialCom::setFengJiSlot(bool isOpen)
 void DataSerialCom::StartSteadySlot()
 {
 
+    GlobalSettings::instance().setCurrentTestType(GlobalSettings::STEADY);
     qDebug()<<"先切换至逻辑0页";
     pageCodeRequest(0);
     steadyTimer->start(1000);
@@ -78,6 +81,8 @@ void DataSerialCom::startSuddIncreaseSlot()
 {
     qDebug()<<"开始突加测试";
 
+    GlobalSettings::instance().setCurrentTestType(GlobalSettings::SUDD_LOAD);
+    pageCodeRequest(1);
     suddLoadTimer->start(1000);
 
 
@@ -91,17 +96,22 @@ void DataSerialCom::stopSuddLoadSlot()
 void DataSerialCom::pageCodeRequest(int index)
 {
 
+
+
     if(index == 0){
         // 发送指定的16进制数据
-        qDebug()<<"锁定页面0";
+        qDebug()<<"切换页面0";
+        /*
+         * 注意：对于页面0只读的数据，要切换到页面0注意不要锁定页面，再执行请求帧
+        */
         QByteArray dataToSend = QByteArray::fromHex("011000000001020000");
-        SerialPortManager::getInstance().writeData("COM7", dataToSend);
+        SerialPortManager::getInstance().writeData(DevCenter::U().panelCom, dataToSend);
     }else if(index == 1){
 
         // 发送指定的16进制数据
-        qDebug()<<"锁定页面1";
+        qDebug()<<"切换页面1";
         QByteArray dataToSend = QByteArray::fromHex("011000000001020001");
-        SerialPortManager::getInstance().writeData("COM7", dataToSend);
+        SerialPortManager::getInstance().writeData(DevCenter::U().panelCom, dataToSend);
 
     }
 
@@ -169,16 +179,17 @@ void DataSerialCom::steadyRequest()
     // 如果串口不忙，立即发送
     if (!isControlPanelHexBusy) {
 
-        /*
-         * 注意：对于只读取仪表示数前，要切换到页面0注意不要锁定页面，再执行请求帧
-        */
 
-        QStringList requestFramList = QStringList( {"0103001e0002","010300200002","010300220002",
-                                       "0103002e0002","010300300002","010300320002",
-                                       "010300380002","0103003a0002","0103003c0002",
-                                       "010300520002","010300540002","010300560002",
-                                       "0103002a0002","010300340002","0103003e0002","010300580002",
-                                       "010300240002","010300260002","010300280002","0103002c0002"});
+        QStringList requestFramList = QStringList( {"0103001e0002","010300200002","010300220002"
+                                       });
+
+//          后期测完打开
+//        QStringList requestFramList = QStringList( {"0103001e0002","010300200002","010300220002",
+//                                       "0103002e0002","010300300002","010300320002",
+//                                       "010300380002","0103003a0002","0103003c0002",
+//                                       "010300520002","010300540002","010300560002",
+//                                       "0103002a0002","010300340002","0103003e0002","010300580002",
+//                                       "010300240002","010300260002","010300280002","0103002c0002"});
 
         for(int i = 0;i<requestFramList.length();i++){
 
@@ -194,7 +205,7 @@ void DataSerialCom::steadyRequest()
         sendControlPanelHex();
     }else{
 
-        //串口数据，可能有错误未处理应该丢弃，但应该保证数据不卡页面isControlPanelHexBusy仍然要置false;
+        //一般长时间未处理的帧应为异常帧，所以丢弃错误帧，也要置false;
         isControlPanelHexBusy =false;
         // 弹出一个提示框，告知用户串口正在发送数据请等待...
         qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
@@ -208,31 +219,48 @@ void DataSerialCom::suddLoadRequest()
 {
     qDebug()<<"突加请求测试";
 
-    //获取曲线的Y坐标值，034c之后每隔2个寄存器可以获取一个浮点数一直到098c
-    //获取平均突加电压、平均突加电流和突加频率的Y轴数据
-    QStringList requestFramList ={"010300020002","010300040002","010300060002"//从左向右依次读取：电压、电流和频率
-                                  };
-    for(int i = 0;i<requestFramList.length();i++){
+    elapsedTime ++;
 
-        QString hexString = requestFramList.at(i);  // 获取 QString
-        QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
-        QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
-        controlPanelQueue.enqueue(dataToSend); // 将数据加入队列
-        qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlPanelHexBusy;
+
+    // 如果经过12秒，停止定时器
+    if (elapsedTime > lastTime) {
+        qDebug() << "定时器已过期，停止定时器,并把经过时间置0";
+        suddLoadTimer->stop();
+        elapsedTime = 0;
+        return ;
     }
+
+    emit displayLCDNumberSignal(elapsedTime);
 
     // 如果串口不忙，立即发送
     if (!isControlPanelHexBusy) {
         qDebug()<<"如果串口不忙，立即发送";
+
+        //获取曲线的Y坐标值，034c之后每隔2个寄存器可以获取一个浮点数一直到098c
+        //获取平均突加电压、平均突加电流和突加频率的Y轴数据
+        QStringList requestFramList ={"010300020002","010300040002","010300060002"//从左向右依次读取：电压、电流和频率
+                                      };
+        for(int i = 0;i<requestFramList.length();i++){
+
+            QString hexString = requestFramList.at(i);  // 获取 QString
+            QByteArray byteArray = hexString.toUtf8();  // 将 QString 转换为 QByteArray
+            QByteArray dataToSend = QByteArray::fromHex(byteArray);  // 使用 QByteArray::fromHex
+            controlPanelQueue.enqueue(dataToSend); // 将数据加入队列
+            qDebug() << "数据加入队列：" << dataToSend.toHex()<<"串口是否忙碌:"<<isControlPanelHexBusy;
+        }
+
+
         sendControlPanelHex();
     }else{
 
+
+        isControlPanelHexBusy = false;
         // 弹出一个提示框，告知用户串口正在发送数据请等待...
         qDebug()<<"弹出一个提示框，告知用户串口正在发送数据请等待...";
 
     }
 
-    requestFramList.clear();
+
 }
 
 
@@ -322,16 +350,16 @@ void DataSerialCom::sendControlPanelHex()
         // 队列中的所有数据已经发送完毕，设置为处理完成状态
         qDebug() << "队列中的数据全部发送完毕！";
 
-        if(type == TEST_TYPE::STEADY){
-            qDebug()<<"是稳态页面...................................................................................................................";
-            emit updateSteadyPageSignal(dataStrQueue);
-        }else if(type == TEST_TYPE::SUDD_LOAD){
-            qDebug()<<"发送突加更新界面信号！！！";
-
-    //            emit updateSuddLoadPageSignal(dataStrQueue);
+        if(GlobalSettings::instance().getCurrentTestType() == GlobalSettings::STEADY){
+            qDebug()<<".....................................................................发送更新稳态界面文本框.........................................";
+            emit updateSteadyPageSignal(steadyDataStrQueue);
+        }else if(GlobalSettings::instance().getCurrentTestType() == GlobalSettings::SUDD_LOAD){
+            qDebug()<<".....................................................................发送突加更新界面信号！！！.......................................";
+            emit updateSuddLoadPageSignal(suddLoadDataStrQueue);
 
         }
-        dataStrQueue.clear();
+        steadyDataStrQueue.clear();
+        suddLoadDataStrQueue.clear();
 
     }
 
@@ -354,7 +382,8 @@ void DataSerialCom::sendControlLoadHex()
         // 队列中的所有数据已经发送完毕，设置为处理完成状态
         qDebug() << "队列中的数据全部发送完毕！";
 
-        dataStrQueue.clear();
+        steadyDataStrQueue.clear();
+        suddLoadDataStrQueue.clear();
 
     }
 }
@@ -420,8 +449,13 @@ void DataSerialCom::analyzingData(const QByteArray &data)
             QString dataStr = QString::number(parser.toFloatData(dataField),'f',3);
             qDebug()<<"dataStr"<<dataStr;
 
+            if(GlobalSettings::instance().getCurrentTestType() == GlobalSettings::STEADY){
+                steadyDataStrQueue.enqueue(dataStr);
+            }else if(GlobalSettings::instance().getCurrentTestType() == GlobalSettings::SUDD_LOAD){
+                suddLoadDataStrQueue.enqueue(dataStr);
+            }
 
-            dataStrQueue.enqueue(dataStr);
+
 
 
         }else{
@@ -437,3 +471,21 @@ void DataSerialCom::analyzingData(const QByteArray &data)
 
 
 }
+
+void DataSerialCom::readSuddLoad800YSlot()
+{
+
+    //突加数据再页面1,所以切换一下页面1
+    pageCodeRequest(1);
+
+    //读突加曲线点个数
+    QByteArray dataToSend = QByteArray::fromHex("0103002a0001");
+    SerialPortManager::getInstance().writeData(DevCenter::U().panelCom, dataToSend);
+
+
+    ModbusProtocolParser parser;
+    qDebug()<<"获取数据域"<<parser.getDataField().toHex();
+
+
+}
+

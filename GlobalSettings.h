@@ -15,6 +15,24 @@ public:
         return instance;
     }
 
+    enum TEST_TYPE{
+        STEADY = 0,      //稳态测试
+        TUNING,          //整定测试
+        SUDD_LOAD,       //突加测试
+        SUDD_UNLOAD,     //突卸测试
+        RECOR_DWAVE,      //录波测试
+        OTHERS            //其他
+    };
+
+    // 设置和获取当前测试类型的值
+    void setCurrentTestType(TEST_TYPE type) {
+        currentTestType = type;
+    }
+
+    TEST_TYPE getCurrentTestType() const {
+        return currentTestType;
+    }
+
     // 设置和获取整型变量的值
     void setCurrentLoad(int value) {
         currentLoad = value;
@@ -36,7 +54,7 @@ public:
 private:
     // 构造函数私有化，防止外部实例化
     explicit GlobalSettings(QObject* parent = nullptr)
-        : QObject(parent), currentLoad(0), fanIsOpen(false){}
+        : QObject(parent), currentLoad(0), fanIsOpen(false), currentTestType(STEADY) {}
 
     // 禁止拷贝构造和赋值操作
     GlobalSettings(const GlobalSettings&) = delete;
@@ -45,6 +63,8 @@ private:
     // 全局变量
     int currentLoad;
     bool fanIsOpen;
+
+    TEST_TYPE currentTestType; // 当前测试类型
 
 };
 

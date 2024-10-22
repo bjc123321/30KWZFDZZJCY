@@ -10,6 +10,9 @@
 #include "App/Page/save.h"
 #include "App/Page/page3_wtcs.h"
 
+#include "GlobalSettings.h"
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -33,6 +36,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::init()
 {
+
+    GlobalSettings &gblObject =  GlobalSettings::instance();
+    qDebug()<<"获取默认全局变量----当前负载:"<<gblObject.getCurrentLoad()
+            <<"获取默认全局变量----风机状态:"<<gblObject.getFanIsOpen()
+            <<"获取默认全局变量----测试类型:"<<gblObject.getCurrentTestType();
+
     initNavTree();
     initClose();
 }

@@ -266,7 +266,7 @@ QPushButton:pressed {
              <item row="0" column="3">
               <widget class="QPushButton" name="pushButton_5">
                <property name="text">
-                <string>计时归零</string>
+                <string>保存当前数据</string>
                </property>
               </widget>
              </item>
@@ -281,13 +281,6 @@ QPushButton:pressed {
               <widget class="QPushButton" name="pushButton">
                <property name="text">
                 <string>突加测试</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="3">
-              <widget class="QPushButton" name="pushButton_6">
-               <property name="text">
-                <string>导出报告</string>
                </property>
               </widget>
              </item>
@@ -1326,7 +1319,7 @@ QPushButton:pressed {
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="tab_3">
+               <widget class="QWidget" name="tab_2">
                 <attribute name="title">
                  <string>突加曲线</string>
                 </attribute>
@@ -1655,7 +1648,7 @@ QPushButton:pressed {
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="tab_2">
+               <widget class="QWidget" name="tab_3">
                 <attribute name="title">
                  <string>突卸测试</string>
                 </attribute>

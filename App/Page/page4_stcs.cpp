@@ -4,6 +4,10 @@
 
 #include "App/Data/dataserialcom.h"
 #include "App/Data/dataprocessor.h"
+
+#include "GlobalSettings.h"
+
+
 Page4_stcs::Page4_stcs(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Page4_stcs)
@@ -29,34 +33,56 @@ void Page4_stcs::signalBind()
 
     connect(ui->pushButton,&QPushButton::clicked,this,[this](){
 
-       DataSerialCom::getInstance().type = DataSerialCom::SUDD_LOAD;
         //开始突加测试
        emit startSuddIncrease();
     });
 
     connect(ui->pushButton_2,&QPushButton::clicked,this,[this](){
 
+
+        GlobalSettings::instance().setCurrentTestType(GlobalSettings::OTHERS);
+
         emit stopSuddLoad();
 
     });
+
+
+    connect(ui->pushButton_5, &QPushButton::clicked, this, [&]() {
+        QString tab_Name = ui->tabWidget->currentWidget()->objectName(); // 获取当前标签页名称
+        qDebug() << "保存当前" << tab_Name << "页数据"; // 输出调试信息
+        saveCurrentData(tab_Name); // 调用保存函数
+    });
+
 
     DataSerialCom &dtSerialCom = DataSerialCom::getInstance();
     DataProcessor &dtProcessor = DataProcessor::getInstance();
 
     connect(this,&Page4_stcs::startSuddIncrease,&dtSerialCom,&DataSerialCom::startSuddIncreaseSlot);
-    connect(&dtSerialCom,&DataSerialCom::updateSuddLoadPageSignal,this,&Page4_stcs::displaySuddLoadView);
+    connect(&dtSerialCom,&DataSerialCom::updateSuddLoadPageSignal,this,&Page4_stcs::displaySuddLoadWaveSlot);
+    connect(&dtSerialCom,&DataSerialCom::displayLCDNumberSignal,this,&Page4_stcs::displayClockSlot);
 
 
     connect(this,&Page4_stcs::drawSuddLoadPlot,&dtProcessor,&DataProcessor::generateData);
 
-
-
     connect(this,&Page4_stcs::stopSuddLoad,&dtSerialCom,&DataSerialCom::stopSuddLoadSlot);
+
+    connect(this,&Page4_stcs::readSuddLoad800YSignal,&dtSerialCom,&DataSerialCom::readSuddLoad800YSlot);
+
+}
+
+void Page4_stcs::displayClockSlot(int t_elapsedTime)
+{
+
+    int tens = t_elapsedTime / 10;
+    int ones = t_elapsedTime % 10;
+
+    ui->lcdNumber->display(tens);
+    ui->lcdNumber_2->display(ones);
 
 }
 
 //此函数要包括显示数据和画波形图
-void Page4_stcs::displaySuddLoadView(QQueue<QString> dataStrQueue)
+void Page4_stcs::displaySuddLoadWaveSlot(QQueue<QString> dataStrQueue)
 {
 
 
@@ -78,6 +104,35 @@ void Page4_stcs::displaySuddLoadView(QQueue<QString> dataStrQueue)
             <<"\n平均突加频率:"<<threePhase[2];
 
     emit drawSuddLoadPlot(threePhase[0],threePhase[1],threePhase[2]);
+
+}
+
+void Page4_stcs::saveCurrentData(QString dataType)
+{
+
+    if(dataType == "tab"){
+
+        qDebug()<<"突加数据保存";
+
+    }else if(dataType == "tab_2"){
+
+        qDebug()<<"*****突加曲线数据保存*****";
+        //1.先弹出save界面
+        //2.发送查询800个突加数据信号(可以先查100个每隔8个查1次)
+        //3.返回的响应帧解析后放队列中，再发给界面画出这些点形成的曲线
+        emit readSuddLoad800YSignal();
+
+
+
+    }else if(dataType == "tab_3"){
+
+        qDebug()<<"突卸数据保存";
+
+    }else if(dataType == "tab_4"){
+
+        qDebug()<<"*****突卸曲线数据保存*****";
+
+    }
 
 }
 

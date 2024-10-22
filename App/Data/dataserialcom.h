@@ -18,15 +18,6 @@ public:
         return instance;
     }
 
-    enum TEST_TYPE{
-        STEADY = 0,      //稳态测试
-        TUNING,          //整定测试
-        SUDD_LOAD,       //突加测试
-        SUDD_UNLOAD,     //突卸测试
-        RECOR_DWAVE      //录波测试
-
-    };
-
     void onTabChanged(int index);
 
 
@@ -37,8 +28,10 @@ public:
     QString portName = "";
     QString portDescription = "";
 
-    //待输出到页面的字符串队列
-    QQueue<QString> dataStrQueue;
+    //稳态字符串队列
+    QQueue<QString> steadyDataStrQueue;
+    //突加字符串队列
+    QQueue<QString> suddLoadDataStrQueue;
 
     /*********************仪表****************************/
     // 控制仪表命令队列
@@ -67,7 +60,11 @@ public:
 
     void suddLoadRequest();
 
-    int type = TEST_TYPE::STEADY;
+    int elapsedTime = 0;//记录经过的时间
+    int lastTime = 12;//持续时间
+
+
+
 
 
 private :
@@ -87,6 +84,8 @@ signals:
     void updateSteadyPageSignal(QQueue<QString> dataStrQueue);
 
     void updateSuddLoadPageSignal(QQueue<QString> dataStrQueue);
+
+    void displayLCDNumberSignal(int t_elapsedTime);
 
 private slots:
 
@@ -108,6 +107,8 @@ public slots:
 
 
     void setFengJiSlot(bool isOpen);
+
+    void readSuddLoad800YSlot();
 
 
 
