@@ -28,7 +28,8 @@ public:
     //判断是不是usb的串口com
     bool isUsbSerialPort(const QSerialPortInfo &portInfo);
 
-    QString comName = "";
+    QString loadCom = "";
+    QString panelCom = "";
 
 
 signals:

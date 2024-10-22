@@ -50,6 +50,12 @@ void DevCenter::listUsbSerialPorts()
                 qDebug() << "是否可用:" << (info.isBusy() ? "是" : "否");
                 qDebug() << "------------------------";
 
+                if(info.description().contains("ch", Qt::CaseInsensitive)){
+                    loadCom = info.portName();
+                }else{
+                    panelCom = info.portName();
+                }
+
                 manager.addSerialPort(info.portName());
                 manager.configurePort(info.portName(), QSerialPort::Baud9600, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QSerialPort::NoFlowControl);
                 manager.openPort(info.portName(), QSerialPort::ReadWrite);

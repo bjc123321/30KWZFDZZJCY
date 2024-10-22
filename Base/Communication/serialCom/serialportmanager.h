@@ -38,6 +38,12 @@ public:
                        QSerialPort::Parity parity,
                        QSerialPort::StopBits stopBits,
                        QSerialPort::FlowControl flowControl);
+
+
+    QMap<QString, QSerialPort*> getPorts(){
+        return serialPorts;
+    }
+
 public slots:
 
 

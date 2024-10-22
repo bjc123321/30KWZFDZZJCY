@@ -1,4 +1,4 @@
-﻿#include "page1_fzsz.h"
+#include "page1_fzsz.h"
 #include "ui_page1_fzsz.h"
 
 
@@ -6,6 +6,7 @@
 #include <ctime>    // for time()
 
 #include "globalsettings.h"
+#include "App/Data/dataserialcom.h"
 
 Page1_fzsz::Page1_fzsz(QWidget *parent) :
     QWidget(parent),
@@ -21,15 +22,15 @@ Page1_fzsz::Page1_fzsz(QWidget *parent) :
        GlobalSettings::instance().setCurrentLoad(value);
        qDebug()<<"负载"<<GlobalSettings::instance().getCurrentLoad();
        ui->lineEdit_2->setText(QString::number(value)); // 将滑动条的值转换为字符串并显示在文本框中
-       ui->lineEdit_3->setText(QString::number(value*1.0/100*120)); // 将滑动条的值转换为字符串并显示在文本框中
+       ui->lineEdit_3->setText(QString::number(value*1.0/100)); // 将滑动条的值转换为字符串并显示在文本框中,最大1KW
     });
     connect(ui->horizontalSlider_2, &QSlider::valueChanged,this,[this](int value) {
        ui->lineEdit->setText(QString::number(value*0.1)); // 将滑动条的值转换为字符串并显示在文本框中
     });
 
-    // 创建正则表达式，匹配1到3000之间的数字
-    QRegularExpression regExp("^(?:[1-9][0-9]{0,2}|[1-2][0-9]{3}|3000)$");
-    QRegularExpressionValidator *validator = new QRegularExpressionValidator(regExp, this);
+    // 正则表达式匹配1到15之间的数字设置时最少1min最多15分钟.初始默认1min即60s
+    QRegularExpression regex("^(1[0-5]|[1-9])$");
+    QRegularExpressionValidator *validator = new QRegularExpressionValidator(regex, this);
 
     // 将验证器应用到 QLineEdit
     ui->lineEdit_4->setValidator(validator);
@@ -111,6 +112,29 @@ void Page1_fzsz::initSetFzModel(QSqlTableModel* modelPtr,QString tableName,QTabl
     connect(load,&QPushButton::clicked,this,[this,tableView,modelPtr](){
 
         selectRowsWithTimer(tableView,modelPtr);
+
+    });
+
+
+    connect(ui->pushButton_5,&QPushButton::clicked,this,[this](){
+
+        int value = ui->lineEdit_3->text().toInt();
+
+        qDebug()<<"测试文本显示"<<value<<"远程一键加载负载0.2Kw";
+
+
+
+        QByteArray dataToSend = QByteArray::fromHex("010600320002");
+        SerialPortManager::getInstance().writeData("COM5", dataToSend);
+
+    });
+
+    connect(ui->pushButton_6,&QPushButton::clicked,this,[this](){
+
+        qDebug()<<"远程一键卸载负载";
+
+        QByteArray dataToSend = QByteArray::fromHex("010600230001");
+        SerialPortManager::getInstance().writeData("COM5", dataToSend);
 
     });
 

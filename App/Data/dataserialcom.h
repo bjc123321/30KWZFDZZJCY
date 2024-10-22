@@ -35,12 +35,10 @@ public:
 
 
     QString portName = "";
+    QString portDescription = "";
 
     //待输出到页面的字符串队列
     QQueue<QString> dataStrQueue;
-
-    //每"轮"数据是否正在处理处理标志
-    bool isProcessing = false;
 
     /*********************仪表****************************/
     // 控制仪表命令队列

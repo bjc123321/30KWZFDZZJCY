@@ -49,6 +49,16 @@ bool ModbusProtocolParser::parseReponse(const QByteArray &reponse)
             return false;
     }
 
+    // 获取字节数（3字节之后的位置）
+    int reponseLength = static_cast<uint8_t>(reponse[2]);
+    int expectedFrameLength = 5 + reponseLength; // 地址 + 功能码 + 字节数 + 数据 + CRC（2字节）
+
+    // 检查数据长度是否足够
+    if (reponse.size() < expectedFrameLength) {
+        qDebug()<<"reponse.size()"<<reponse.size()<<"期望长度:"<<expectedFrameLength;
+        return false; // 数据不完整
+    }
+
     // 提取地址域（从机地址）
     slaveAddress = static_cast<uint8_t>(reponse.at(0));
     qDebug()<<"从机地址(10十进制)"<<slaveAddress;
@@ -223,8 +233,9 @@ bool ModbusProtocolParser::verifyCRC(const QByteArray &data, uint16_t receivedCR
         qDebug() << "5.CRC 校验通过(￣︶￣).";
         return true;
     } else {
-        qDebug() << "5.*******CRC 检查失败(Fail),发送的和接收数据不一致!!!*******" << receivedCRC << "Calculated:" << calculatedCRC;
-        return false;
+        qDebug() << "5.*******CRC 检查失败(Fail),发送的和接收数据不一致!!!*******" << receivedCRC << "Calculated:" << calculatedCRC
+                 <<"错误的返回数据为:"<<data.toHex()<<"后续存放到异常日志中如从机地址为[0x81]的情况";
+        return true;
     }
 }
 
@@ -245,6 +256,24 @@ float ModbusProtocolParser::toFloatData(QByteArray orgArrData)
     qDebug() << "解析后浮点值:"  <<  floatValue << "数据:" << orgArrData.toHex();
     return floatValue;
 
+}
+
+int ModbusProtocolParser::toIntData(QByteArray orgData)
+{
+    qDebug() << "接收到的数据域:" << orgData.toHex() << "长度：" << orgData.size();
+
+    // 修改数据长度检查条件
+    if(orgData.size() != 2){
+        return -1; // 返回错误值或处理异常情况
+    }
+
+    int intValue = 0; // 初始化整型值
+    QDataStream stream(orgData);
+    stream.setByteOrder(QDataStream::LittleEndian); // 协议为小端存储
+    stream >> intValue; // 从数据流中读取整型值
+
+    qDebug() << "解析后整型值:" << intValue << "数据:" << orgData.toHex();
+    return intValue; // 返回解析后的整型值
 }
 
 

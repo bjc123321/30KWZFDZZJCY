@@ -253,7 +253,7 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>220</string>
+           <string>380</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -419,7 +419,7 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>300</string>
+           <string>0.3</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -797,13 +797,6 @@ border:none;
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_10">
-                <property name="text">
-                 <string>暂停显示</string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QPushButton" name="pushButton_9">
                 <property name="minimumSize">
                  <size>
@@ -827,6 +820,13 @@ border:none;
                <widget class="QPushButton" name="pushButton">
                 <property name="text">
                  <string>导出为Excel</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_10">
+                <property name="text">
+                 <string>暂停显示</string>
                 </property>
                </widget>
               </item>
@@ -3658,11 +3658,6 @@ font: 75 18pt &quot;Calibri&quot;;</string>
            </layout>
            <zorder></zorder>
            <zorder>stackedWidget</zorder>
-          </widget>
-          <widget class="QWidget" name="tab_5">
-           <attribute name="title">
-            <string>波动测试</string>
-           </attribute>
           </widget>
          </widget>
         </item>

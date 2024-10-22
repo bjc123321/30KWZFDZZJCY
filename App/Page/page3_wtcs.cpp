@@ -1,16 +1,22 @@
-    #include "page3_wtcs.h"
+#include "page3_wtcs.h"
 #include "ui_page3_wtcs.h"
 #include <QDebug>
 #include <QDateTime>
 #include "App/Data/dataserialcom.h"
 #include "App/Page/save.h"
 #include "globalsettings.h"
+#include "page1_fzsz.h"
+
+#include "Base/BaseFun/Sql/databasemanager.h"
 
 Page3_wtcs::Page3_wtcs(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Page3_wtcs)
 {
     ui->setupUi(this);
+
+
+
 
     freqPlot = new FrequencyPlotter(this);
     voltageWidget = new VoltagePlot(this);
@@ -27,11 +33,7 @@ Page3_wtcs::Page3_wtcs(QWidget *parent) :
     initSteadyUI();
     initTuningUI();
 
-
-
-
     signalBind();
-
 
 }
 
@@ -118,7 +120,7 @@ void Page3_wtcs::signalBind()
 
         qDebug()<<"计算当前负载的数据";
         calculateSteadyData();
-        ui->lineEdit_82->setText(QString::number(GlobalSettings::instance().getCurrentLoad()));
+
 
     });
 
@@ -134,6 +136,7 @@ void Page3_wtcs::signalBind()
      * connect(button,clicked,dtSerialCom,requestElecticData)请求电能数据函数作为稳态测试页中的独立的功能
     */
     connect(&dtSerialCom,&DataSerialCom::updateSteadyPageSignal,this,&Page3_wtcs::displaySteadyData);
+
 
 }
 
@@ -171,6 +174,8 @@ void Page3_wtcs::initSteadyUI()
 
     ui->lineEdit_14->setText(sequenceNumber);
     ui->lineEdit_14->setToolTip(ui->lineEdit_14->text());
+
+
 
 
 }
@@ -225,8 +230,16 @@ void Page3_wtcs::displaySteadyData(QQueue<QString> strQueue)
 
     qDebug()<<"个数：：：："<<strQueue.length()<<"当前tab页索引为"<<ui->tabWidget->currentIndex();
 
+    if(strQueue.length()<1){
+        return ;
+    }
+
     if(DataSerialCom::getInstance().type == DataSerialCom::STEADY){
         //显示稳态数据页面
+
+        //每秒把全局变量读取出来更新负载百分比
+        ui->lineEdit_82->setText(QString::number(GlobalSettings::instance().getCurrentLoad()));
+
         for(int i = 0; i < lineEdits.length(); i++){
 
             if(!strQueue.isEmpty()){
@@ -250,8 +263,6 @@ void Page3_wtcs::displaySteadyData(QQueue<QString> strQueue)
 
 
         }
-    }else{
-        return  ;
     }
 
     unLoad_VolMax = std::max(unLoad_VolMax, ui->lineEdit_28->text().toFloat());
@@ -274,7 +285,7 @@ void Page3_wtcs::calculateSteadyData()
 {
     //计算稳态电压调整率，若3相电就取平均值
 
-    float steadyVolreg = (ui->lineEdit_28->text().toFloat() - 220.0)/220.0;
+    float steadyVolreg = (ui->lineEdit_28->text().toFloat() - 380*0.95)/380*0.95;
     qDebug()<<"稳态电压调整率:"<<steadyVolreg<<"%";
     ui->lineEdit_36->setText(QString::number(steadyVolreg,'f',3));
 
@@ -322,7 +333,7 @@ void Page3_wtcs::saveSteadyData()
 
 //    Detection record(uniqueID,"电机","稳态测试","xxx",current.toString(),"Yes");
 
-    Save::Detection record(ui->lineEdit_14->text(),
+    Save::TEST_RECORD record(ui->lineEdit_14->text(),
                            "电机",
                            "稳态测试",
                            ui->lineEdit_15->text(),
@@ -335,7 +346,34 @@ void Page3_wtcs::saveSteadyData()
     qDebug() << "检测人员:" << record.inspector;
     qDebug() << "检测时间:" << record.detectionTime;
     qDebug() << "检测结果:" << record.result;
-    Save::U().updateT_dataView(record);
+    Save::U().displayT_dataView(record);
+
+    QVector<QVariant> vdata;
+    vdata.append(ui->lineEdit_14->text());//测试编号
+    vdata.append(QDateTime::currentDateTime().toString("yyyy-MM-dd-HH-mm-ss"));//测试时间
+    vdata.append("1");//时长
+    vdata.append(ui->lineEdit_82->text());//负载状况
+    vdata.append(ui->lineEdit_2->text());//功率
+    vdata.append(ui->lineEdit_3->text());//功率因数
+    vdata.append(ui->lineEdit_17->text());//电流1
+    vdata.append(ui->lineEdit_21->text());
+    vdata.append(ui->lineEdit_25->text());
+    vdata.append(ui->lineEdit_16->text());
+    vdata.append(ui->lineEdit_20->text());
+    vdata.append(ui->lineEdit_24->text());
+    vdata.append(ui->lineEdit_32->text());
+    vdata.append("");
+    vdata.append("");
+    vdata.append(ui->lineEdit_35->text());//平均频率
+    vdata.append("");
+    vdata.append("");
+    vdata.append("");
+    vdata.append("");
+    vdata.append("");
+    vdata.append("");
+
+    Save::U().packSteadyDetailRecord(vdata);
+
 
     Save::U().exec();
 

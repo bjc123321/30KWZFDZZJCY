@@ -358,7 +358,7 @@ QPushButton:pressed {
                     </font>
                    </property>
                    <property name="text">
-                    <string>持续时间(hh:mm:ss):</string>
+                    <string>持续时间(min):</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -386,7 +386,7 @@ QPushButton:pressed {
                     </font>
                    </property>
                    <property name="text">
-                    <string>00:01:00</string>
+                    <string>1</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -422,6 +422,20 @@ QPushButton:pressed {
                  </property>
                  <property name="text">
                   <string>清空</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_5">
+                 <property name="text">
+                  <string>测试加载</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_6">
+                 <property name="text">
+                  <string>测试卸载</string>
                  </property>
                 </widget>
                </item>

@@ -35,15 +35,19 @@ public:
     };
 
     // 使用 typedef 为结构体创建别名
-    typedef DetectionRecord Detection;
+    typedef DetectionRecord TEST_RECORD;
 
 public:
 
-    QSqlTableModel *model = nullptr;
+    QSqlTableModel *model1 = nullptr;
+    QSqlTableModel *model2 = nullptr;
 
-    void updateT_dataView(Detection record);
-    void saveTestRecord();
-    void bindDataBaseTable();
+    QVector<QVariant> v_Steady_Data;
+
+    void displayT_dataView(TEST_RECORD record );
+    void saveSteadyTestRecord();
+    void packSteadyDetailRecord(QVector<QVariant> v_Steady_Detail_Data);
+    void bindDataBaseModel();
 
 private:
     Ui::Save *ui;

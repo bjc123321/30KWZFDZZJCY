@@ -36,7 +36,7 @@ public:
 private:
     // 构造函数私有化，防止外部实例化
     explicit GlobalSettings(QObject* parent = nullptr)
-        : QObject(parent), currentLoad(0), fanIsOpen(false) {}
+        : QObject(parent), currentLoad(0), fanIsOpen(false){}
 
     // 禁止拷贝构造和赋值操作
     GlobalSettings(const GlobalSettings&) = delete;
@@ -45,6 +45,7 @@ private:
     // 全局变量
     int currentLoad;
     bool fanIsOpen;
+
 };
 
 #endif // GLOBALSETTINGS_H

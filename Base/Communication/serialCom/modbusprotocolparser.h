@@ -43,6 +43,8 @@ public:
     //解析16进制数据域为浮点数
     float toFloatData(QByteArray orgData);
 
+    int toIntData(QByteArray orgData);
+
     //解析16进制数据域为浮点数组
     float toFloatArrayData(const QByteArray &orgArrData);
 

@@ -51,6 +51,7 @@ public:
     //默认没有开始加载负载,当isLoading值为true时，则禁止其他对表格的操作,包括增删清空和多次点击加载的场景！
     bool isLoading = false;
 
+
 private slots:
 
 

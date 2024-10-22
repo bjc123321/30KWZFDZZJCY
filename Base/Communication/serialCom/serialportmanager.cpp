@@ -135,7 +135,7 @@ bool SerialPortManager::writeData(const QString &portName, const QByteArray &dat
         qDebug() << "2.Successfully wrote" << bytesWritten << "bytes to the serial port.";
     }
     qDebug() << "3.Sending data:" << packet.toHex()<<"Sending data大小:"<<packet.size();
-    return serialPort->waitForBytesWritten(500);//等待最多500毫秒直到所有数据都写入成功。此时间内没有完成写入,返回 false。
+    return serialPort->waitForBytesWritten(200);//等待最多500毫秒直到所有数据都写入成功。此时间内没有完成写入,返回 false。
 }
 
 
@@ -168,7 +168,20 @@ void SerialPortManager::handleReadyRead()
 
             QByteArray dataField = parser.getDataField();
             qDebug()<<"6.成功解析仪表返回响应帧的数据域:"<<dataField.toHex();
-//            parser.toFloatData(dataField); // 如果 floatData 是静态函数，则可以用类名直接调用
+
+            uint8_t byteCode = static_cast<uint8_t>(buffer.at(2));
+            qDebug()<<"返回的字节数:"<<byteCode;
+            if( byteCode == 4 ){
+
+                // 如果字节数为4个字节，则返回的是float型数据
+                parser.toFloatData(dataField);
+
+            }else if( byteCode == 2 ){
+
+                // 如果字节数为2个字节，则返回的是int型数据
+                parser.toIntData(dataField); // 如果 int型数据ze 是静态函数，则可以用类名直接调用
+
+            }
             emit dataReceived(*serialPort, buffer);
             buffer.clear();
         }
