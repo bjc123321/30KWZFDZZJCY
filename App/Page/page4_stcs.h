@@ -49,7 +49,7 @@ private:
     void displaySuddLoadWaveSlot(QQueue<QString> dataStrQueue);
 
     //保存数据，根据当前tab页显示，默认保存一份数据。先弹出保存页面，在保存页面编辑好再点保存按钮
-    void saveCurrentData(QString dataType);
+    void saveCurrentUIData(QString dataType);
 
 
 

@@ -63,6 +63,8 @@ public:
     int currentRowIndex = 0;  // 初始化加载起点
 
 
+    bool isExecSucceed = false;
+
 
 private:
 

@@ -44,6 +44,11 @@ public:
         return serialPorts;
     }
 
+    //正确的请求帧
+    QByteArray rightRequestFrame;
+    //正确的响应帧
+    QByteArray rightResponseFrame;
+
 public slots:
 
 
@@ -68,6 +73,8 @@ private:
     SerialPortManager& operator=(const SerialPortManager&) = delete;  // 禁止赋值操作
 
     QMap<QString, QSerialPort*> serialPorts;
+
+
 
 
 };

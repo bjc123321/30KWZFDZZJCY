@@ -4,7 +4,7 @@
 
 #include "App/Data/dataserialcom.h"
 #include "App/Data/dataprocessor.h"
-
+#include "App/Page/save.h"
 #include "GlobalSettings.h"
 
 
@@ -50,7 +50,7 @@ void Page4_stcs::signalBind()
     connect(ui->pushButton_5, &QPushButton::clicked, this, [&]() {
         QString tab_Name = ui->tabWidget->currentWidget()->objectName(); // 获取当前标签页名称
         qDebug() << "保存当前" << tab_Name << "页数据"; // 输出调试信息
-        saveCurrentData(tab_Name); // 调用保存函数
+        saveCurrentUIData(tab_Name); // 调用保存函数
     });
 
 
@@ -107,7 +107,7 @@ void Page4_stcs::displaySuddLoadWaveSlot(QQueue<QString> dataStrQueue)
 
 }
 
-void Page4_stcs::saveCurrentData(QString dataType)
+void Page4_stcs::saveCurrentUIData(QString dataType)
 {
 
     if(dataType == "tab"){
@@ -120,8 +120,7 @@ void Page4_stcs::saveCurrentData(QString dataType)
         //1.先弹出save界面
         //2.发送查询800个突加数据信号(可以先查100个每隔8个查1次)
         //3.返回的响应帧解析后放队列中，再发给界面画出这些点形成的曲线
-        emit readSuddLoad800YSignal();
-
+        saveSuddLoadData();
 
 
     }else if(dataType == "tab_3"){
@@ -133,6 +132,29 @@ void Page4_stcs::saveCurrentData(QString dataType)
         qDebug()<<"*****突卸曲线数据保存*****";
 
     }
+
+}
+
+void Page4_stcs::saveSuddLoadData()
+{
+    Save::TEST_RECORD record(QDateTime::currentDateTime().toString("yyyyMMddHHmmsszzz"),
+                           "电机",
+                           "突加测试",
+                           "小王",
+                           QDateTime::currentDateTime().toString("yyyy-MM-dd-HH-mm-ss"),
+                           "Yes");
+    // 打印信息
+    qDebug() << "检测编号:" << record.detectionID;
+    qDebug() << "检测元件:" << record.detectionComponent;
+    qDebug() << "类型:" << record.type;
+    qDebug() << "检测人员:" << record.inspector;
+    qDebug() << "检测时间:" << record.detectionTime;
+    qDebug() << "检测结果:" << record.result;
+    Save::U().displayT_dataView(record);
+    Save::U().exec();
+
+
+    emit readSuddLoad800YSignal();
 
 }
 

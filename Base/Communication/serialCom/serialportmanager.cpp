@@ -170,6 +170,8 @@ void SerialPortManager::handleReadyRead()
             ModbusProtocolParser parser;
             if(parser.parseReponse(buffer)){
 
+                rightResponseFrame = buffer;
+
                 QByteArray dataField = parser.getDataField();
                 qDebug()<<"6.成功解析仪表返回响应帧的数据域:"<<dataField.toHex();
 

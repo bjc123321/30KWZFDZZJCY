@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QSqlTableModel>
 #include <QPushButton>
+#include <QMessageBox>
 #include "Base/BaseFun/Sql/sql.h"
 
 
@@ -23,6 +24,8 @@ public:
     void detailPageView();
     void initSetFzModel(QPushButton *del);
 
+
+    void refreshView();
 signals:
 
 

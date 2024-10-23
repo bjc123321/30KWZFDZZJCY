@@ -25,9 +25,6 @@ public:
 public:
 
 
-    QString portName = "";
-    QString portDescription = "";
-
     //稳态字符串队列
     QQueue<QString> steadyDataStrQueue;
     //突加字符串队列

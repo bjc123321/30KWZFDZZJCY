@@ -180,16 +180,16 @@ void DataSerialCom::steadyRequest()
     if (!isControlPanelHexBusy) {
 
 
-        QStringList requestFramList = QStringList( {"0103001e0002","010300200002","010300220002"
-                                       });
+//        QStringList requestFramList = QStringList( {"0103001e0002","010300200002","010300220002"
+//                                       });
 
-//          后期测完打开
-//        QStringList requestFramList = QStringList( {"0103001e0002","010300200002","010300220002",
-//                                       "0103002e0002","010300300002","010300320002",
-//                                       "010300380002","0103003a0002","0103003c0002",
-//                                       "010300520002","010300540002","010300560002",
-//                                       "0103002a0002","010300340002","0103003e0002","010300580002",
-//                                       "010300240002","010300260002","010300280002","0103002c0002"});
+         // 后期测完打开
+        QStringList requestFramList = QStringList( {"0103001e0002","010300200002","010300220002",
+                                       "0103002e0002","010300300002","010300320002",
+                                       "010300380002","0103003a0002","0103003c0002",
+                                       "010300520002","010300540002","010300560002",
+                                       "0103002a0002","010300340002","0103003e0002","010300580002",
+                                       "010300240002","010300260002","010300280002","0103002c0002"});
 
         for(int i = 0;i<requestFramList.length();i++){
 
@@ -402,10 +402,7 @@ void DataSerialCom::onDataReceived(const QSerialPort &port, const QByteArray &da
         //解析缓存的响应帧数据
         analyzingData(data);
 
-
-        portName = portInfo.portName();
-
-        qDebug()<<"portName"<<portName;
+        qDebug()<<"端口"<<portInfo.portName()<<"返回正确的响应帧数据";
 
         if(portInfo.portName() == "COM5"){
 
@@ -456,8 +453,6 @@ void DataSerialCom::analyzingData(const QByteArray &data)
             }
 
 
-
-
         }else{
             qDebug()<<"数据域解析失败！！！！";
 
@@ -477,14 +472,8 @@ void DataSerialCom::readSuddLoad800YSlot()
 
     //突加数据再页面1,所以切换一下页面1
     pageCodeRequest(1);
+    qDebug()<<"先读取突加曲线Y坐标的800条数据";
 
-    //读突加曲线点个数
-    QByteArray dataToSend = QByteArray::fromHex("0103002a0001");
-    SerialPortManager::getInstance().writeData(DevCenter::U().panelCom, dataToSend);
-
-
-    ModbusProtocolParser parser;
-    qDebug()<<"获取数据域"<<parser.getDataField().toHex();
 
 
 }

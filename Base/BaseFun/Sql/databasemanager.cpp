@@ -324,7 +324,7 @@ QSqlQueryModel* DatabaseManager::queryRecordNum(QString id)
 
 bool DatabaseManager::insertData(QString table, QVector<QVariant> vdata)
 {
-    if (!model) {
+        if (!model) {
             qDebug() << "insertData错误: model is null";
             return false;
         }
@@ -353,6 +353,9 @@ bool DatabaseManager::insertData(QString table, QVector<QVariant> vdata)
         }
 
         qDebug() << "插入" << vdata.at(0) << "数据到" << table;
+
+        isExecSucceed = true;
+
         return true;
 
 

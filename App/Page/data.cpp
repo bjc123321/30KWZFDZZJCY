@@ -21,7 +21,7 @@ Data::~Data()
 }
 
 void Data::init()
-{
+{ 
     modelPtr->setTable("T_data");
     modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
     modelPtr->select();
@@ -29,16 +29,59 @@ void Data::init()
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    initSetFzModel(ui->pushButton);
+    // 设置列宽自动拉伸以填满表格视图
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    // 更新表格视图
+    ui->tableView->update();
+
+
+
+
+
+//    initSetFzModel(ui->pushButton);
 }
 
 void Data::signalBind()
 {
+
+    QTableView *tableView = ui->tableView;
+    connect(ui->pushButton,&QPushButton::clicked,this,[this,tableView](){
+
+
+        int row = tableView->currentIndex().row();
+        qDebug()<<"删除第"<<row<<"行";
+        if (row >= 0) {
+            if (!modelPtr->removeRow(row)) {
+                QMessageBox::warning(this, "Error", "Failed to remove row: " + row);
+            }
+            // 提交修改
+            if (!modelPtr->submitAll()) {
+                qDebug() << "Submit failed: ";
+                return ;
+            }
+            modelPtr->select();
+
+        }
+
+
+    });
+
     connect(ui->pushButton_2,&QPushButton::clicked,this,[this](){
 
         detailPageView();
 
     });
+
+    connect(ui->pushButton_4,&QPushButton::clicked,this,[this](){
+
+        qDebug()<<"刷新data数据";
+
+        refreshView();
+
+
+    });
+
 }
 
 void Data::initSetFzModel(QPushButton *del){
@@ -65,6 +108,25 @@ void Data::initSetFzModel(QPushButton *del){
     // 更新表格视图
     ui->tableView->update();
 }
+
+void Data::refreshView()
+{
+
+
+    modelPtr->setTable("T_data");
+    modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
+    modelPtr->select();
+    ui->tableView->setModel(modelPtr);
+    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    // 设置列宽自动拉伸以填满表格视图
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    // 更新表格视图
+    ui->tableView->update();
+}
+
 
 void Data::detailPageView()
 {
