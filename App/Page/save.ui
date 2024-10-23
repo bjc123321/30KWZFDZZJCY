@@ -123,6 +123,9 @@ QPushButton:pressed {
      <property name="text">
       <string>SerialNum</string>
      </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item row="5" column="1">

@@ -1,4 +1,4 @@
-#ifndef LOGIN_H
+﻿#ifndef LOGIN_H
 #define LOGIN_H
 
 #include <QDialog>
@@ -31,7 +31,7 @@ public:
     }
 public:
     void LoginSuccess();
-    void LoginFail();
+    void ExitApp();
 private slots:
     void on_loginbtn_clicked();
 

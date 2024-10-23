@@ -1,4 +1,4 @@
-#ifndef GLOBALSETTINGS_H
+﻿#ifndef GLOBALSETTINGS_H
 #define GLOBALSETTINGS_H
 
 #include <QObject>
@@ -51,14 +51,25 @@ public:
         return fanIsOpen;
     }
 
+    /**********设置和获取登录权限：1.普通用户 2.管理员**********/
+    void setLoginMode(QString t_mode){
+        loginMode = t_mode;
+    }
+
+    QString getLoginMode() const{
+        return loginMode;
+    }
+
 private:
     // 构造函数私有化，防止外部实例化
     explicit GlobalSettings(QObject* parent = nullptr)
-        : QObject(parent), currentLoad(0), fanIsOpen(false), currentTestType(STEADY) {}
+        : QObject(parent), currentLoad(0), fanIsOpen(false), currentTestType(STEADY),loginMode(1) {}
 
     // 禁止拷贝构造和赋值操作
     GlobalSettings(const GlobalSettings&) = delete;
     GlobalSettings& operator=(const GlobalSettings&) = delete;
+
+    QString loginMode;
 
     // 全局变量
     int currentLoad;

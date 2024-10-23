@@ -1,11 +1,17 @@
-#include "user.h"
+﻿#include "user.h"
 #include "ui_user.h"
+
+#include "GlobalSettings.h"
+
+#include "Dialog/login.h"
 
 User::User(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::User)
 {
     ui->setupUi(this);
+
+
 
     init();
 }
@@ -25,7 +31,50 @@ void User::init()
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
+
+    if(GlobalSettings::instance().getLoginMode() == "2"){
+
+        //管理员模式切换到0页
+        ui->stackedWidget->setCurrentIndex(0);
+    }else{
+
+        //普通用户模式切换到1页
+        ui->stackedWidget->setCurrentIndex(1);
+    }
+
     initSetFzModel(ui->pushButton,ui->pushButton_2);
+
+
+    connect(ui->pushButton_6,&QPushButton::clicked,this,[this](){
+
+        qDebug()<<"进入管理员模式";
+
+        QMessageBox::StandardButton box;
+        box = QMessageBox::question(this, "提示！！!", "如进入管理员模式，需要重新登录，确定要退出吗?", QMessageBox::Yes|QMessageBox::No);
+        if(box==QMessageBox::Yes){
+            Login& l = Login::U();
+            l.exec();
+            ui->stackedWidget->setCurrentIndex(0);
+        }
+
+    });
+
+    connect(ui->pushButton_7,&QPushButton::clicked,this,[this](){
+
+        qDebug()<<"退出管理员模式";
+
+        QMessageBox::StandardButton box;
+        box = QMessageBox::question(this, "提示！！!", "如退出管理员模式，需要重新登录，确定要退出吗?", QMessageBox::Yes|QMessageBox::No);
+        if(box==QMessageBox::Yes){
+            Login& l = Login::U();
+            l.exec();
+            ui->stackedWidget->setCurrentIndex(1);
+        }
+
+    });
+
+
+
 }
 
 void User::initSetFzModel(QPushButton *add, QPushButton *del){

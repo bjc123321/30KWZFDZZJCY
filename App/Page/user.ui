@@ -161,7 +161,7 @@ color: rgb(255, 255, 255);
             <item>
              <widget class="QPushButton" name="pushButton_6">
               <property name="text">
-               <string>管理员模式</string>
+               <string>进入管理员模式</string>
               </property>
              </widget>
             </item>
