@@ -1,4 +1,4 @@
-﻿#include "user.h"
+#include "user.h"
 #include "ui_user.h"
 
 #include "GlobalSettings.h"
@@ -24,7 +24,7 @@ User::~User()
 void User::init()
 {
 
-    modelPtr->setTable("T_userInfo");
+    modelPtr->setTable("login");
     modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
     modelPtr->select();
     ui->tableView->setModel(modelPtr);

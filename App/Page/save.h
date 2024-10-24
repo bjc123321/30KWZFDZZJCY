@@ -19,7 +19,7 @@ public:
 public:
 
     // 定义结构体
-    struct DetectionRecord {
+    struct DETECT_RECORD {
         QString detectionID;    // 检测编号
         QString detectionComponent; // 检测元件
         QString type;           // 类型
@@ -28,14 +28,14 @@ public:
         QString result;         // 检测结果
 
         // 构造函数
-        DetectionRecord(const QString &id, const QString &component, const QString &type,
+        DETECT_RECORD(const QString &id, const QString &component, const QString &type,
                         const QString &inspector, const QString &time, const QString &result)
             : detectionID(id), detectionComponent(component), type(type),
               inspector(inspector), detectionTime(time), result(result) {}
     };
 
     // 使用 typedef 为结构体创建别名
-    typedef DetectionRecord TEST_RECORD;
+    typedef DETECT_RECORD TEST_RECORD;
 
 public:
 

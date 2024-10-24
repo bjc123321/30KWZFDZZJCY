@@ -1,4 +1,4 @@
-﻿#ifndef GLOBALSETTINGS_H
+#ifndef GLOBALSETTINGS_H
 #define GLOBALSETTINGS_H
 
 #include <QObject>
@@ -22,6 +22,43 @@ public:
         SUDD_UNLOAD,     //突卸测试
         RECOR_DWAVE,      //录波测试
         OTHERS            //其他
+    };
+
+    // 定义结构体
+    struct BASIC_INFO {
+
+        QString testingCompany;     // 测试单位
+        QString execStandard;       // 执行标准
+
+        QString testNum;            // 测试编号
+        QString testDate;           // 测试时间
+        QString testPerson;         // 测试人员
+
+        QString ratedPower;         // 额定功率
+        QString ratedVoltage;       // 额定电压
+        QString ratedFreq;          // 额定频率
+
+        QString productName;        // 产品名称
+        QString productModel;       // 产品型号
+        QString productNum;         // 产品编号
+        QString productState;       // 产品状态
+
+        QString phaseOrLine;        // 相/线
+        QString temperature;        // 环境温度℃
+        QString relativeHumidity;   // 相对湿度%
+        QString atmospherePressure; // 大气压力kPa
+
+        // 构造函数
+        BASIC_INFO(const QString &t_testingCompany, const QString &t_execStandard,
+                   const QString &t_testNum, const QString &t_testDate, const QString &t_testPerson,
+                   const QString &t_ratedPower, const QString &t_ratedVoltage, const QString &t_ratedFreq,
+                   const QString &t_productName, const QString &t_productModel, const QString &t_productNum, const QString &t_productState,
+                   const QString &t_phaseOrLine, const QString &t_temperature, const QString &t_relativeHumidity, const QString &t_atmospherePressure)
+            : testingCompany(t_testingCompany),execStandard(t_execStandard),
+              testNum(t_testNum),testDate(t_testDate),testPerson(t_testPerson),
+              ratedPower(t_ratedPower),ratedVoltage(t_ratedVoltage),ratedFreq(t_ratedFreq),
+              productName(t_productName),productModel(t_productModel),productNum(t_productNum),productState(t_productState),
+              phaseOrLine(t_phaseOrLine),temperature(t_temperature),relativeHumidity(t_relativeHumidity),atmospherePressure(t_atmospherePressure) {}
     };
 
     // 设置和获取当前测试类型的值
