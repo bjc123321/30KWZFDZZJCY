@@ -1,4 +1,5 @@
-#include "dataexportmanager.h"
+﻿#include "dataexportmanager.h"
+
 
 DataExportManager::DataExportManager(QObject *parent) : QObject(parent)
 {
@@ -43,13 +44,20 @@ void DataExportManager::createStaticTestExcel()
        xlsx.write("A3", "测试单位：", headerFormat3);
        xlsx.write("A4", "额定功率（KW）：", headerFormat3);
        xlsx.write("A5", "产品名称：", headerFormat3);
-       xlsx.write("A6", "油机型号：", headerFormat3);
+       xlsx.write("A6", "产品型号：", headerFormat3);
        xlsx.write("A7", "环境温度（℃）：", headerFormat3);
+
+       // 填写C列第 3-7 行数据并应用格式
+       xlsx.write("C3", "", headerFormat3);
+       xlsx.write("C4", "", headerFormat3);
+       xlsx.write("C5", "", headerFormat3);
+       xlsx.write("C6", "", headerFormat3);
+       xlsx.write("C7", "", headerFormat3);
 
        xlsx.write("E3", "执行标准：", headerFormat3);
        xlsx.write("E4", "额定电压 (V)：", headerFormat3);
        xlsx.write("E5", "产品编号：", headerFormat3);
-       xlsx.write("E6", "油机编号：", headerFormat3);
+       xlsx.write("E6", "产品编号：", headerFormat3);
        xlsx.write("E7", "相对湿度：", headerFormat3);
 
        xlsx.write("H4", "额定频率（Hz）：", headerFormat3);

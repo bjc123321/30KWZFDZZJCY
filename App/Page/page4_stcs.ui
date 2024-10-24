@@ -356,6 +356,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -376,6 +379,9 @@ QPushButton:pressed {
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
+                     </property>
+                     <property name="text">
+                      <string>0.000</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -398,6 +404,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -418,6 +427,9 @@ QPushButton:pressed {
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
+                     </property>
+                     <property name="text">
+                      <string>0.000</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -440,6 +452,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -461,6 +476,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -481,6 +499,9 @@ QPushButton:pressed {
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
+                     </property>
+                     <property name="text">
+                      <string>0.000</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -521,6 +542,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -542,6 +566,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -562,6 +589,9 @@ QPushButton:pressed {
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
+                     </property>
+                     <property name="text">
+                      <string>0.000</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -638,6 +668,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -659,6 +692,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -679,6 +715,9 @@ QPushButton:pressed {
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
+                     </property>
+                     <property name="text">
+                      <string>0.000</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -737,6 +776,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -776,6 +818,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -799,6 +844,9 @@ QPushButton:pressed {
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
+                     </property>
+                     <property name="text">
+                      <string>0.000</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -897,6 +945,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -917,6 +968,9 @@ QPushButton:pressed {
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
+                     </property>
+                     <property name="text">
+                      <string>0.000</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -939,6 +993,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -960,6 +1017,9 @@ QPushButton:pressed {
                        <bold>true</bold>
                       </font>
                      </property>
+                     <property name="text">
+                      <string>0.00</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -977,6 +1037,9 @@ QPushButton:pressed {
                        <height>35</height>
                       </size>
                      </property>
+                     <property name="text">
+                      <string>0.00</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -992,6 +1055,9 @@ QPushButton:pressed {
                        <width>150</width>
                        <height>35</height>
                       </size>
+                     </property>
+                     <property name="text">
+                      <string>0</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -1025,6 +1091,9 @@ QPushButton:pressed {
                        <height>35</height>
                       </size>
                      </property>
+                     <property name="text">
+                      <string>0</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -1056,6 +1125,9 @@ QPushButton:pressed {
                        <width>150</width>
                        <height>35</height>
                       </size>
+                     </property>
+                     <property name="text">
+                      <string>0.000</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -1089,6 +1161,9 @@ QPushButton:pressed {
                        <height>35</height>
                       </size>
                      </property>
+                     <property name="text">
+                      <string>0</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -1104,6 +1179,9 @@ QPushButton:pressed {
                        <width>150</width>
                        <height>35</height>
                       </size>
+                     </property>
+                     <property name="text">
+                      <string>0</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -1136,6 +1214,9 @@ QPushButton:pressed {
                        <width>150</width>
                        <height>35</height>
                       </size>
+                     </property>
+                     <property name="text">
+                      <string>0.00</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -1185,6 +1266,9 @@ QPushButton:pressed {
                        <height>35</height>
                       </size>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -1233,6 +1317,9 @@ QPushButton:pressed {
                        <height>35</height>
                       </size>
                      </property>
+                     <property name="text">
+                      <string>0.00</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -1248,6 +1335,9 @@ QPushButton:pressed {
                        <width>150</width>
                        <height>35</height>
                       </size>
+                     </property>
+                     <property name="text">
+                      <string>0</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -1265,6 +1355,9 @@ QPushButton:pressed {
                        <height>35</height>
                       </size>
                      </property>
+                     <property name="text">
+                      <string>0.000</string>
+                     </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
@@ -1280,6 +1373,9 @@ QPushButton:pressed {
                        <width>150</width>
                        <height>35</height>
                       </size>
+                     </property>
+                     <property name="text">
+                      <string>0</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>

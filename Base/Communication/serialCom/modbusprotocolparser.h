@@ -1,4 +1,4 @@
-#ifndef MODBUSPROTOCOLPARSER_H
+﻿#ifndef MODBUSPROTOCOLPARSER_H
 #define MODBUSPROTOCOLPARSER_H
 
 #include <QObject>
@@ -32,13 +32,17 @@ public:
     // 验证 CRC16 校验
     bool verifyCRC(const QByteArray &data, uint16_t receivedCRC);
 
+    //获取从机地址
     uint8_t getSlaveAddress() const { return slaveAddress; }
 
     // 获取解析后的功能码
     uint8_t getFunctionCode() const { return functionCode; }
 
-    // 获取解析后的数据内容
+    // 获取拆分后的数据域
     QByteArray getDataField() const { return dataField; }
+
+    // 获取拆分后的字节数
+    uint8_t getByteCount() const { return byteCount; }
 
     //解析16进制数据域为浮点数
     float toFloatData(QByteArray orgData);
@@ -52,8 +56,8 @@ private:
 
     uint8_t slaveAddress = 0;   // 从机地址
     uint8_t functionCode = 0;   // 功能码
-    uint8_t byteCount = 0;      // 字节计数
     QByteArray dataField;       // 数据域
+    uint8_t byteCount = 0;      // 字节计数
 
 
 

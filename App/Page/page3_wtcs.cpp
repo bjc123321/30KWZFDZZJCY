@@ -1,13 +1,15 @@
-#include "page3_wtcs.h"
+﻿#include "page3_wtcs.h"
 #include "ui_page3_wtcs.h"
 #include <QDebug>
 #include <QDateTime>
 #include "App/Data/dataserialcom.h"
 #include "App/Page/save.h"
-#include "globalsettings.h"
 #include "page1_fzsz.h"
 
 #include "Base/BaseFun/Sql/databasemanager.h"
+#include "GlobalSettings.h"
+// 定义静态成员
+GlobalSettings::BasicInfo GlobalSettings::BASIC_INFO;
 
 Page3_wtcs::Page3_wtcs(QWidget *parent) :
     QWidget(parent),
@@ -31,9 +33,12 @@ Page3_wtcs::Page3_wtcs(QWidget *parent) :
 
 
     initSteadyUI();
+    lineEditsChangedBind();
     initTuningUI();
 
     signalBind();
+
+
 
 }
 
@@ -174,13 +179,42 @@ void Page3_wtcs::initSteadyUI()
     lineEdits.append(ui->lineEdit_35);
 
 
-    // 获取当前时间
-    QDateTime current = QDateTime::currentDateTime();
-    // 转换为指定格式的字符串
-    QString sequenceNumber = current.toString("yyyyMMddHHmmsszzz");
 
-    ui->lineEdit_14->setText(sequenceNumber);
-    ui->lineEdit_14->setToolTip(ui->lineEdit_14->text());
+    GlobalSettings::BasicInfo info;
+
+    ui->lineEdit_95->setText(info.testingCompany);
+    ui->lineEdit_96->setText(info.execStandard);
+    ui->lineEdit_2->setText(info.ratedPower);
+    ui->lineEdit_4->setText(info.ratedVoltage);
+    ui->lineEdit_9->setText(info.ratedFreq);
+    ui->lineEdit_14->setText(info.testNum);ui->lineEdit_14->setToolTip(ui->lineEdit_14->text());//编号过长时悬浮窗口显示完整
+    ui->lineEdit_100->setText(info.productName);
+    ui->lineEdit_5->setText(info.productModel);
+    ui->lineEdit_6->setText(info.productNum);
+    ui->lineEdit_99->setText(info.phaseOrLine);
+    ui->lineEdit_97->setText(info.testDate);
+    ui->lineEdit_11->setText(info.temperature);
+    ui->lineEdit_12->setText(info.relativeHumidity);
+    ui->lineEdit_13->setText(info.atmospherePressure);
+    ui->lineEdit_98->setText(info.productState);
+    ui->lineEdit_15->setText(info.testPerson);
+
+
+}
+
+void Page3_wtcs::lineEditsChangedBind()
+{
+
+
+    connect(ui->lineEdit_95, &QLineEdit::textChanged, this, [this]() {
+
+        // 直接修改 GlobalSettings 的静态成员 BASIC_INFO 的 testingCompany
+        GlobalSettings::BASIC_INFO.testingCompany = ui->lineEdit_95->text();
+        qDebug() << "info.testingCompany " <<GlobalSettings::BASIC_INFO.testingCompany;
+
+    });
+
+
 
 
 

@@ -1,4 +1,4 @@
-#ifndef GLOBALSETTINGS_H
+﻿#ifndef GLOBALSETTINGS_H
 #define GLOBALSETTINGS_H
 
 #include <QObject>
@@ -25,7 +25,7 @@ public:
     };
 
     // 定义结构体
-    struct BASIC_INFO {
+    struct BasicInfo {
 
         QString testingCompany;     // 测试单位
         QString execStandard;       // 执行标准
@@ -49,17 +49,15 @@ public:
         QString atmospherePressure; // 大气压力kPa
 
         // 构造函数
-        BASIC_INFO(const QString &t_testingCompany, const QString &t_execStandard,
-                   const QString &t_testNum, const QString &t_testDate, const QString &t_testPerson,
-                   const QString &t_ratedPower, const QString &t_ratedVoltage, const QString &t_ratedFreq,
-                   const QString &t_productName, const QString &t_productModel, const QString &t_productNum, const QString &t_productState,
-                   const QString &t_phaseOrLine, const QString &t_temperature, const QString &t_relativeHumidity, const QString &t_atmospherePressure)
-            : testingCompany(t_testingCompany),execStandard(t_execStandard),
-              testNum(t_testNum),testDate(t_testDate),testPerson(t_testPerson),
-              ratedPower(t_ratedPower),ratedVoltage(t_ratedVoltage),ratedFreq(t_ratedFreq),
-              productName(t_productName),productModel(t_productModel),productNum(t_productNum),productState(t_productState),
-              phaseOrLine(t_phaseOrLine),temperature(t_temperature),relativeHumidity(t_relativeHumidity),atmospherePressure(t_atmospherePressure) {}
+        BasicInfo(): testingCompany("XXX厂"),execStandard("GJB"),
+              testNum(QDateTime::currentDateTime().toString("yyyyMMddHHmmsszzz")),testDate(QDateTime::currentDateTime().toString("yyyy-MM-dd-HH-mm-ss")),testPerson("某某某"),
+              ratedPower("30"),ratedVoltage("380.0"),ratedFreq("50"),
+              productName("XXX大电机"),productModel("型号A"),productNum("FDJCY20241024"),productState("冷态"),
+              phaseOrLine("相电压"),temperature("27"),relativeHumidity("30"),atmospherePressure("102") {}
     };
+
+    static BasicInfo BASIC_INFO;  // 静态成员声明
+
 
     // 设置和获取当前测试类型的值
     void setCurrentTestType(TEST_TYPE type) {
@@ -113,6 +111,7 @@ private:
     bool fanIsOpen;
 
     TEST_TYPE currentTestType; // 当前测试类型
+
 
 };
 

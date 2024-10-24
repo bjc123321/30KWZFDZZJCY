@@ -1,4 +1,4 @@
-#ifndef DATAPROCESSOR_H
+﻿#ifndef DATAPROCESSOR_H
 #define DATAPROCESSOR_H
 
 #include <QObject>
@@ -17,10 +17,19 @@ class DataProcessor : public QObject
     }
 
 
+    public :
+
+    //界面数据更新
+    void basic_infoChanged();
+
+
     signals:
         void newData(double time, double y1, double y2, double y3);
 
         void drawSignal(double time, double y1, double y2, double y3);
+
+
+
 
     public slots:
         void startProcessing();

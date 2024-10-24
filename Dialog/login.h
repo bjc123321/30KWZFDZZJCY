@@ -9,7 +9,7 @@
 //登录名称
 extern QString LoginUserName;
 
-//登录权限 0游客 1管理员 2超级管理员
+//登录权限 1用户 2超级管理员
 enum AccountPrivileges{AverageUser,Administrator,SuperUser};
 extern AccountPrivileges LOGINUSER;
 

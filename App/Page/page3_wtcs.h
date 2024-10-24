@@ -1,4 +1,4 @@
-#ifndef PAGE3_WTCS_H
+﻿#ifndef PAGE3_WTCS_H
 #define PAGE3_WTCS_H
 
 #include <QWidget>
@@ -79,7 +79,11 @@ public:
 
 public:
 
+    //其他信号绑定
     void signalBind();
+    //文本框被改变时数据信号槽绑定
+    void lineEditsChangedBind();
+
     void displaySteadyData(QQueue<QString> dataStrQueuex);//显示某页数据
     QButtonGroup *buttonGroup = nullptr;
 

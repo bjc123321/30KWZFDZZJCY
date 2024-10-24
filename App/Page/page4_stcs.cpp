@@ -1,4 +1,4 @@
-#include "page4_stcs.h"
+﻿#include "page4_stcs.h"
 #include "ui_page4_stcs.h"
 #include "Base/BaseFun/base.h"
 
@@ -25,6 +25,7 @@ void Page4_stcs::init()
 
     threePlot = new ThreePhasePlot(this);
     ui->horizontalLayout_2->addWidget(threePlot);
+
 
 }
 

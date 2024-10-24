@@ -1,4 +1,4 @@
-#include "data.h"
+﻿#include "data.h"
 #include "ui_data.h"
 
 #include "Base/BaseFun/Sql/databasemanager.h"
@@ -135,8 +135,23 @@ void Data::detailPageView()
 
 
 
+     // 获取当前行的索引
     int currentRow = ui->tableView->currentIndex().row();
-    qDebug()<<"当前索引"<<currentRow;
+    qDebug()<<"当前索引行"<<currentRow;
+
+    // 假设 n 是你要获取的列索引
+    int columnIndex = 2;
+
+
+    // 获取模型并直接获取数据
+    if (currentRow >= 0 && columnIndex >= 0) {
+        QVariant cellData = ui->tableView->model()->data(ui->tableView->model()->index(currentRow, columnIndex));
+        // 处理获取到的数据
+        QString dataString = cellData.toString();
+        qDebug() << "当前第"<<(currentRow + 1)<<"行的第" << (columnIndex + 1)<< "列的数据是:" << dataString;
+    } else {
+        qDebug() << "无效的行或列索引";
+    }
 
     //后期增加个详情类型判断：如稳态详情、瞬态详情、录波分析详情等
     //    if(稳态){

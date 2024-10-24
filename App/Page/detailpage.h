@@ -1,4 +1,4 @@
-#ifndef DETAILPAGE_H
+﻿#ifndef DETAILPAGE_H
 #define DETAILPAGE_H
 
 #include <QDialog>
@@ -17,8 +17,10 @@ public:
     explicit DetailPage(QWidget *parent = nullptr);
     ~DetailPage();
 
-
     void displaySteadyDetail(QSqlQueryModel *model);
+    void displaySuddLoadDetail(QSqlQueryModel *model);
+    void displaySuddunLoadDetail(QSqlQueryModel *model);
+    void displayRecordWaveDetail(QSqlQueryModel *model);
 
 
 private:

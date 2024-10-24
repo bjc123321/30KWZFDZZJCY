@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1819</width>
-    <height>996</height>
+    <height>1025</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -87,10 +87,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>型号A</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>产品型号</string>
           </property>
          </widget>
         </item>
@@ -193,10 +196,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>102</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>大气压力(KPa)</string>
           </property>
          </widget>
         </item>
@@ -318,10 +324,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>27</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>环境温度(℃)</string>
           </property>
          </widget>
         </item>
@@ -386,10 +395,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>230.0</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>额定电压(V)</string>
           </property>
          </widget>
         </item>
@@ -416,10 +428,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>XXX大电机</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>产品名称</string>
           </property>
          </widget>
         </item>
@@ -446,10 +461,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>0.85</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>功率因数</string>
           </property>
          </widget>
         </item>
@@ -476,10 +494,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>30</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>相对湿度(%)</string>
           </property>
          </widget>
         </item>
@@ -544,10 +565,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>50</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>额定频率(Hz)</string>
           </property>
          </widget>
         </item>
@@ -574,10 +598,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>冷态</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>产品状态</string>
           </property>
          </widget>
         </item>
@@ -604,10 +631,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>XXX厂</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>测试单位</string>
           </property>
          </widget>
         </item>
@@ -634,10 +664,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>FDJCY20213359</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>产品编号</string>
           </property>
          </widget>
         </item>
@@ -664,10 +697,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>相电压</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>相/线</string>
           </property>
          </widget>
         </item>
@@ -694,10 +730,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>   GJB20241024</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>执行标准</string>
           </property>
          </widget>
         </item>
@@ -724,10 +763,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>0.3</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>额定功率(Kw)</string>
           </property>
          </widget>
         </item>
@@ -743,7 +785,7 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string> 相/线:</string>
+           <string>相/线:</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -792,10 +834,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>XXX</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>测试人员</string>
           </property>
          </widget>
         </item>
@@ -811,7 +856,7 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>测试时间:</string>
+           <string>测试日期:</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -841,10 +886,13 @@ QTabBar::tab:selected {
            </font>
           </property>
           <property name="text">
-           <string>2024-10-24</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+          <property name="placeholderText">
+           <string>测试日期</string>
           </property>
          </widget>
         </item>
@@ -1013,6 +1061,9 @@ border:none;
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1095,6 +1146,9 @@ border:none;
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.00</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1118,6 +1172,9 @@ border:none;
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1161,6 +1218,9 @@ border:none;
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1184,6 +1244,9 @@ border:none;
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1226,6 +1289,9 @@ border:none;
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1305,6 +1371,9 @@ border:none;
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1352,6 +1421,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1393,6 +1465,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.00</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1436,6 +1511,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1477,6 +1555,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1520,6 +1601,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1544,6 +1628,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1567,6 +1654,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1628,6 +1718,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.00</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1651,6 +1744,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1676,6 +1772,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1699,6 +1798,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.00</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1742,6 +1844,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1766,6 +1871,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1789,6 +1897,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.00</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1884,6 +1995,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1978,6 +2092,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -1996,6 +2113,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -2013,6 +2133,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2050,6 +2173,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -2067,6 +2193,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2122,6 +2251,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -2157,6 +2289,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2194,6 +2329,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -2211,6 +2349,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2320,6 +2461,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -2337,6 +2481,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2356,6 +2503,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -2373,6 +2523,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2392,6 +2545,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -2409,6 +2565,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2428,6 +2587,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -2445,6 +2607,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2464,6 +2629,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="text">
+                 <string>0.000</string>
+                </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
                 </property>
@@ -2481,6 +2649,9 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                   <weight>75</weight>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="text">
+                 <string>0.000</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2661,7 +2832,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>-0.385</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2685,7 +2856,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>-0.942</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2709,7 +2880,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>-0.425</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2733,7 +2904,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>1.342</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2757,7 +2928,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>1.325</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2781,7 +2952,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>2.915</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2859,7 +3030,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>2.955</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2901,7 +3072,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>-0.404</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2925,7 +3096,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>-0.895</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2949,7 +3120,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>2.914</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2973,7 +3144,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>-0.891</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -2997,7 +3168,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>2.857</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -3021,7 +3192,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>-0.412</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -3045,7 +3216,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>-0.853</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -3069,7 +3240,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>1.322</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -3129,7 +3300,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>1.320</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -3247,7 +3418,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>221.1</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -3271,7 +3442,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>221.0</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -3295,7 +3466,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>221.0</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -3319,7 +3490,7 @@ font: 75 18pt &quot;Calibri&quot;;</string>
                      </font>
                     </property>
                     <property name="text">
-                     <string>221.1</string>
+                     <string>0.000</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
