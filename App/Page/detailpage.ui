@@ -140,7 +140,7 @@ QPushButton:pressed {
            </font>
           </property>
           <property name="text">
-           <string>保存成Excel</string>
+           <string>导出Excel</string>
           </property>
          </widget>
         </item>
@@ -379,22 +379,6 @@ QPushButton:pressed {
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="4">
-         <widget class="QLabel" name="label_6">
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>14</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
@@ -684,22 +668,6 @@ QPushButton:pressed {
           </property>
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="5">
-         <widget class="QLabel" name="label_15">
-          <property name="font">
-           <font>
-            <family>Calibri</family>
-            <pointsize>14</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>

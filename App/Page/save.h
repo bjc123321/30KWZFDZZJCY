@@ -41,6 +41,7 @@ public:
 
     QSqlTableModel *model1 = nullptr;
     QSqlTableModel *model2 = nullptr;
+    QSqlTableModel *model3 = nullptr;
 
     QVector<QVariant> v_Steady_Data;
 

@@ -1,4 +1,4 @@
-﻿#include "page4_stcs.h"
+#include "page4_stcs.h"
 #include "ui_page4_stcs.h"
 #include "Base/BaseFun/base.h"
 
@@ -87,22 +87,23 @@ void Page4_stcs::displaySuddLoadWaveSlot(QQueue<QString> dataStrQueue)
 {
 
 
-    qDebug()<<"显示突加数据在View";
+    qDebug()<<"显示突加数据在View,收到的数据个数"<<dataStrQueue.length();
 
     float threePhase[] = {0.00,0.00,0.00};
-    for(int i = 0; i<dataStrQueue.length(); i++){
 
-        threePhase[i] = dataStrQueue.dequeue().toFloat() ;
+    int i = 0;
+
+    while(!dataStrQueue.isEmpty()){
+
+
+            threePhase[i] = dataStrQueue.dequeue().toFloat() ;
+            qDebug()<<"电压"<<(i+1)<<threePhase[i];
+
+            i++;
 
     }
 
-    //计算平均的最大值和最小值
-
-
-
-    qDebug()<<"平均突加电压:"<<threePhase[0]
-            <<"\n平均突加电流:"<<threePhase[1]
-            <<"\n平均突加频率:"<<threePhase[2];
+    //计算平均的最大值和最小
 
     emit drawSuddLoadPlot(threePhase[0],threePhase[1],threePhase[2]);
 

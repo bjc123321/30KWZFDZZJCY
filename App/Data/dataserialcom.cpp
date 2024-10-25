@@ -82,6 +82,12 @@ void DataSerialCom::startSuddIncreaseSlot()
     qDebug()<<"开始突加测试";
 
     GlobalSettings::instance().setCurrentTestType(GlobalSettings::SUDD_LOAD);
+
+
+    //先开始突加测试
+    QByteArray dataToSend = QByteArray::fromHex("011000000001020024");
+    SerialPortManager::getInstance().writeData(DevCenter::U().panelCom, dataToSend);
+
     pageCodeRequest(1);
     suddLoadTimer->start(1000);
 
@@ -110,8 +116,10 @@ void DataSerialCom::pageCodeRequest(int index)
 
         // 发送指定的16进制数据
         qDebug()<<"切换页面1";
+
         QByteArray dataToSend = QByteArray::fromHex("011000000001020001");
         SerialPortManager::getInstance().writeData(DevCenter::U().panelCom, dataToSend);
+
 
     }
 
@@ -238,7 +246,7 @@ void DataSerialCom::suddLoadRequest()
 
         //获取曲线的Y坐标值，034c之后每隔2个寄存器可以获取一个浮点数一直到098c
         //获取平均突加电压、平均突加电流和突加频率的Y轴数据
-        QStringList requestFramList ={"010300020002","010300040002","010300060002"//从左向右依次读取：电压、电流和频率
+        QStringList requestFramList ={"010300020002","010300040002","010300060002"//从左向右依次读取：电压1、电压2和电压3
                                       };
         for(int i = 0;i<requestFramList.length();i++){
 
@@ -454,6 +462,7 @@ void DataSerialCom::analyzingData(const QByteArray &data)
 
 
         }else{
+
             qDebug()<<"数据域解析失败！！！！";
 
             stopSuddLoadSlot();

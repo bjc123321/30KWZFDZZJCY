@@ -29,7 +29,6 @@ public:
     ~Page1_fzsz();
 
     QSqlTableModel* model1Ptr = new QSqlTableModel(this,Sql::U().db);//手动设置
-    QSqlTableModel* model2Ptr = new QSqlTableModel(this,Sql::U().db);//自动设置
 
 public:
     void initSetFzModel(QSqlTableModel* modelPtr,QString tableName,QTableView*tableView,QPushButton*add,QPushButton*clear,QPushButton*del,QPushButton*up,QPushButton*down,

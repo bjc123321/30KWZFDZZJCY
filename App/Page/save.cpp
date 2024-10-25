@@ -40,6 +40,17 @@ void Save::bindDataBaseModel()
 
     }
 
+    model3 = DatabaseManager::getInstance("sql.db").getModel();
+
+    // 确保数据库连接有效
+    if (!model3->database().isOpen()) {
+        qDebug() << "数据库未打开，无法查询。";
+        return ;
+    }else{
+        qDebug() << "数据库打开成功,可以查询";
+
+    }
+
 
 }
 
@@ -75,6 +86,12 @@ void Save::saveSteadyTestRecord()
     DatabaseManager::getInstance("sql.db").insertData(model1->tableName(),vdata);
     model2->setTable("T_static_data");
     DatabaseManager::getInstance("sql.db").insertData(model2->tableName(),v_Steady_Data);
+
+
+    model3->setTable("YSFZ");
+    model3->setEditStrategy(QSqlTableModel::OnFieldChange);
+    model3->select();
+
 
 
 

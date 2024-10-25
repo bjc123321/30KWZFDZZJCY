@@ -1,4 +1,4 @@
-﻿#include "page3_wtcs.h"
+#include "page3_wtcs.h"
 #include "ui_page3_wtcs.h"
 #include <QDebug>
 #include <QDateTime>
@@ -213,12 +213,81 @@ void Page3_wtcs::lineEditsChangedBind()
         qDebug() << "info.testingCompany " <<GlobalSettings::BASIC_INFO.testingCompany;
 
     });
+    connect(ui->lineEdit_96, &QLineEdit::textChanged, this, [this]() {
 
+        GlobalSettings::BASIC_INFO.execStandard = ui->lineEdit_96->text();
 
+    });
+    connect(ui->lineEdit_2, &QLineEdit::textChanged, this, [this]() {
 
+        GlobalSettings::BASIC_INFO.ratedPower = ui->lineEdit_2->text();
 
+    });
+    connect(ui->lineEdit_4, &QLineEdit::textChanged, this, [this]() {
 
+        GlobalSettings::BASIC_INFO.ratedVoltage = ui->lineEdit_4->text();
 
+    });
+    connect(ui->lineEdit_9, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.ratedFreq = ui->lineEdit_9->text();
+
+    });
+    connect(ui->lineEdit_14, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.testNum = ui->lineEdit_14->text();
+
+    });
+    connect(ui->lineEdit_100, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.productName = ui->lineEdit_100->text();
+
+    });
+    connect(ui->lineEdit_5, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.productModel = ui->lineEdit_5->text();
+
+    });
+    connect(ui->lineEdit_6, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.productNum = ui->lineEdit_6->text();
+
+    });
+    connect(ui->lineEdit_99, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.phaseOrLine = ui->lineEdit_99->text();
+
+    });
+    connect(ui->lineEdit_97, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.testDate = ui->lineEdit_97->text();
+
+    });
+    connect(ui->lineEdit_11, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.temperature = ui->lineEdit_11->text();
+
+    });
+    connect(ui->lineEdit_12, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.relativeHumidity = ui->lineEdit_12->text();
+
+    });
+    connect(ui->lineEdit_13, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.atmospherePressure = ui->lineEdit_13->text();
+
+    });
+    connect(ui->lineEdit_98, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.productState = ui->lineEdit_98->text();
+
+    });
+    connect(ui->lineEdit_15, &QLineEdit::textChanged, this, [this]() {
+
+        GlobalSettings::BASIC_INFO.testPerson = ui->lineEdit_15->text();
+
+    });
 
 }
 

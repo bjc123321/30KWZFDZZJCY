@@ -1,4 +1,4 @@
-﻿#include "data.h"
+#include "data.h"
 #include "ui_data.h"
 
 #include "Base/BaseFun/Sql/databasemanager.h"
@@ -147,30 +147,38 @@ void Data::detailPageView()
     if (currentRow >= 0 && columnIndex >= 0) {
         QVariant cellData = ui->tableView->model()->data(ui->tableView->model()->index(currentRow, columnIndex));
         // 处理获取到的数据
-        QString dataString = cellData.toString();
-        qDebug() << "当前第"<<(currentRow + 1)<<"行的第" << (columnIndex + 1)<< "列的数据是:" << dataString;
+        QString testTypeString = cellData.toString();
+        qDebug() << "当前第"<<(currentRow + 1)<<"行的第" << (columnIndex + 1)<< "列的数据是:" << testTypeString;
+
+        if(testTypeString == "稳态测试"){
+            QString id = modelPtr->data(modelPtr->index(currentRow, 0)).toString(); // 假设 id 在第一列
+            qDebug()<<"编号:"<<id;
+
+            detailPage->displaySteadyDetail(DatabaseManager::getInstance("sql.db").queryRecordNum(id));
+            detailPage->exec();
+
+
+        }else if(testTypeString == "突加测试"){
+
+            QString id = modelPtr->data(modelPtr->index(currentRow, 0)).toString(); // 假设 id 在第一列
+            qDebug()<<"编号:"<<id;
+
+            //后面往数据库中增加突加数据表
+            detailPage->displaySuddLoadDetail(DatabaseManager::getInstance("sql.db").queryRecordNum(id));
+            detailPage->exec();
+
+
+        }else if(testTypeString == "突卸测试"){
+
+        }else if(testTypeString == "录波测试"){
+
+        }
+
     } else {
-        qDebug() << "无效的行或列索引";
-    }
 
-    //后期增加个详情类型判断：如稳态详情、瞬态详情、录波分析详情等
-    //    if(稳态){
-
-    //    }else if(瞬态){
-
-    //    }else if(录波){
-
-    //    }
-
-
-    if (currentRow >= 0) {
-        QString id = modelPtr->data(modelPtr->index(currentRow, 0)).toString(); // 假设 id 在第一列
-        qDebug()<<"编号:"<<id;
-        detailPage->displaySteadyDetail(DatabaseManager::getInstance("sql.db").queryRecordNum(id));
-        detailPage->exec();
-
-    } else {
         QMessageBox::warning(this, "Selection Error", "Please select a row first.");
     }
+
+
 
 }
