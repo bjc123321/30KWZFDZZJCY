@@ -250,7 +250,7 @@ QPushButton:pressed {
            </font>
           </property>
           <property name="text">
-           <string>测试时间</string>
+           <string>测试时间:</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

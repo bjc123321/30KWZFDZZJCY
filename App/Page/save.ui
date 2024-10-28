@@ -48,6 +48,9 @@ QPushButton:pressed {
      <property name="text">
       <string>xxx</string>
      </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item row="5" column="0">
@@ -76,12 +79,18 @@ QPushButton:pressed {
      <property name="text">
       <string>Type</string>
      </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item row="2" column="1">
     <widget class="QLineEdit" name="lineEdit_2">
      <property name="text">
       <string>XXX电机</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
@@ -132,6 +141,9 @@ QPushButton:pressed {
     <widget class="QLineEdit" name="lineEdit_5">
      <property name="text">
       <string>yyyy-mm-dd-hh-mm-ss</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
    </item>

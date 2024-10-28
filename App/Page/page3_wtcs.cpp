@@ -445,7 +445,7 @@ void Page3_wtcs::saveSteadyData()
                            "电机",
                            "稳态测试",
                            ui->lineEdit_15->text(),
-                           QDateTime::currentDateTime().toString("yyyy-MM-dd-HH-mm-ss"),
+                           ui->lineEdit_97->text(),
                            "Yes");
     // 打印信息
     qDebug() << "检测编号:" << record.detectionID;
@@ -458,7 +458,7 @@ void Page3_wtcs::saveSteadyData()
 
     QVector<QVariant> vdata;
     vdata.append(ui->lineEdit_14->text());//测试编号
-    vdata.append(QDateTime::currentDateTime().toString("yyyy-MM-dd-HH-mm-ss"));//测试时间
+    vdata.append(ui->lineEdit_97->text());//测试时间
     vdata.append("1");//时长
     vdata.append(ui->lineEdit_82->text());//负载状况
     vdata.append(ui->lineEdit_2->text());//功率

@@ -22,7 +22,7 @@ Page1_fzsz::Page1_fzsz(QWidget *parent) :
        GlobalSettings::instance().setCurrentLoad(value);
        qDebug()<<"负载"<<GlobalSettings::instance().getCurrentLoad();
        ui->lineEdit_2->setText(QString::number(value)); // 将滑动条的值转换为字符串并显示在文本框中
-       ui->lineEdit_3->setText(QString::number(value*1.0/100)); // 将滑动条的值转换为字符串并显示在文本框中,最大1KW
+       ui->lineEdit_3->setText(QString::number(value*1.0/100,'f',1)); // 将滑动条的值转换为字符串并显示在文本框中,最大1KW
     });
     connect(ui->horizontalSlider_2, &QSlider::valueChanged,this,[this](int value) {
        ui->lineEdit->setText(QString::number(value*0.1)); // 将滑动条的值转换为字符串并显示在文本框中
@@ -118,14 +118,27 @@ void Page1_fzsz::initSetFzModel(QSqlTableModel* modelPtr,QString tableName,QTabl
 
     connect(ui->pushButton_5,&QPushButton::clicked,this,[this](){
 
-        int value = ui->lineEdit_3->text().toInt();
+        float value = ui->lineEdit_3->text().toFloat();
+        int tens_value = value*10;
+        if(tens_value <= 5){
+            QString hexStr = QString::number(tens_value, 16).toUpper().rightJustified(4, '0');
 
-        qDebug()<<"测试文本显示"<<value<<"远程一键加载负载0.2Kw";
+            QString dataStr = "01060032";
+            dataStr.append(hexStr);
+
+            QByteArray byteArray = dataStr.toUtf8();
+            qDebug()<<"测试文本显示,远程一键加载负载(10倍输入)"<<tens_value<<"转为16进制字符串为:"<<dataStr;
+            QByteArray dataToSend = QByteArray::fromHex(byteArray);
+            qDebug()<<"发送的请求帧数据(无CRC)为:"<<dataToSend.toHex();
+
+            SerialPortManager::getInstance().writeData("COM5", dataToSend);
+        }else{
+
+            qDebug()<<"暂时不可设置负载值大于500W的";
+
+        }
 
 
-
-        QByteArray dataToSend = QByteArray::fromHex("010600320002");
-        SerialPortManager::getInstance().writeData("COM5", dataToSend);
 
     });
 

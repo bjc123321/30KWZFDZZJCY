@@ -24,10 +24,21 @@ void DetailPage::signalBind()
         v_data.append(GlobalSettings::BASIC_INFO.testingCompany);
         v_data.append(GlobalSettings::BASIC_INFO.ratedPower);
         v_data.append(GlobalSettings::BASIC_INFO.productName);
-        v_data.append(GlobalSettings::BASIC_INFO.productModel);
         v_data.append(GlobalSettings::BASIC_INFO.temperature);
+
         v_data.append(GlobalSettings::BASIC_INFO.execStandard);
         v_data.append(GlobalSettings::BASIC_INFO.ratedVoltage);
+        v_data.append(GlobalSettings::BASIC_INFO.productModel);
+        v_data.append(GlobalSettings::BASIC_INFO.relativeHumidity);
+
+        v_data.append(GlobalSettings::BASIC_INFO.ratedFreq);
+        v_data.append(GlobalSettings::BASIC_INFO.productNum);
+        v_data.append(GlobalSettings::BASIC_INFO.atmospherePressure);
+
+        v_data.append(GlobalSettings::BASIC_INFO.testDate);
+        v_data.append(GlobalSettings::BASIC_INFO.productState);
+        v_data.append(GlobalSettings::BASIC_INFO.phaseOrLine);
+        v_data.append(GlobalSettings::BASIC_INFO.testPerson);
 
         DataExportManager::getInstance().generateSteadyDataExcel(v_data);
 

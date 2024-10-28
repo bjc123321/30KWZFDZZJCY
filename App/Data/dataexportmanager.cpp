@@ -239,7 +239,13 @@ void DataExportManager::generateSteadyDataExcel(QVector<QString > v_data)
         // 创建单独用于第3-7行的格式
        QXlsx::Format headerFormat3;
        headerFormat3.setFontName("DengXian");  // 字体等线
-       headerFormat3.setFontSize(10.5);  // 字号10.5
+       headerFormat3.setFontSize(12.5);  // 字号10.5
+       headerFormat3.setTextWarp(true);  // 自动换行
+
+       xlsx.setColumnWidth(3,15);
+       xlsx.setColumnWidth(7,15);
+       xlsx.setColumnWidth(10,15);
+       xlsx.setColumnWidth(14,15);
 
        // 填写第 3-7 行数据并应用格式
        xlsx.write("A3", "测试单位：", headerFormat3);
@@ -248,10 +254,10 @@ void DataExportManager::generateSteadyDataExcel(QVector<QString > v_data)
        xlsx.write("A7", "环境温度（℃）：", headerFormat3);
 
        // 填写第 3-7 行数据并应用格式
-       xlsx.write("C3", v_data.at(0), headerFormat2);
-       xlsx.write("C4", v_data.at(1), headerFormat2);
-       xlsx.write("C5", v_data.at(2), headerFormat2);
-       xlsx.write("C7", v_data.at(4), headerFormat2);
+       xlsx.write("C3", v_data.at(0), headerFormat3);
+       xlsx.write("C4", v_data.at(1), headerFormat3);
+       xlsx.write("C5", v_data.at(2), headerFormat3);
+       xlsx.write("C7", v_data.at(3), headerFormat3);
 
 
 
@@ -260,6 +266,11 @@ void DataExportManager::generateSteadyDataExcel(QVector<QString > v_data)
        xlsx.write("E5", "产品型号：", headerFormat3);
        xlsx.write("E7", "相对湿度：", headerFormat3);
 
+       xlsx.write("G3", v_data.at(4), headerFormat3);
+       xlsx.write("G4", v_data.at(5), headerFormat3);
+       xlsx.write("G5", v_data.at(6), headerFormat3);
+       xlsx.write("G7", v_data.at(7), headerFormat3);
+
 
 
 
@@ -267,10 +278,19 @@ void DataExportManager::generateSteadyDataExcel(QVector<QString > v_data)
        xlsx.write("H5", "产品编号：", headerFormat3);
        xlsx.write("H7", "大气压力（KPa）：", headerFormat3);
 
+       xlsx.write("J4", v_data.at(8), headerFormat3);
+       xlsx.write("J5", v_data.at(9), headerFormat3);
+       xlsx.write("J7", v_data.at(10), headerFormat3);
+
        xlsx.write("L3", "试验时间：", headerFormat3);
        xlsx.write("L4", "产品状态：", headerFormat3);
        xlsx.write("L5", "相/线：", headerFormat3);
        xlsx.write("L7", "测试负责人：", headerFormat3);
+
+       xlsx.write("N3", v_data.at(11), headerFormat3);
+       xlsx.write("N4", v_data.at(12), headerFormat3);
+       xlsx.write("N5", v_data.at(13), headerFormat3);
+       xlsx.write("N7", v_data.at(14), headerFormat3);
 
        // 合并顶部信息的单元格
        xlsx.mergeCells("A3:B3");
