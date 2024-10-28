@@ -83,9 +83,20 @@ void Save::saveSteadyTestRecord()
     vdata.append("Yes");
 
     model1->setTable("T_data");
-    DatabaseManager::getInstance("sql.db").insertData(model1->tableName(),vdata);
+    bool t_dataSave =  DatabaseManager::getInstance("sql.db").insertData(model1->tableName(),vdata);
     model2->setTable("T_static_data");
-    DatabaseManager::getInstance("sql.db").insertData(model2->tableName(),v_Steady_Data);
+    bool t_staticSave = DatabaseManager::getInstance("sql.db").insertData(model2->tableName(),v_Steady_Data);
+
+    if(t_dataSave && t_staticSave){
+
+        QMessageBox::information(
+                nullptr,  // 父窗口指针，nullptr表示没有父窗口
+                "保存成功",  // 对话框标题
+                "您的数据已成功保存。",  // 对话框内容
+                QMessageBox::Ok  // 按钮类型
+            );
+
+    }
 
 
     model3->setTable("YSFZ");

@@ -434,15 +434,10 @@ void Page3_wtcs::saveSteadyData()
 {
 
     qDebug()<<"保存稳态数据";
-
-
-
-
-
 //    Detection record(uniqueID,"电机","稳态测试","xxx",current.toString(),"Yes");
 
     Save::TEST_RECORD record(ui->lineEdit_14->text(),
-                           "电机",
+                           ui->lineEdit_100->text(),
                            "稳态测试",
                            ui->lineEdit_15->text(),
                            ui->lineEdit_97->text(),

@@ -21,13 +21,18 @@ Data::~Data()
 }
 
 void Data::init()
-{ 
+{
+
+
     modelPtr->setTable("T_data");
-    modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
+//    modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
     modelPtr->select();
-    ui->tableView->setModel(modelPtr);
+
+
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+//    ui->tableView->resizeRowsToContents(); // 自动调整行宽
+    ui->tableView->setModel(modelPtr);
 
     // 设置列宽自动拉伸以填满表格视图
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
@@ -35,11 +40,6 @@ void Data::init()
     // 更新表格视图
     ui->tableView->update();
 
-
-
-
-
-//    initSetFzModel(ui->pushButton);
 }
 
 void Data::signalBind()
@@ -125,6 +125,8 @@ void Data::refreshView()
 
     // 更新表格视图
     ui->tableView->update();
+
+
 }
 
 

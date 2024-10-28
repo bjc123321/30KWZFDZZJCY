@@ -322,6 +322,49 @@ QSqlQueryModel* DatabaseManager::queryRecordNum(QString id)
 
 }
 
+QSqlQueryModel* DatabaseManager::queryT_dataPart()
+{
+
+    QSqlQueryModel *queryModel = new QSqlQueryModel;
+
+    // 确保数据库连接有效
+    if (!model->database().isOpen()) {
+        qDebug() << "数据库未打开，无法查询。";
+        return nullptr;
+    }
+
+
+    // 假设你已经有一个 QSqlDatabase 连接
+    QStringList fields; // 用于存储要查询的字段
+    fields << "测试编号" << "产品名称" << "测试类型"<< "检测人员"<< "检测时间"<< "检测结果"; // 替换为你需要查询的字段名称
+
+    // 创建 SQL 查询语句
+    QString queryString = QString("SELECT  %1 FROM T_data").arg(fields.join(", ")); // 将字段名称以逗号分隔连接
+
+    QSqlQuery query(queryString,model->database()); // 直接使用数据库连接
+    query.prepare(queryString); // 使用 prepare 方法准备查询
+
+    if (query.exec()) {
+        qDebug() << "执行成功";
+        while (query.next()) { // 如果有记录返回 true
+            QString testNum = query.value("测试编号").toString();
+//            QString testPerson = query.value("检测人员").toString();
+            // 其他字段...
+            qDebug() << "测试编号:" << testNum ;
+
+        }
+
+        queryModel->setQuery(query); // 设置查询结果到模型
+
+    } else {
+        qDebug() << "查询执行失败: " << query.lastError().text();
+        return nullptr;
+    }
+
+    return queryModel;
+
+}
+
 bool DatabaseManager::insertData(QString table, QVector<QVariant> vdata)
 {
         if (!model) {
