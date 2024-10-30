@@ -22,6 +22,7 @@ Login::Login(QWidget *parent) :
         ui->nameline->setText(Read.value("name","admin").toString());
         ui->passwordine->setText(Read.value("password","").toString());
         GlobalSettings::instance().setLoginMode(Read.value("power","").toString());
+        GlobalSettings::instance().setLoginMode(Read.value("id","").toString());
         ui->checkBox->setChecked(!ui->passwordine->text().isEmpty());
     });
 }
@@ -73,9 +74,11 @@ void Login::on_loginbtn_clicked()
                     GlobalSettings::instance().setLoginMode("1");
 
                 }
+                GlobalSettings::instance().setUserId(queryModel->data(queryModel->index(row, 0)).toString());
 
                 //登录成功往配置文件中写
                 ConfigIni::Write("LoginInformation",QMap<QString,QVariant>{
+                                     {"id",GlobalSettings::instance().getUserId()},
                                      {"name",ui->nameline->text()},
                                      {"password",ui->passwordine->text()},
                                      {"power",GlobalSettings::instance().getLoginMode()}

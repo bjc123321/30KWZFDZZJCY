@@ -98,16 +98,27 @@ public:
         return loginMode;
     }
 
+    /**********设置和获取用户id(工号)**********************/
+    void setUserId(QString t_userId){
+        userId = t_userId;
+    }
+
+    QString getUserId(){
+        return userId;
+    }
+
 private:
     // 构造函数私有化，防止外部实例化
     explicit GlobalSettings(QObject* parent = nullptr)
-        : QObject(parent), currentLoad(0), fanIsOpen(false), currentTestType(STEADY),loginMode(1) {}
+        : QObject(parent), currentLoad(0), fanIsOpen(false), currentTestType(STEADY),loginMode(1),userId(20240001) {}
 
     // 禁止拷贝构造和赋值操作
     GlobalSettings(const GlobalSettings&) = delete;
     GlobalSettings& operator=(const GlobalSettings&) = delete;
 
+    //用户权限和用户id相关
     QString loginMode;
+    QString userId;
 
     // 全局变量
     int currentLoad;

@@ -33,6 +33,8 @@ void User::init()
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
 
+    ui->lineEdit->setText(GlobalSettings::instance().getUserId());
+
     if(GlobalSettings::instance().getLoginMode() == "2"){
 
         //管理员模式切换到0页
