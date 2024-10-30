@@ -4,17 +4,25 @@
 #include <cstdlib>  // for rand() and srand()
 #include <ctime>    // for time()
 
+#include "GlobalSettings.h"
+
+QString GlobalSettings::sqlPath = QDir::currentPath() + "/Depend/Base/sql.db";
+
 DatabaseManager::DatabaseManager(const QString &dbName)
 {
     // 设置SQLite数据库文件连接
-    db = QSqlDatabase::addDatabase("QSQLITE");
+    db = QSqlDatabase::addDatabase("QSQLITE","sqlite");
     db.setDatabaseName(dbName);
 
-    // 打开数据库
+    // 先打开数据库
     if (!db.open()) {
         qDebug() << "Database Error: " << db.lastError().text();
+    }else{
+        qDebug() << "数据库"<<db.databaseName()<<"成功打开";
     }
 
+    //初始化
+    initialize();
 }
 
 DatabaseManager::~DatabaseManager()
@@ -29,27 +37,23 @@ bool DatabaseManager::initialize()
         return false;
     }
 
+
     // 检查数据库中是否存在表，如果不存在则创建
-    if (db.tables().isEmpty()) {
-        QSqlQuery query;
-        if (!query.exec("CREATE TABLE YSFZ ("
-                        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                        "percentage INTEGER, "
-                        "power_factor REAL, "
-                        "duration INTEGER)")) {
-            qDebug() << "Error creating table: " << query.lastError().text();
-            return false;
-        }
-    }
+//    if (db.tables().isEmpty()) {
+//        QSqlQuery query;
+//        if (!query.exec("CREATE TABLE YSFZ ("
+//                        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+//                        "percentage INTEGER, "
+//                        "power_factor REAL, "
+//                        "duration INTEGER)")) {
+//            qDebug() << "Error creating table: " << query.lastError().text();
+//            return false;
+//        }
+//    }
 
     // 初始化模型
-    model = new QSqlTableModel(nullptr, db);
-    model->setTable("YSFZ");
-//    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    model->setEditStrategy(QSqlTableModel::OnFieldChange);
+    model = getModel();
 
-
-    model->select();  // 重新从数据库中获取"所有"数据，并在视图中更新显示
 
     // 初始化时只加载第一页数据，不加载所有数据。注意：model->select();和 loadMoreData_2(20);只能存在一个
 //    loadMoreData_2(20);  // 例如界面刚打开只加载20行数据，仅限显示不可编辑
@@ -61,14 +65,13 @@ bool DatabaseManager::initialize()
 void DatabaseManager::setModel(QSqlTableModel *sqlModel)
 {
     model = sqlModel;
-    model->setTable(sqlModel->tableName());
-    model->setEditStrategy(QSqlTableModel::OnFieldChange);
-    model->select();  // 重新从数据库中获取"所有"数据，并在视图中更新显示
+    qDebug()<<"模型的表名："<<model->tableName();
 }
 
 QSqlTableModel* DatabaseManager::getModel()
 {
-    return model;
+
+    return new QSqlTableModel(nullptr, db);
 }
 
 
@@ -141,7 +144,7 @@ void DatabaseManager::loadMoreData(int rowsPerPage, int currentPage)
 }
 
 // 一键批量增加数据,插入一段数据之后刷新模型，确保数据被逐步更新，而不是在插入完 x条数据之后再一次性刷新。
-void DatabaseManager::addMultipleRows(int numRows)
+void DatabaseManager::addMultipleRows(QSqlTableModel *model,int numRows)
 {
     static bool seeded = false;
     if (!seeded) {
@@ -157,7 +160,7 @@ void DatabaseManager::addMultipleRows(int numRows)
         double powerFactor = static_cast<double>(rand() % 101) / 100.0;  // 随机生成功率因数
         int duration = rand() % 100 + 1;  // 随机生成持续时间
 
-        if (!addRow(percentage, powerFactor, duration)) {
+        if (!addRow(model,percentage, powerFactor, duration)) {
             qDebug() << "Failed to add row!";
             return;
         }
@@ -176,7 +179,7 @@ void DatabaseManager::addMultipleRows(int numRows)
 }
 
 
-bool DatabaseManager::addRow(int percentage, double powerFactor, int duration)
+bool DatabaseManager::addRow(QSqlTableModel *model,int percentage, double powerFactor, int duration)
 {
     if (!model) return false;
 
@@ -192,9 +195,18 @@ bool DatabaseManager::addRow(int percentage, double powerFactor, int duration)
     return model->submitAll();
 }
 
-bool DatabaseManager::removeRow(int row)
+bool DatabaseManager::removeRow(QSqlTableModel *model,int row)
 {
-    if (!model || row < 0 || row >= model->rowCount()) return false;
+    if (!model || row < 0 || row >= model->rowCount()) {
+
+        if(!model){
+            qDebug()<<"model为空";
+        }else{
+            qDebug()<<"行数不合法";
+        }
+
+        return false;
+    }
 
     model->removeRow(row);
     if (!model->submitAll()) {
@@ -206,7 +218,7 @@ bool DatabaseManager::removeRow(int row)
     return true;
 }
 
-bool DatabaseManager::clearRows()
+bool DatabaseManager::clearRows(QSqlTableModel *model)
 {
 
     if (!model) return false;
@@ -223,9 +235,10 @@ bool DatabaseManager::clearRows()
        return true;
 }
 
-bool DatabaseManager::moveRowUp(int row)
+bool DatabaseManager::moveRowUp(QSqlTableModel *model,int row)
 {
     if (!model || row <= 0 || row >= model->rowCount()) {
+        qDebug()<<"model为空";
         return false;
     }
 
@@ -253,7 +266,7 @@ bool DatabaseManager::moveRowUp(int row)
 }
 
 
-bool DatabaseManager::moveRowDown(int row)
+bool DatabaseManager::moveRowDown(QSqlTableModel *model,int row)
 {
     if (!model || row < 0 || row >= model->rowCount() - 1) {
             return false;
@@ -281,7 +294,6 @@ bool DatabaseManager::moveRowDown(int row)
 
     return true;
 }
-
 
 QSqlQueryModel* DatabaseManager::queryRecordNum(QString id)
 {
@@ -322,6 +334,57 @@ QSqlQueryModel* DatabaseManager::queryRecordNum(QString id)
 
 }
 
+QSqlQueryModel* DatabaseManager::queryRecord(QSqlTableModel *model,QString queryCondition)
+{
+
+    QSqlQueryModel *queryModel = new QSqlQueryModel;
+    // 确保在使用之前 model 已被初始化
+    if (!model || !model->database().isOpen()) {
+        qDebug() << "数据库未打开，无法查询。";
+        return nullptr;
+    }
+
+    // 构建查询字符串
+    QString queryStr = QString("SELECT * FROM %1").arg(model->tableName());
+    if (!queryCondition.isEmpty()) {
+        queryStr += " WHERE " + queryCondition;
+    }
+
+    // 使用 QSqlQuery 执行查询
+    QSqlQuery query(queryStr,model->database());
+    if (!query.exec()) {
+        qDebug() << "查询执行失败: " << query.lastError().text();
+        return nullptr;
+    }
+
+    // 将查询结果设置到模型
+    queryModel->setQuery(query);
+
+    qDebug() << "执行成功,查到" << queryModel->rowCount() << "条数据";
+
+    return queryModel;
+}
+
+bool DatabaseManager::delRecord(QSqlTableModel *model ,QString columnName,QString delCondition)
+{
+
+    qDebug()<<"操作的表名:"<<model->tableName()<<"删除的条件是测试编号为:"<<delCondition;
+
+    QString sqlStr = "DELETE FROM "+model->tableName()+" WHERE " +columnName+" = "+delCondition;
+
+    QSqlQuery query(sqlStr,model->database());
+
+    bool ret = query.exec(sqlStr);
+    if(ret){
+        qDebug() << "执行成功,删除数据";
+    }else{
+
+        qDebug() << "删除操作失败";
+    }
+    return ret;
+}
+
+
 QSqlQueryModel* DatabaseManager::queryT_dataPart()
 {
 
@@ -332,7 +395,6 @@ QSqlQueryModel* DatabaseManager::queryT_dataPart()
         qDebug() << "数据库未打开，无法查询。";
         return nullptr;
     }
-
 
     // 假设你已经有一个 QSqlDatabase 连接
     QStringList fields; // 用于存储要查询的字段
@@ -365,43 +427,37 @@ QSqlQueryModel* DatabaseManager::queryT_dataPart()
 
 }
 
-bool DatabaseManager::insertData(QString table, QVector<QVariant> vdata)
+bool DatabaseManager::insertData(QSqlTableModel *model, QVector<QVariant> vdata)
 {
-        if (!model) {
-            qDebug() << "insertData错误: model is null";
-            return false;
-        }
+    if (!model) {
+        qDebug() << "insertData错误: model is null";
+        return false;
+    }
 
-        qDebug() << "插入" << model->tableName() << "字段个数:" << vdata.size()<<"表的字段个数"<<model->columnCount();
-        // 检查 vdata 的大小
-        if (vdata.size() != model->columnCount()) { // 看数据字段是否与表字段数量一致
-            qDebug() << "插入失败: 数据字段数量与表字段数量不匹配";
-            return false;
-        }
+    qDebug() << "插入" << model->tableName() << "字段个数:" << vdata.size()<<"表的字段个数"<<model->columnCount();
+    // 检查 vdata 的大小
+    if (vdata.size() != model->columnCount()) { // 看数据字段是否与表字段数量一致
+        qDebug() << "插入失败: 数据字段数量与表字段数量不匹配";
+        return false;
+    }
 
+    int row = model->rowCount();
+    model->insertRow(row);
 
+    // 设置数据
+    for (int i = 0; i < vdata.size(); ++i) {
+        model->setData(model->index(row, i), vdata.at(i));
+    }
 
-        int row = model->rowCount();
-        model->insertRow(row);
+    // 提交修改
+    if (!model->submitAll()) {
+        qDebug() << "Submit failed: " << model->lastError().text();
+        return false;
+    }
 
-        // 设置数据
-        for (int i = 0; i < vdata.size(); ++i) {
-            model->setData(model->index(row, i), vdata.at(i));
-        }
+    qDebug() << "插入" << vdata.at(0) << "数据到" << model->tableName();
 
-        // 提交修改
-        if (!model->submitAll()) {
-            qDebug() << "Submit failed: " << model->lastError().text();
-            return false;
-        }
-
-        qDebug() << "插入" << vdata.at(0) << "数据到" << table;
-
-        isExecSucceed = true;
-
-        return true;
-
-
+    return true;
 
 }
 

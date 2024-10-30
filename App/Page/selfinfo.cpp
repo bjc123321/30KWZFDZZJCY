@@ -1,6 +1,8 @@
 #include "selfinfo.h"
 #include "ui_selfinfo.h"
 
+#include "GlobalSettings.h"
+#include "Base/BaseFun/Sql/databasemanager.h"
 SelfInfo::SelfInfo(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SelfInfo)
@@ -16,6 +18,7 @@ SelfInfo::~SelfInfo()
 
 SelfInfo::init()
 {
+    modelPtr = new QSqlTableModel(this,DatabaseManager::getInstance(GlobalSettings::sqlPath).getDataBase());
     modelPtr->setTable("T_uselog");
     modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
     modelPtr->select();

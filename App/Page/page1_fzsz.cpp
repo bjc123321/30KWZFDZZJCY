@@ -14,7 +14,7 @@ Page1_fzsz::Page1_fzsz(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    initSetFzModel(model1Ptr,"YSFZ",ui->tableView,ui->pushButton_4,ui->pushButton,ui->pushButton_12,ui->pushButton_14,ui->pushButton_15,ui->pushButton_2);
+    initSetFzModel(ui->tableView,ui->pushButton_4,ui->pushButton,ui->pushButton_12,ui->pushButton_14,ui->pushButton_15,ui->pushButton_2);
 
 //    initAutoFzModel(model2Ptr,"ZDJZ_1",ui->tableView_3);
     // 连接滑动条的 valueChanged 信号到文本框的槽函数
@@ -42,17 +42,20 @@ Page1_fzsz::~Page1_fzsz()
     delete ui;
 }
 
-void Page1_fzsz::initSetFzModel(QSqlTableModel* modelPtr,QString tableName,QTableView*tableView,QPushButton*add,QPushButton*clear,QPushButton*del,QPushButton*up,QPushButton*down,
+void Page1_fzsz::initSetFzModel(QTableView*tableView,QPushButton*add,QPushButton*clear,QPushButton*del,QPushButton*up,QPushButton*down,
                                 QPushButton*load)
 {
 
-
-    modelPtr->setTable(tableName);
-    modelPtr->select();  // 重新从数据库中获取"所有"数据，并在视图中更新显示
-    // 设置QTableView
-    tableView->setModel(modelPtr);
     //数据库管理类设置model
-    DatabaseManager::getInstance("sql.db").setModel(modelPtr);
+
+
+    QSqlTableModel *modelPtr = DatabaseManager::getInstance(GlobalSettings::sqlPath).getModel();
+
+    modelPtr->setTable("YSFZ");
+    modelPtr->select();
+    //先设置好数据库的模型
+
+    tableView->setModel(modelPtr);
     // 设置表头
     modelPtr->setHeaderData(0, Qt::Horizontal, tr("编号"));
     modelPtr->setHeaderData(1, Qt::Horizontal, tr("总功率百分比(%)"));
@@ -80,33 +83,34 @@ void Page1_fzsz::initSetFzModel(QSqlTableModel* modelPtr,QString tableName,QTabl
 
 
 
-    connect(add,&QPushButton::clicked,this,[this](){
+    connect(add,&QPushButton::clicked,this,[this,modelPtr](){
 
-        addRow();
-
-    });
-
-    connect(del,&QPushButton::clicked,this,[this,tableView](){
-
-        removeRow(tableView->currentIndex().row());
+        addRow(modelPtr);
 
     });
 
-    connect(clear,&QPushButton::clicked,this,[this](){
+    connect(del,&QPushButton::clicked,this,[this,tableView,modelPtr](){
 
-        clearRows();
 
-    });
-
-    connect(up,&QPushButton::clicked,this,[this,tableView](){
-
-        moveRowUp(tableView->currentIndex().row());
+        removeRow(modelPtr,tableView->currentIndex().row());
 
     });
 
-    connect(down,&QPushButton::clicked,this,[this,tableView](){
+    connect(clear,&QPushButton::clicked,this,[this,modelPtr](){
 
-        moveRowDown(tableView->currentIndex().row());
+        clearRows(modelPtr);
+
+    });
+
+    connect(up,&QPushButton::clicked,this,[this,tableView,modelPtr](){
+
+        moveRowUp(modelPtr,tableView->currentIndex().row());
+
+    });
+
+    connect(down,&QPushButton::clicked,this,[this,tableView,modelPtr](){
+
+        moveRowDown(modelPtr,tableView->currentIndex().row());
 
     });
     connect(load,&QPushButton::clicked,this,[this,tableView,modelPtr](){
@@ -154,18 +158,8 @@ void Page1_fzsz::initSetFzModel(QSqlTableModel* modelPtr,QString tableName,QTabl
 
 }
 
-void Page1_fzsz::initAutoFzModel(QSqlTableModel *modelPtr, QString tableName, QTableView *tableView)
-{
-    tableView->setModel(modelPtr);
-    tableView->setSelectionMode(QAbstractItemView::SingleSelection);
-    tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    // 设置列宽自动拉伸以填满表格视图
-    tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-}
-
-
-void Page1_fzsz::addRow()
+void Page1_fzsz::addRow(QSqlTableModel *model)
 {
     if(!isLoading){
         static bool seeded = false;
@@ -181,9 +175,9 @@ void Page1_fzsz::addRow()
         // 获取文本框中的持续时间
         int duration = ui->lineEdit_4->text().toInt();
 
-        // 调用DatabaseManager::getInstance("sql.db")的addRow方法插入新行
-        if (!DatabaseManager::getInstance("sql.db").addRow(percentage, powerFactor, duration)) {
-            QMessageBox::warning(this, "Error", "Failed to add row: " + DatabaseManager::getInstance("sql.db").lastError());
+        // 调用DatabaseManager::getInstance(GlobalSettings::sqlPath)的addRow方法插入新行
+        if (!DatabaseManager::getInstance(GlobalSettings::sqlPath).addRow(model,percentage, powerFactor, duration)) {
+            QMessageBox::warning(this, "Error", "Failed to add row: " + DatabaseManager::getInstance(GlobalSettings::sqlPath).lastError());
         }
     }else{
         QMessageBox::warning(this, "无效操作", "请等待负载加载完成后，或者强制停止加载后进行其他操作!");
@@ -191,14 +185,14 @@ void Page1_fzsz::addRow()
 
 }
 
-void Page1_fzsz::removeRow(int row)
+void Page1_fzsz::removeRow(QSqlTableModel *model,int row)
 {
 
     if(!isLoading){
         qDebug()<<"RemoveRow:"<<row;
         if (row >= 0) {
-            if (!DatabaseManager::getInstance("sql.db").removeRow(row)) {
-                QMessageBox::warning(this, "Error", "Failed to remove row: " + DatabaseManager::getInstance("sql.db").lastError());
+            if (!DatabaseManager::getInstance(GlobalSettings::sqlPath).removeRow(model,row)) {
+                QMessageBox::warning(this, "Error", "Failed to remove row: " + DatabaseManager::getInstance(GlobalSettings::sqlPath).lastError());
             }
 
         }
@@ -209,11 +203,11 @@ void Page1_fzsz::removeRow(int row)
 
 }
 
-void Page1_fzsz::clearRows()
+void Page1_fzsz::clearRows(QSqlTableModel *model)
 {
     if(!isLoading){
-        if (!DatabaseManager::getInstance("sql.db").clearRows()) {
-            QMessageBox::warning(this, "Error", "Failed to clear rows: " + DatabaseManager::getInstance("sql.db").lastError());
+        if (!DatabaseManager::getInstance(GlobalSettings::sqlPath).clearRows(model)) {
+            QMessageBox::warning(this, "Error", "Failed to clear rows: " + DatabaseManager::getInstance(GlobalSettings::sqlPath).lastError());
         }
     }else{
         QMessageBox::warning(this, "无效操作", "请等待负载加载完成后，或者强制停止加载后进行其他操作!");
@@ -222,13 +216,13 @@ void Page1_fzsz::clearRows()
 }
 
 
-void Page1_fzsz::moveRowUp(int row)
+void Page1_fzsz::moveRowUp(QSqlTableModel *model,int row)
 {
     if(!isLoading){
         qDebug()<<"RowUp:"<<row;
         if (row > 0) {
-            if (!DatabaseManager::getInstance("sql.db").moveRowUp(row)) {
-                QMessageBox::warning(this, "Error", "Failed to move row up: " + DatabaseManager::getInstance("sql.db").lastError());
+            if (!DatabaseManager::getInstance(GlobalSettings::sqlPath).moveRowUp(model,row)) {
+                QMessageBox::warning(this, "Error", "Failed to move row up: " + DatabaseManager::getInstance(GlobalSettings::sqlPath).lastError());
             }
         }
     }else{
@@ -237,14 +231,14 @@ void Page1_fzsz::moveRowUp(int row)
 
 }
 
-void Page1_fzsz::moveRowDown(int row)
+void Page1_fzsz::moveRowDown(QSqlTableModel *model,int row)
 {
 
     if(!isLoading){
         qDebug()<<"RowDown:"<<row;
-        if (row < DatabaseManager::getInstance("sql.db").getModel()->rowCount() - 1) {
-            if (!DatabaseManager::getInstance("sql.db").moveRowDown(row)) {
-                QMessageBox::warning(this, "Error", "Failed to move row down: " + DatabaseManager::getInstance("sql.db").lastError());
+        if (row < model->rowCount() - 1) {
+            if (!DatabaseManager::getInstance(GlobalSettings::sqlPath).moveRowDown(model,row)) {
+                QMessageBox::warning(this, "Error", "Failed to move row down: " + DatabaseManager::getInstance(GlobalSettings::sqlPath).lastError());
             }
         }
     }else{

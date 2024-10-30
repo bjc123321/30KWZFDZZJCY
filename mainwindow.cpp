@@ -9,9 +9,7 @@
 #include <QMessageBox>
 #include "App/Page/save.h"
 #include "App/Page/page3_wtcs.h"
-
 #include "GlobalSettings.h"
-
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

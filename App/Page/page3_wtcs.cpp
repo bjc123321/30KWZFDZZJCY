@@ -77,13 +77,6 @@ void Page3_wtcs::signalBind()
             }
         }
     });
-    connect(ui->pushButton,&QPushButton::clicked,this,[&](){
-
-        qDebug()<<"导出稳态等数据,目前是空表";
-        DataExportManager::getInstance().createStaticTestExcel();
-
-
-    });
 
     connect(ui->stopButton,&QPushButton::clicked,this,[&](){
 

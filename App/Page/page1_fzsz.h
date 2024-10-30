@@ -8,9 +8,6 @@
 #include "App/Data/datacom3.h"
 #include "Base/BaseFun/Sql/sql.h"
 #include <QSqlError>
-#include <QItemDelegate>
-#include <QDoubleSpinBox>
-#include <QSpinBox>
 #include <QTimer>
 #include "Base/BaseFun/Sql/databasemanager.h"
 
@@ -28,22 +25,21 @@ public:
 
     ~Page1_fzsz();
 
-    QSqlTableModel* model1Ptr = new QSqlTableModel(this,Sql::U().db);//手动设置
+//    QSqlTableModel* model1Ptr = new QSqlTableModel(this,Sql::U().db);//手动设置
 
 public:
-    void initSetFzModel(QSqlTableModel* modelPtr,QString tableName,QTableView*tableView,QPushButton*add,QPushButton*clear,QPushButton*del,QPushButton*up,QPushButton*down,
+    void initSetFzModel(QTableView*tableView,QPushButton*add,QPushButton*clear,QPushButton*del,QPushButton*up,QPushButton*down,
                         QPushButton*load);
-    void initAutoFzModel(QSqlTableModel* modelPtr,QString tableName,QTableView*tableView);
 
-    void addRow();
+    void addRow(QSqlTableModel *model);
 
-    void removeRow(int row);
+    void removeRow(QSqlTableModel *model,int row);
 
-    void clearRows();
+    void clearRows(QSqlTableModel *model);
 
-    void moveRowUp(int row);
+    void moveRowUp(QSqlTableModel *model,int row);
 
-    void moveRowDown(int row);
+    void moveRowDown(QSqlTableModel *model,int row);
 
     void selectRowsWithTimer(QTableView *tableView,QSqlTableModel *modelPtr);
 

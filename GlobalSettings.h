@@ -1,4 +1,4 @@
-﻿#ifndef GLOBALSETTINGS_H
+#ifndef GLOBALSETTINGS_H
 #define GLOBALSETTINGS_H
 
 #include <QObject>
@@ -58,6 +58,9 @@ public:
 
     static BasicInfo BASIC_INFO;  // 静态成员声明
 
+    //数据库相关
+    static QString sqlPath;
+
 
     // 设置和获取当前测试类型的值
     void setCurrentTestType(TEST_TYPE type) {
@@ -111,6 +114,9 @@ private:
     bool fanIsOpen;
 
     TEST_TYPE currentTestType; // 当前测试类型
+
+
+
 
 
 };

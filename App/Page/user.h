@@ -12,7 +12,7 @@ class User;
 class User : public QWidget
 {
     Q_OBJECT
-    QSqlTableModel* modelPtr = new QSqlTableModel(this,Sql::U().db);
+    QSqlTableModel* modelPtr = nullptr;
 public:
     explicit User(QWidget *parent = 0);
     ~User();

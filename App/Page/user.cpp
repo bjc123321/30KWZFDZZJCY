@@ -2,7 +2,7 @@
 #include "ui_user.h"
 
 #include "GlobalSettings.h"
-
+#include "Base/BaseFun/Sql/databasemanager.h"
 #include "Dialog/login.h"
 
 User::User(QWidget *parent) :
@@ -24,6 +24,7 @@ User::~User()
 void User::init()
 {
 
+    modelPtr = new QSqlTableModel(this,DatabaseManager::getInstance(GlobalSettings::sqlPath).getDataBase());
     modelPtr->setTable("login");
     modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
     modelPtr->select();

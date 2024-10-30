@@ -142,7 +142,7 @@ void Page4_stcs::saveSuddLoadData()
     Save::TEST_RECORD record(QDateTime::currentDateTime().toString("yyyyMMddHHmmsszzz"),
                            "电机",
                            "突加测试",
-                           "小王",
+                           GlobalSettings::BASIC_INFO.testPerson,
                            QDateTime::currentDateTime().toString("yyyy-MM-dd-HH-mm-ss"),
                            "Yes");
     // 打印信息

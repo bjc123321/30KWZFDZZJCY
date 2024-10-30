@@ -39,16 +39,11 @@ public:
 
 public:
 
-    QSqlTableModel *model1 = nullptr;
-    QSqlTableModel *model2 = nullptr;
-    QSqlTableModel *model3 = nullptr;
-
     QVector<QVariant> v_Steady_Data;
 
     void displayT_dataView(TEST_RECORD record );
     void saveSteadyTestRecord();
     void packSteadyDetailRecord(QVector<QVariant> v_Steady_Detail_Data);
-    void bindDataBaseModel();
 
 private:
     Ui::Save *ui;

@@ -11,7 +11,7 @@ class SelfInfo;
 class SelfInfo : public QWidget
 {
     Q_OBJECT
-    QSqlTableModel* modelPtr = new QSqlTableModel(this,Sql::U().db);
+    QSqlTableModel* modelPtr = nullptr;
 public:
     explicit SelfInfo(QWidget *parent = 0);
     ~SelfInfo();

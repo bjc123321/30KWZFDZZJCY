@@ -1,6 +1,7 @@
 #include "save.h"
 #include "ui_save.h"
 
+#include "GlobalSettings.h"
 #include "Base/BaseFun/Sql/databasemanager.h"
 Save::Save(QWidget *parent) :
     QDialog(parent),
@@ -8,49 +9,9 @@ Save::Save(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
-    bindDataBaseModel();
     connect(ui->pushButton,&QPushButton::clicked,this,[this](){
         saveSteadyTestRecord();
     });
-
-}
-
-void Save::bindDataBaseModel()
-{
-    model1 = DatabaseManager::getInstance("sql.db").getModel();
-
-    // 确保数据库连接有效
-    if (!model1->database().isOpen()) {
-        qDebug() << "数据库未打开，无法查询。";
-        return ;
-    }else{
-        qDebug() << "数据库打开成功,可以查询";
-
-    }
-
-    model2 = DatabaseManager::getInstance("sql.db").getModel();
-
-    // 确保数据库连接有效
-    if (!model2->database().isOpen()) {
-        qDebug() << "数据库未打开，无法查询。";
-        return ;
-    }else{
-        qDebug() << "数据库打开成功,可以查询";
-
-    }
-
-    model3 = DatabaseManager::getInstance("sql.db").getModel();
-
-    // 确保数据库连接有效
-    if (!model3->database().isOpen()) {
-        qDebug() << "数据库未打开，无法查询。";
-        return ;
-    }else{
-        qDebug() << "数据库打开成功,可以查询";
-
-    }
-
 
 }
 
@@ -82,10 +43,14 @@ void Save::saveSteadyTestRecord()
     vdata.append(ui->lineEdit_5->text());
     vdata.append("Yes");
 
+
+    QSqlTableModel *model1 = DatabaseManager::getInstance(GlobalSettings::sqlPath).getModel();
     model1->setTable("T_data");
-    bool t_dataSave =  DatabaseManager::getInstance("sql.db").insertData(model1->tableName(),vdata);
+    bool t_dataSave =  DatabaseManager::getInstance(GlobalSettings::sqlPath).insertData(model1,vdata);
+
+    QSqlTableModel *model2 = DatabaseManager::getInstance(GlobalSettings::sqlPath).getModel();
     model2->setTable("T_static_data");
-    bool t_staticSave = DatabaseManager::getInstance("sql.db").insertData(model2->tableName(),v_Steady_Data);
+    bool t_staticSave = DatabaseManager::getInstance(GlobalSettings::sqlPath).insertData(model2,v_Steady_Data);
 
     if(t_dataSave && t_staticSave){
 
@@ -97,14 +62,6 @@ void Save::saveSteadyTestRecord()
             );
 
     }
-
-
-    model3->setTable("YSFZ");
-    model3->setEditStrategy(QSqlTableModel::OnFieldChange);
-    model3->select();
-
-
-
 
 }
 

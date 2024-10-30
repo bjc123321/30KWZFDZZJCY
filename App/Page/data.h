@@ -15,14 +15,13 @@ class Data;
 class Data : public QWidget
 {
     Q_OBJECT
-    QSqlTableModel* modelPtr = new QSqlTableModel(this,Sql::U().db);
+    QSqlTableModel* modelPtr  = nullptr;
 public:
     explicit Data(QWidget *parent = 0);
     ~Data();
     void init();
     void signalBind();
     void detailPageView();
-    void initSetFzModel(QPushButton *del);
 
 
     void refreshView();

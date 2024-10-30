@@ -1,9 +1,9 @@
-﻿#include "login.h"
+#include "login.h"
 #include "ui_login.h"
 
 #include <QSettings>
 #include "GlobalSettings.h"
-
+#include "Base/BaseFun/Sql/databasemanager.h"
 Login::Login(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Login)
@@ -50,36 +50,43 @@ void Login::on_loginbtn_clicked()
     QString name = ui->nameline->text();
     QString password = ui->passwordine->text();
 
-    auto queryData = /*DatabaseOperations::*/Sql::SelectData("login","");
+    QSqlTableModel *model = DatabaseManager::getInstance(GlobalSettings::sqlPath).getModel();
+    model->setTable("login");
+    QSqlQueryModel *queryModel = DatabaseManager::getInstance(GlobalSettings::sqlPath).queryRecord(model,"");
 
-    qDebug()<<"查到的数据个数:"<<queryData.length()<<"条";
+    if(queryModel){
+        // 输出每一行的数据
+        for (int row = 0; row < queryModel->rowCount(); ++row) {
 
-    for( int i = 0 ; i < queryData.length() ; i++)
-    {
-        if(queryData[i].at(1) == name && queryData[i].at(2) == password)
-        {
-            LoginSuccess();
-            if(queryData[i].at(3) == 2){
-                qDebug()<<"当前为管理员模式！！！";
+            if(queryModel->data(queryModel->index(row, 1)).toString() == name &&
+                    queryModel->data(queryModel->index(row, 2)).toString() == password)
+            {
 
-                GlobalSettings::instance().setLoginMode("2");
+                LoginSuccess();
+                if(queryModel->data(queryModel->index(row, 3)).toString() == "2"){
 
-            }else{
-                qDebug()<<"当前为普通用户模式";
-                GlobalSettings::instance().setLoginMode("1");
+                    qDebug()<<"当前为管理员模式！！！";
+                    GlobalSettings::instance().setLoginMode("2");
 
+                }else{
+                    qDebug()<<"当前为普通用户模式";
+                    GlobalSettings::instance().setLoginMode("1");
+
+                }
+
+                //登录成功往配置文件中写
+                ConfigIni::Write("LoginInformation",QMap<QString,QVariant>{
+                                     {"name",ui->nameline->text()},
+                                     {"password",ui->passwordine->text()},
+                                     {"power",GlobalSettings::instance().getLoginMode()}
+                                 });
+                //SaveTheLog();
+                return;
             }
 
-            //登录成功往配置文件中写
-            ConfigIni::Write("LoginInformation",QMap<QString,QVariant>{
-                                 {"name",ui->nameline->text()},
-                                 {"password",ui->passwordine->text()},
-                                 {"power",GlobalSettings::instance().getLoginMode()}
-                             });
-            //SaveTheLog();
-            return;
         }
     }
+
 }
 
 void Login::on_exitbtn_clicked()

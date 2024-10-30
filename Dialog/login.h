@@ -1,10 +1,9 @@
-﻿#ifndef LOGIN_H
+#ifndef LOGIN_H
 #define LOGIN_H
 
 #include <QDialog>
 #include "Base/BaseFun/base.h"
 #include "Base/BaseFun/ConfigIni/ConfigIni.h"
-#include "Base/BaseFun/Sql/sql.h"
 
 //登录名称
 extern QString LoginUserName;

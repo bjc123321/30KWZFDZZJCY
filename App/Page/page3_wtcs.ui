@@ -1088,7 +1088,7 @@ border:none;
               <item>
                <widget class="QPushButton" name="pushButton_7">
                 <property name="text">
-                 <string>开始显示稳态数据</string>
+                 <string>显示稳态数据</string>
                 </property>
                </widget>
               </item>
@@ -1109,13 +1109,6 @@ border:none;
                <widget class="QPushButton" name="pushButton_8">
                 <property name="text">
                  <string>保存数据</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="pushButton">
-                <property name="text">
-                 <string>导出为Excel</string>
                 </property>
                </widget>
               </item>

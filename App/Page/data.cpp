@@ -2,7 +2,7 @@
 #include "ui_data.h"
 
 #include "Base/BaseFun/Sql/databasemanager.h"
-
+#include "GlobalSettings.h"
 #include "App/Page/detailpage.h"
 
 Data::Data(QWidget *parent) :
@@ -23,6 +23,7 @@ Data::~Data()
 void Data::init()
 {
 
+    modelPtr = DatabaseManager::getInstance(GlobalSettings::sqlPath).getModel();
 
     modelPtr->setTable("T_data");
 //    modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
@@ -45,24 +46,42 @@ void Data::init()
 void Data::signalBind()
 {
 
-    QTableView *tableView = ui->tableView;
-    connect(ui->pushButton,&QPushButton::clicked,this,[this,tableView](){
+    connect(ui->pushButton,&QPushButton::clicked,this,[this](){
 
 
-        int row = tableView->currentIndex().row();
-        qDebug()<<"删除第"<<row<<"行";
+        int row = ui->tableView->currentIndex().row();
+
         if (row >= 0) {
+
+            QString testId = modelPtr->data(modelPtr->index(row, 0)).toString(); // 假设 测试编号 在第一列
+            qDebug()<<"删除第"<<row<<"行"<<"测试编号为:"<<testId;
+
+            QString columnName = modelPtr->headerData(0, Qt::Horizontal).toString();
+            qDebug() << "列名:" << columnName;
+
+            //先删除次表的数据
+            QSqlTableModel *model2 = DatabaseManager::getInstance(GlobalSettings::sqlPath).getModel();
+            model2->setTable("T_static_data");
+            bool isExe_StaticDel = DatabaseManager::getInstance(GlobalSettings::sqlPath).delRecord(model2,columnName,testId);
+
+
             if (!modelPtr->removeRow(row)) {
                 QMessageBox::warning(this, "Error", "Failed to remove row: " + row);
+                return ;
             }
             // 提交修改
             if (!modelPtr->submitAll()) {
                 qDebug() << "Submit failed: ";
                 return ;
             }
+
+
+
+
             modelPtr->select();
 
         }
+
 
 
     });
@@ -84,30 +103,6 @@ void Data::signalBind()
 
 }
 
-void Data::initSetFzModel(QPushButton *del){
-
-    connect(del,QPushButton::clicked,this,[=](){
-        int row = ui->tableView->currentIndex().row();
-
-        modelPtr->select();
-
-        if(modelPtr->rowCount() > 0 && row  < modelPtr->rowCount() ){
-            modelPtr->removeRow(row);
-            if(modelPtr->submitAll()){
-                modelPtr->select();
-                for(int i=row;i<modelPtr->rowCount();i++){
-                    modelPtr->setData(modelPtr->index(i, 0), i);
-                }
-            }
-        }
-    });
-
-    // 设置列宽自动拉伸以填满表格视图
-    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-
-    // 更新表格视图
-    ui->tableView->update();
-}
 
 void Data::refreshView()
 {
@@ -156,7 +151,7 @@ void Data::detailPageView()
             QString id = modelPtr->data(modelPtr->index(currentRow, 0)).toString(); // 假设 id 在第一列
             qDebug()<<"编号:"<<id;
 
-            detailPage->displaySteadyDetail(DatabaseManager::getInstance("sql.db").queryRecordNum(id));
+            detailPage->displaySteadyDetail(DatabaseManager::getInstance(GlobalSettings::sqlPath).queryRecordNum(id));
             detailPage->exec();
 
 
@@ -166,7 +161,7 @@ void Data::detailPageView()
             qDebug()<<"编号:"<<id;
 
             //后面往数据库中增加突加数据表
-            detailPage->displaySuddLoadDetail(DatabaseManager::getInstance("sql.db").queryRecordNum(id));
+            detailPage->displaySuddLoadDetail(DatabaseManager::getInstance(GlobalSettings::sqlPath).queryRecordNum(id));
             detailPage->exec();
 
 
