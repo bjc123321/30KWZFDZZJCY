@@ -22,7 +22,7 @@ Login::Login(QWidget *parent) :
         ui->nameline->setText(Read.value("name","admin").toString());
         ui->passwordine->setText(Read.value("password","").toString());
         GlobalSettings::instance().setLoginMode(Read.value("power","").toString());
-        GlobalSettings::instance().setLoginMode(Read.value("id","").toString());
+        GlobalSettings::instance().setUserId(Read.value("id","").toString());
         ui->checkBox->setChecked(!ui->passwordine->text().isEmpty());
     });
 }
@@ -63,18 +63,20 @@ void Login::on_loginbtn_clicked()
                     queryModel->data(queryModel->index(row, 2)).toString() == password)
             {
 
+
                 LoginSuccess();
-                if(queryModel->data(queryModel->index(row, 3)).toString() == "2"){
 
-                    qDebug()<<"当前为管理员模式！！！";
-                    GlobalSettings::instance().setLoginMode("2");
-
-                }else{
-                    qDebug()<<"当前为普通用户模式";
-                    GlobalSettings::instance().setLoginMode("1");
-
-                }
                 GlobalSettings::instance().setUserId(queryModel->data(queryModel->index(row, 0)).toString());
+
+                if(queryModel->data(queryModel->index(row, 3)).toString() == "2"){
+                    isAdmin = true;
+                    GlobalSettings::instance().setLoginMode("2");
+                }else{
+                    isAdmin = false;
+                    GlobalSettings::instance().setLoginMode("1");
+                }
+
+
 
                 //登录成功往配置文件中写
                 ConfigIni::Write("LoginInformation",QMap<QString,QVariant>{
@@ -85,6 +87,7 @@ void Login::on_loginbtn_clicked()
                                  });
                 //SaveTheLog();
                 return;
+
             }
 
         }

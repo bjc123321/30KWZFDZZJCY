@@ -28,6 +28,9 @@ public:
         static Login l;
         return l;
     }
+
+    //默认权限为普通用户
+    bool isAdmin = false;
 public:
     void LoginSuccess();
     void ExitApp();

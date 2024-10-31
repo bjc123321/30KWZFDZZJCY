@@ -32,15 +32,16 @@ void User::init()
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-
+    //第一次进入user时显示userId
     ui->lineEdit->setText(GlobalSettings::instance().getUserId());
-
     if(GlobalSettings::instance().getLoginMode() == "2"){
 
+        qDebug()<<"管理员模式";
         //管理员模式切换到0页
         ui->stackedWidget->setCurrentIndex(0);
     }else{
 
+        qDebug()<<"普通用户模式";
         //普通用户模式切换到1页
         ui->stackedWidget->setCurrentIndex(1);
     }
@@ -58,6 +59,7 @@ void User::init()
             Login& l = Login::U();
             l.exec();
             ui->stackedWidget->setCurrentIndex(0);
+            ui->lineEdit->setText(GlobalSettings::instance().getUserId());
         }
 
     });
@@ -72,6 +74,7 @@ void User::init()
             Login& l = Login::U();
             l.exec();
             ui->stackedWidget->setCurrentIndex(1);
+            ui->lineEdit->setText(GlobalSettings::instance().getUserId());
         }
 
     });

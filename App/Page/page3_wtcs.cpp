@@ -18,8 +18,6 @@ Page3_wtcs::Page3_wtcs(QWidget *parent) :
     ui->setupUi(this);
 
 
-
-
     freqPlot = new FrequencyPlotter(this);
     voltageWidget = new VoltagePlot(this);
     ui->horizontalLayout_9->addWidget(freqPlot);

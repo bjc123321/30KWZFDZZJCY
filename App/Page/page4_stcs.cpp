@@ -115,6 +115,7 @@ void Page4_stcs::saveCurrentUIData(QString dataType)
     if(dataType == "tab"){
 
         qDebug()<<"突加数据保存";
+        saveSuddLoadData();
 
     }else if(dataType == "tab_2"){
 
@@ -122,7 +123,7 @@ void Page4_stcs::saveCurrentUIData(QString dataType)
         //1.先弹出save界面
         //2.发送查询800个突加数据信号(可以先查100个每隔8个查1次)
         //3.返回的响应帧解析后放队列中，再发给界面画出这些点形成的曲线
-        saveSuddLoadData();
+
 
 
     }else if(dataType == "tab_3"){
