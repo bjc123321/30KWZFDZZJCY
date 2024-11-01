@@ -25,7 +25,7 @@
       <string notr="true">*{
 	font: 75 14pt &quot;Calibri&quot;;
 }
-QLineEdit,QSpinBox,QDoubleSpinBox{
+QLineEdit{
 width: 150px;
 height: 40px;
 
@@ -37,7 +37,7 @@ height:50px;
   color: white;
   border: none;
   font-weight: bold;
- border-radius: 10px;
+ border-radius: 5px;
 }
 QPushButton:hover {
 	background-color: #0080FF;

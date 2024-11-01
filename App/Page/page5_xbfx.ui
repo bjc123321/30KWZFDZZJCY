@@ -23,7 +23,33 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">font: 14pt &quot;Calibri&quot;;</string>
+   <string notr="true">QPushButton{
+width:125px;
+height:40px;
+ background-color: #004080;
+  color: white;
+  border: none;
+  font: 14pt &quot;Calibri&quot;;
+ border-radius: 5px;
+}
+QPushButton:hover {
+	background-color: #0080FF;
+}
+QPushButton:pressed {
+	background-color: #0000FF;
+}
+
+QLineEdit
+{
+
+border-width:2px;
+border-style:solid;
+background-color: rgba(0, 0, 0, 50);
+border-radius:5px;
+color:black;
+border:none;
+
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -50,12 +76,6 @@
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
       </spacer>
      </item>
     </layout>
@@ -64,22 +84,6 @@
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QStackedWidget" name="stackedWidget">
-       <property name="styleSheet">
-        <string notr="true">QLineEdit {
-          background: rgba(255, 255, 255, 150);
-          border: 1px solid #cccccc;
-           border-radius: 6px;
-        }
-        QLineEdit:hover {
-           background: rgba(255, 255, 255, 200);
-        }
-        QLineEdit:focus {
-           border: 2px solid #66afe9;
-        }
-       QLineEdit:pressed {
-          background: rgba(255, 255, 255, 255);
-        }</string>
-       </property>
        <property name="currentIndex">
         <number>0</number>
        </property>
@@ -89,6 +93,14 @@
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
             <widget class="QLabel" name="label_14">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>16</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>选择相:</string>
              </property>
@@ -96,6 +108,14 @@
            </item>
            <item>
             <widget class="QComboBox" name="comboBox">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>16</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <item>
               <property name="text">
                <string>A相</string>
@@ -136,6 +156,14 @@
                  <height>16777215</height>
                 </size>
                </property>
+               <property name="font">
+                <font>
+                 <family>Calibri</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
@@ -146,6 +174,14 @@
              </item>
              <item row="0" column="0">
               <widget class="QLabel" name="label_12">
+               <property name="font">
+                <font>
+                 <family>Calibri</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>相对值U(%)</string>
                </property>
@@ -162,6 +198,14 @@
                  <height>16777215</height>
                 </size>
                </property>
+               <property name="font">
+                <font>
+                 <family>Calibri</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
                </property>
@@ -172,6 +216,14 @@
              </item>
              <item row="1" column="0">
               <widget class="QLabel" name="label_15">
+               <property name="font">
+                <font>
+                 <family>Calibri</family>
+                 <pointsize>16</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
                <property name="text">
                 <string>相对值I(%)</string>
                </property>
@@ -193,14 +245,31 @@
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
           <layout class="QGridLayout" name="gridLayout_3" columnstretch="0,0,0,0">
-           <property name="horizontalSpacing">
-            <number>10</number>
+           <property name="leftMargin">
+            <number>5</number>
            </property>
-           <property name="verticalSpacing">
-            <number>20</number>
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="rightMargin">
+            <number>5</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <property name="spacing">
+            <number>5</number>
            </property>
            <item row="1" column="0">
             <widget class="QLabel" name="label_5">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>电压有效值(RMS)</string>
              </property>
@@ -211,6 +280,14 @@
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="label_7">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>电压偏离系数</string>
              </property>
@@ -221,6 +298,14 @@
            </item>
            <item row="2" column="0">
             <widget class="QLabel" name="label_6">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>电压总谐波(THD)</string>
              </property>
@@ -231,6 +316,14 @@
            </item>
            <item row="5" column="0">
             <widget class="QLabel" name="label_9">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>电话干扰系数</string>
              </property>
@@ -241,6 +334,14 @@
            </item>
            <item row="2" column="2">
             <widget class="QLineEdit" name="lineEdit_5">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -248,6 +349,14 @@
            </item>
            <item row="1" column="3">
             <widget class="QLineEdit" name="lineEdit_3">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -255,6 +364,14 @@
            </item>
            <item row="6" column="0">
             <widget class="QLabel" name="label_10">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>电话谐波因数</string>
              </property>
@@ -265,6 +382,14 @@
            </item>
            <item row="4" column="3">
             <widget class="QLineEdit" name="lineEdit_12">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -272,6 +397,14 @@
            </item>
            <item row="3" column="1">
             <widget class="QLineEdit" name="lineEdit_7">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -279,6 +412,14 @@
            </item>
            <item row="6" column="2">
             <widget class="QLineEdit" name="lineEdit_17">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -286,6 +427,14 @@
            </item>
            <item row="5" column="1">
             <widget class="QLineEdit" name="lineEdit_13">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -293,6 +442,14 @@
            </item>
            <item row="4" column="0">
             <widget class="QLabel" name="label_8">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>电压谐波因数</string>
              </property>
@@ -303,6 +460,14 @@
            </item>
            <item row="1" column="1">
             <widget class="QLineEdit" name="lineEdit">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -310,6 +475,14 @@
            </item>
            <item row="1" column="2">
             <widget class="QLineEdit" name="lineEdit_2">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -317,6 +490,14 @@
            </item>
            <item row="2" column="3">
             <widget class="QLineEdit" name="lineEdit_6">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -324,6 +505,14 @@
            </item>
            <item row="3" column="3">
             <widget class="QLineEdit" name="lineEdit_9">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -331,6 +520,14 @@
            </item>
            <item row="4" column="1">
             <widget class="QLineEdit" name="lineEdit_10">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -338,6 +535,14 @@
            </item>
            <item row="3" column="2">
             <widget class="QLineEdit" name="lineEdit_8">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -345,6 +550,14 @@
            </item>
            <item row="4" column="2">
             <widget class="QLineEdit" name="lineEdit_11">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -352,6 +565,14 @@
            </item>
            <item row="5" column="3">
             <widget class="QLineEdit" name="lineEdit_15">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -359,6 +580,14 @@
            </item>
            <item row="6" column="1">
             <widget class="QLineEdit" name="lineEdit_16">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -366,6 +595,14 @@
            </item>
            <item row="6" column="3">
             <widget class="QLineEdit" name="lineEdit_18">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -373,6 +610,14 @@
            </item>
            <item row="0" column="1">
             <widget class="QLabel" name="label_2">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>L1</string>
              </property>
@@ -383,6 +628,14 @@
            </item>
            <item row="0" column="3">
             <widget class="QLabel" name="label_4">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>L3</string>
              </property>
@@ -393,6 +646,14 @@
            </item>
            <item row="0" column="2">
             <widget class="QLabel" name="label_3">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="text">
               <string>L2</string>
              </property>
@@ -403,6 +664,14 @@
            </item>
            <item row="2" column="1">
             <widget class="QLineEdit" name="lineEdit_4">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -410,6 +679,14 @@
            </item>
            <item row="5" column="2">
             <widget class="QLineEdit" name="lineEdit_14">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -422,16 +699,7 @@
            <property name="orientation">
             <enum>Qt::Vertical</enum>
            </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
           </spacer>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_5"/>
          </item>
         </layout>
        </widget>

@@ -40,7 +40,23 @@ void DetailPage::signalBind()
         v_data.append(GlobalSettings::BASIC_INFO.phaseOrLine);
         v_data.append(GlobalSettings::BASIC_INFO.testPerson);
 
-        DataExportManager::getInstance().generateSteadyDataExcel(v_data);
+        if(DataExportManager::getInstance().generateSteadyDataExcel(v_data)){
+            QMessageBox::information(
+                    nullptr,  // 父窗口指针，nullptr表示没有父窗口
+                    "导出成功",  // 对话框标题
+                    "保存路径:"+QDir::currentPath() + "/Doc/StaticWorking.xlsx",  // 对话框内容
+                    QMessageBox::Ok  // 按钮类型
+                );
+        }else{
+            QMessageBox::information(
+                    nullptr,  // 父窗口指针，nullptr表示没有父窗口
+                    "导出失败",  // 对话框标题
+                    "文件可能正在被编辑",  // 对话框内容
+                    QMessageBox::Ok  // 按钮类型
+                );
+        }
+
+
 
     });
 

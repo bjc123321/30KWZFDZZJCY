@@ -206,7 +206,7 @@ void DataExportManager::createStaticTestExcel()
         }
 }
 
-void DataExportManager::generateSteadyDataExcel(QVector<QString > v_data)
+bool DataExportManager::generateSteadyDataExcel(QVector<QString > v_data)
 {
 
     QXlsx::Document xlsx;
@@ -429,8 +429,12 @@ void DataExportManager::generateSteadyDataExcel(QVector<QString > v_data)
         QString filePath = QDir::currentPath() + "/Doc/StaticWorking.xlsx";
         if (xlsx.saveAs(filePath)) {
             qDebug() << "Excel report with two tables created and saved at:" << filePath;
+
         } else {
             qDebug() << "Failed to save the Excel report.";
+            return false;
         }
+
+        return true;
 
 }

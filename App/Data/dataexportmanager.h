@@ -23,7 +23,7 @@ public:
 
     void createStaticTestExcel();  // 创建稳态测试Excel表格的函数
 
-    void generateSteadyDataExcel(QVector<QString > v_Data);//生成填好数据的稳态表格
+    bool generateSteadyDataExcel(QVector<QString > v_Data);//生成填好数据的稳态表格
 
 private:
 

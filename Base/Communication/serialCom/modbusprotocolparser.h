@@ -1,4 +1,4 @@
-﻿#ifndef MODBUSPROTOCOLPARSER_H
+#ifndef MODBUSPROTOCOLPARSER_H
 #define MODBUSPROTOCOLPARSER_H
 
 #include <QObject>
@@ -14,7 +14,7 @@ public:
     explicit ModbusProtocolParser(QObject *parent = 0);
 
 public:
-    // 解析 Modbus 响应帧
+    // 解析 Modbus 完整的响应帧数据
     bool parseReponse(const QByteArray &reponse);
 
     // 生成 Modbus 响应帧

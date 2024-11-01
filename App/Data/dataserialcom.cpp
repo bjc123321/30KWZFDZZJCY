@@ -84,8 +84,8 @@ void DataSerialCom::startSuddIncreaseSlot()
     GlobalSettings::instance().setCurrentTestType(GlobalSettings::SUDD_LOAD);
 
     //先停止进行中的突加、突卸、整定和波动测试
-    QByteArray dataToSend = QByteArray::fromHex("011000000001020020");
-    SerialPortManager::getInstance().writeData(DevCenter::U().panelCom, dataToSend);
+    QByteArray stopCMD = QByteArray::fromHex("011000000001020020");
+    SerialPortManager::getInstance().writeData(DevCenter::U().panelCom, stopCMD);
 
 
     //开始突加测试
