@@ -20,27 +20,27 @@ void DetailPage::signalBind()
 
     connect(ui->pushButton_6,&QPushButton::clicked,this,[this](){
 
-        QVector<QString> v_data;
-        v_data.append(GlobalSettings::BASIC_INFO.testingCompany);
-        v_data.append(GlobalSettings::BASIC_INFO.ratedPower);
-        v_data.append(GlobalSettings::BASIC_INFO.productName);
-        v_data.append(GlobalSettings::BASIC_INFO.temperature);
+        QVector<QString> v_SteadyTableTopData;
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.testingCompany);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.ratedPower);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.productName);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.temperature);
 
-        v_data.append(GlobalSettings::BASIC_INFO.execStandard);
-        v_data.append(GlobalSettings::BASIC_INFO.ratedVoltage);
-        v_data.append(GlobalSettings::BASIC_INFO.productModel);
-        v_data.append(GlobalSettings::BASIC_INFO.relativeHumidity);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.execStandard);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.ratedVoltage);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.productModel);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.relativeHumidity);
 
-        v_data.append(GlobalSettings::BASIC_INFO.ratedFreq);
-        v_data.append(GlobalSettings::BASIC_INFO.productNum);
-        v_data.append(GlobalSettings::BASIC_INFO.atmospherePressure);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.ratedFreq);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.productNum);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.atmospherePressure);
 
-        v_data.append(GlobalSettings::BASIC_INFO.testDate);
-        v_data.append(GlobalSettings::BASIC_INFO.productState);
-        v_data.append(GlobalSettings::BASIC_INFO.phaseOrLine);
-        v_data.append(GlobalSettings::BASIC_INFO.testPerson);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.testDate);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.productState);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.phaseOrLine);
+        v_SteadyTableTopData.append(GlobalSettings::BASIC_INFO.testPerson);
 
-        if(DataExportManager::getInstance().generateSteadyDataExcel(v_data)){
+        if(DataExportManager::getInstance().generateSteadyDataExcel(v_SteadyTableTopData)){
             QMessageBox::information(
                     nullptr,  // 父窗口指针，nullptr表示没有父窗口
                     "导出成功",  // 对话框标题
@@ -68,10 +68,17 @@ void DetailPage::displaySteadyDetail(QSqlQueryModel *model)
     ui->label->setText("稳态测试");
     // 将模型设置给 QTableView
     ui->tableView->setModel(model);
-//    ui->tableView->resizeColumnsToContents(); // 自动调整列宽
     ui->tableView->resizeRowsToContents(); // 自动调整行宽
-    // 设置列宽自动拉伸以填满表格视图
-//    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    // 设置横向标题自适应内容大小（可选）
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+    //要现在UI中设置horizontalHeader...Resizes
+    QHeaderView *header = ui->tableView->horizontalHeader();
+    // 创建字体
+    QFont font("Arial",16); // 设置字体为 Arial，大小为 14
+    header->setFont(font);    // 设置表头字体
+    // 设置横向标题自适应内容大小
+
     // 更新表格视图
     ui->tableView->update();
 }
@@ -82,6 +89,14 @@ void DetailPage::displaySuddLoadDetail(QSqlQueryModel *model)
     ui->tableView->setModel(model);
 //    ui->tableView->resizeColumnsToContents(); // 自动调整列宽
     ui->tableView->resizeRowsToContents(); // 自动调整行宽
+    // 设置横向标题自适应内容大小（可选）
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+    //要现在UI中设置horizontalHeader...Resizes
+    QHeaderView *header = ui->tableView->horizontalHeader();
+    // 创建字体
+    QFont font("Arial",16); // 设置字体为 Arial，大小为 14
+    header->setFont(font);    // 设置表头字体
     // 设置列宽自动拉伸以填满表格视图
 //    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     // 更新表格视图

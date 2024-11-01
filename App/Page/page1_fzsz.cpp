@@ -57,10 +57,6 @@ void Page1_fzsz::initSetFzModel(QTableView*tableView,QPushButton*add,QPushButton
 
     tableView->setModel(modelPtr);
     // 设置表头
-    modelPtr->setHeaderData(0, Qt::Horizontal, tr("编号"));
-    modelPtr->setHeaderData(1, Qt::Horizontal, tr("总功率百分比(%)"));
-    modelPtr->setHeaderData(2, Qt::Horizontal, tr("功率因数"));
-    modelPtr->setHeaderData(3, Qt::Horizontal, tr("持续时间"));
     modelPtr->setEditStrategy(QSqlTableModel::OnFieldChange);
 
 

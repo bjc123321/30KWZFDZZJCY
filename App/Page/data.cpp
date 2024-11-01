@@ -147,21 +147,29 @@ void Data::detailPageView()
         QString testTypeString = cellData.toString();
         qDebug() << "当前第"<<(currentRow + 1)<<"行的第" << (columnIndex + 1)<< "列的数据是:" << testTypeString;
 
+        QString columnName = modelPtr->headerData(0, Qt::Horizontal).toString();
+
         if(testTypeString == "稳态测试"){
+
+            QSqlTableModel *steadyModel = DatabaseManager::getInstance(GlobalSettings::sqlPath).getModel();
+            steadyModel->setTable("T_static_data");
+
             QString id = modelPtr->data(modelPtr->index(currentRow, 0)).toString(); // 假设 id 在第一列
             qDebug()<<"编号:"<<id;
+            QSqlQueryModel *queryModel = DatabaseManager::getInstance(GlobalSettings::sqlPath).queryRecord(steadyModel,columnName,id);
 
-            detailPage->displaySteadyDetail(DatabaseManager::getInstance(GlobalSettings::sqlPath).queryRecordNum(id));
+            detailPage->displaySteadyDetail(queryModel);
             detailPage->exec();
 
 
         }else if(testTypeString == "突加测试"){
 
-            QString id = modelPtr->data(modelPtr->index(currentRow, 0)).toString(); // 假设 id 在第一列
-            qDebug()<<"编号:"<<id;
 
+            QSqlTableModel *suddLoadModel = DatabaseManager::getInstance(GlobalSettings::sqlPath).getModel();
+            suddLoadModel->setTable("T_transient_data");
+            QSqlQueryModel *queryModel = DatabaseManager::getInstance(GlobalSettings::sqlPath).queryRecord(suddLoadModel,"","");
             //后面往数据库中增加突加数据表
-            detailPage->displaySuddLoadDetail(DatabaseManager::getInstance(GlobalSettings::sqlPath).queryRecordNum(id));
+            detailPage->displaySuddLoadDetail(queryModel);
             detailPage->exec();
 
 

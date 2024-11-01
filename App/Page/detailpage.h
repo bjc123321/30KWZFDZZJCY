@@ -20,6 +20,7 @@ public:
     void signalBind();
 
     void displayBasicText();
+    void fillInTheBlanks(QVector<QString> v_topData,QVector<QString> v_mediumData,QVector<QString> v_bottomData);
 
     void displaySteadyDetail(QSqlQueryModel *model);
     void displaySuddLoadDetail(QSqlQueryModel *model);

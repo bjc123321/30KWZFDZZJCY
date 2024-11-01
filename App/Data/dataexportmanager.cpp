@@ -371,7 +371,7 @@ bool DataExportManager::generateSteadyDataExcel(QVector<QString > v_data)
 
         // 第21行到25行
         xlsx.mergeCells("A21:E22", contentFormat);
-        xlsx.write("A21", "负载状况 (%)", contentFormat);
+        xlsx.write("A21", "稳态电压调整系数δU (%)", contentFormat);
         for (int col = 6; col <= 14 && col - 6 < loadConditions.size(); ++col) {
             xlsx.write(21, col, loadConditions.at(col - 6), contentFormat);
             xlsx.write(22, col, "", contentFormat);// 空数据单元格

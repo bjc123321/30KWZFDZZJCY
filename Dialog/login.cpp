@@ -53,7 +53,7 @@ void Login::on_loginbtn_clicked()
 
     QSqlTableModel *model = DatabaseManager::getInstance(GlobalSettings::sqlPath).getModel();
     model->setTable("login");
-    QSqlQueryModel *queryModel = DatabaseManager::getInstance(GlobalSettings::sqlPath).queryRecord(model,"");
+    QSqlQueryModel *queryModel = DatabaseManager::getInstance(GlobalSettings::sqlPath).queryRecord(model,"","");
 
     if(queryModel){
         // 输出每一行的数据

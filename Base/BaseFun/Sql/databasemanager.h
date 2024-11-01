@@ -61,10 +61,10 @@ public:
     QSqlQueryModel* queryRecordNum(QString id);
 
     //根据表名和条件查询相关数据,查询结果为视图
-    QSqlQueryModel* queryRecord(QSqlTableModel *model ,QString queryCondition = "");
+    QSqlQueryModel* queryRecord(QSqlTableModel *model,QString columnName = "",QString queryCondition = "");
 
     //删除记录,先查询出来，按照删除条件对记录删除
-    bool delRecord(QSqlTableModel *model ,QString columnName, QString delCondition = "");
+    bool delRecord(QSqlTableModel *model ,QString columnName = "", QString delCondition = "");
 
     //查询T_data(显示主要部分),后续可根据需要进行查询限制主要的字段
     QSqlQueryModel* queryT_dataPart();

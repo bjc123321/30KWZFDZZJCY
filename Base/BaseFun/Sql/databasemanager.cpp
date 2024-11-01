@@ -334,7 +334,7 @@ QSqlQueryModel* DatabaseManager::queryRecordNum(QString id)
 
 }
 
-QSqlQueryModel* DatabaseManager::queryRecord(QSqlTableModel *model,QString queryCondition)
+QSqlQueryModel* DatabaseManager::queryRecord(QSqlTableModel *model,QString columnName,QString queryCondition)
 {
 
     QSqlQueryModel *queryModel = new QSqlQueryModel;
@@ -347,7 +347,7 @@ QSqlQueryModel* DatabaseManager::queryRecord(QSqlTableModel *model,QString query
     // 构建查询字符串
     QString queryStr = QString("SELECT * FROM %1").arg(model->tableName());
     if (!queryCondition.isEmpty()) {
-        queryStr += " WHERE " + queryCondition;
+        queryStr += " WHERE " + columnName + " = " + queryCondition;
     }
 
     // 使用 QSqlQuery 执行查询
